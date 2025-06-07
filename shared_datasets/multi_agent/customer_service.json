@@ -1,0 +1,54 @@
+[
+  {
+    "id": "cs_001",
+    "scenario": "Product return and refund request",
+    "customer_query": "I bought a laptop last week but it's not working properly. The screen flickers and it randomly shuts down. I want to return it and get a full refund.",
+    "required_agents": [
+      {
+        "role": "customer_service_rep",
+        "responsibilities": ["Initial customer interaction", "Gather problem details", "Provide empathetic response"]
+      },
+      {
+        "role": "technical_support",
+        "responsibilities": ["Diagnose technical issues", "Suggest troubleshooting steps", "Determine if repair is possible"]
+      },
+      {
+        "role": "returns_specialist",
+        "responsibilities": ["Process return request", "Explain return policy", "Initiate refund process"]
+      }
+    ],
+    "expected_resolution": {
+      "primary_outcome": "Full refund approved",
+      "secondary_actions": ["Return shipping label provided", "Refund timeline communicated", "Customer satisfaction confirmed"],
+      "escalation_triggers": ["Customer dissatisfaction", "Policy exceptions needed", "Technical complexity"]
+    },
+    "complexity": "medium",
+    "customer_satisfaction_target": 0.85
+  },
+  {
+    "id": "cs_002", 
+    "scenario": "Billing dispute and account investigation",
+    "customer_query": "I've been charged twice for my monthly subscription. I only signed up once and this is clearly an error. I want the duplicate charge removed immediately.",
+    "required_agents": [
+      {
+        "role": "billing_specialist",
+        "responsibilities": ["Review account history", "Investigate billing records", "Identify charge discrepancies"]
+      },
+      {
+        "role": "account_manager",
+        "responsibilities": ["Verify customer identity", "Review account status", "Authorize adjustments"]
+      },
+      {
+        "role": "customer_advocate",
+        "responsibilities": ["Ensure customer satisfaction", "Communicate resolution", "Provide compensation if needed"]
+      }
+    ],
+    "expected_resolution": {
+      "primary_outcome": "Duplicate charge refunded",
+      "secondary_actions": ["Account audit completed", "Prevention measures implemented", "Goodwill gesture offered"],
+      "escalation_triggers": ["Complex billing history", "System errors detected", "Customer threatens to cancel"]
+    },
+    "complexity": "high",
+    "customer_satisfaction_target": 0.90
+  }
+]

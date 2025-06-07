@@ -1,0 +1,55 @@
+[
+  {
+    "id": "research_001",
+    "task": "Comprehensive analysis of renewable energy trends",
+    "description": "Research current trends in renewable energy adoption, costs, and technological developments",
+    "required_agents": [
+      {
+        "role": "data_researcher",
+        "responsibilities": ["Gather statistical data", "Find recent reports", "Collect market data"]
+      },
+      {
+        "role": "technology_analyst", 
+        "responsibilities": ["Analyze technological developments", "Assess innovation trends", "Evaluate efficiency improvements"]
+      },
+      {
+        "role": "report_synthesizer",
+        "responsibilities": ["Combine findings", "Create coherent analysis", "Generate executive summary"]
+      }
+    ],
+    "expected_deliverables": [
+      "Market trend analysis",
+      "Technology assessment report", 
+      "Cost-benefit analysis",
+      "Future projections"
+    ],
+    "complexity": "high",
+    "estimated_duration": "45-60 minutes"
+  },
+  {
+    "id": "research_002",
+    "task": "Competitive analysis of electric vehicle market",
+    "description": "Analyze the competitive landscape of electric vehicle manufacturers",
+    "required_agents": [
+      {
+        "role": "market_researcher",
+        "responsibilities": ["Collect market share data", "Identify key players", "Gather pricing information"]
+      },
+      {
+        "role": "product_analyst",
+        "responsibilities": ["Compare vehicle specifications", "Analyze features", "Assess performance metrics"]
+      },
+      {
+        "role": "strategic_advisor",
+        "responsibilities": ["Identify market opportunities", "Assess competitive positioning", "Provide strategic recommendations"]
+      }
+    ],
+    "expected_deliverables": [
+      "Competitive landscape overview",
+      "Product comparison matrix",
+      "Strategic recommendations"
+    ],
+    "complexity": "medium",
+    "estimated_duration": "30-45 minutes"
+  }
+]

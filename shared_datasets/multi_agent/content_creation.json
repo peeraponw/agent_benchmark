@@ -1,0 +1,76 @@
+[
+  {
+    "id": "cc_001",
+    "project": "Blog post about sustainable living tips",
+    "description": "Create a comprehensive blog post with practical tips for sustainable living",
+    "required_agents": [
+      {
+        "role": "content_researcher",
+        "responsibilities": ["Research sustainable living practices", "Find credible sources", "Gather statistics and data"]
+      },
+      {
+        "role": "content_writer",
+        "responsibilities": ["Write engaging content", "Structure information clearly", "Maintain consistent tone"]
+      },
+      {
+        "role": "seo_specialist",
+        "responsibilities": ["Optimize for search engines", "Suggest keywords", "Improve readability"]
+      },
+      {
+        "role": "editor",
+        "responsibilities": ["Review content quality", "Check facts and sources", "Ensure brand consistency"]
+      }
+    ],
+    "content_requirements": {
+      "word_count": "1500-2000 words",
+      "target_audience": "Environmentally conscious consumers",
+      "tone": "Informative and encouraging",
+      "key_topics": ["Energy conservation", "Waste reduction", "Sustainable transportation", "Eco-friendly products"]
+    },
+    "deliverables": [
+      "Complete blog post",
+      "SEO metadata",
+      "Social media snippets",
+      "Source citations"
+    ],
+    "complexity": "medium",
+    "estimated_duration": "60-90 minutes"
+  },
+  {
+    "id": "cc_002",
+    "project": "Product launch marketing campaign",
+    "description": "Develop a multi-channel marketing campaign for a new smartphone launch",
+    "required_agents": [
+      {
+        "role": "market_analyst",
+        "responsibilities": ["Analyze target market", "Identify customer segments", "Research competitor campaigns"]
+      },
+      {
+        "role": "creative_director",
+        "responsibilities": ["Develop campaign concept", "Create visual guidelines", "Design key messaging"]
+      },
+      {
+        "role": "copywriter",
+        "responsibilities": ["Write ad copy", "Create social media content", "Develop email campaigns"]
+      },
+      {
+        "role": "media_planner",
+        "responsibilities": ["Select advertising channels", "Plan budget allocation", "Schedule campaign timeline"]
+      }
+    ],
+    "campaign_requirements": {
+      "budget": "$50,000",
+      "duration": "6 weeks",
+      "channels": ["Social media", "Google Ads", "Email marketing", "Influencer partnerships"],
+      "target_metrics": ["Brand awareness +25%", "Lead generation 1000+", "Conversion rate 3%+"]
+    },
+    "deliverables": [
+      "Campaign strategy document",
+      "Creative assets",
+      "Media plan",
+      "Performance tracking setup"
+    ],
+    "complexity": "high",
+    "estimated_duration": "120-180 minutes"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "dataset_name": "AI Framework Comparison Q&A Dataset",
+  "version": "1.0.0",
+  "created_date": "2024-12-19",
+  "description": "Standardized question-answer pairs for evaluating AI agent frameworks across different categories and difficulty levels.",
+  "total_questions": 3,
+  "categories": {
+    "factual": {
+      "count": 1,
+      "description": "Questions requiring factual knowledge recall"
+    },
+    "scientific": {
+      "count": 1,
+      "description": "Questions requiring scientific understanding and explanation"
+    },
+    "reasoning": {
+      "count": 1,
+      "description": "Questions requiring logical reasoning and calculation"
+    }
+  },
+  "difficulty_levels": {
+    "easy": 2,
+    "medium": 1,
+    "hard": 0
+  },
+  "response_types": {
+    "short_answer": 1,
+    "detailed_explanation": 1,
+    "calculation": 1
+  },
+  "evaluation_criteria": {
+    "accuracy": "Correctness of the factual information",
+    "completeness": "Coverage of all relevant aspects",
+    "clarity": "Clear and understandable explanation",
+    "reasoning": "Logical flow and justification"
+  },
+  "usage_notes": [
+    "This is a placeholder dataset for initial framework setup",
+    "Production dataset should contain 100+ question-answer pairs",
+    "Questions should cover diverse domains and complexity levels",
+    "Each question should have multiple evaluation dimensions"
+  ]
+}

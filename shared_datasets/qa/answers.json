@@ -1,0 +1,23 @@
+[
+  {
+    "id": "qa_001",
+    "answer": "Paris",
+    "explanation": "Paris is the capital and largest city of France.",
+    "sources": ["general_knowledge"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_002",
+    "answer": "Photosynthesis is the process by which plants convert light energy into chemical energy. It occurs in chloroplasts and involves two main stages: light-dependent reactions and the Calvin cycle. During this process, plants use carbon dioxide, water, and sunlight to produce glucose and oxygen.",
+    "explanation": "This is a fundamental biological process that sustains most life on Earth.",
+    "sources": ["biology_textbook", "scientific_literature"],
+    "confidence": 0.95
+  },
+  {
+    "id": "qa_003",
+    "answer": "200 kilometers",
+    "explanation": "Distance = Speed × Time = 80 km/h × 2.5 h = 200 km",
+    "sources": ["mathematical_calculation"],
+    "confidence": 1.0
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "query_id": "ws_001",
+    "expected_source_types": ["weather_services", "meteorological_sites"],
+    "trusted_domains": ["weather.com", "weather.gov", "accuweather.com"],
+    "verification_criteria": [
+      "Current temperature range",
+      "Weather conditions description",
+      "Location accuracy"
+    ]
+  },
+  {
+    "query_id": "ws_002",
+    "expected_source_types": ["tech_news", "research_publications", "company_announcements"],
+    "trusted_domains": ["techcrunch.com", "wired.com", "nature.com", "arxiv.org"],
+    "verification_criteria": [
+      "Publication date within 2024",
+      "Credible source attribution",
+      "Technical accuracy"
+    ]
+  },
+  {
+    "query_id": "ws_003",
+    "expected_source_types": ["financial_data_providers", "stock_exchanges"],
+    "trusted_domains": ["yahoo.com/finance", "bloomberg.com", "nasdaq.com", "marketwatch.com"],
+    "verification_criteria": [
+      "Real-time or recent price data",
+      "Trading volume information",
+      "Market status"
+    ]
+  },
+  {
+    "query_id": "ws_004",
+    "expected_source_types": ["historical_records", "space_agencies", "educational_institutions"],
+    "trusted_domains": ["nasa.gov", "smithsonianmag.com", "britannica.com", "history.com"],
+    "verification_criteria": [
+      "Historical accuracy",
+      "Primary source references",
+      "Scientific consensus"
+    ]
+  }
+]

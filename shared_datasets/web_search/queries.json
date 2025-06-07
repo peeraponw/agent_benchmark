@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ws_001",
+    "query": "Current weather in New York City",
+    "category": "real_time_data",
+    "expected_info_type": "weather_data",
+    "requires_current_data": true,
+    "difficulty": "easy"
+  },
+  {
+    "id": "ws_002",
+    "query": "Latest developments in quantum computing 2024",
+    "category": "recent_news",
+    "expected_info_type": "technology_news",
+    "requires_current_data": true,
+    "difficulty": "medium"
+  },
+  {
+    "id": "ws_003",
+    "query": "Stock price of Apple Inc today",
+    "category": "financial_data",
+    "expected_info_type": "stock_information",
+    "requires_current_data": true,
+    "difficulty": "easy"
+  },
+  {
+    "id": "ws_004",
+    "query": "Fact check: Did humans land on the moon in 1969?",
+    "category": "fact_checking",
+    "expected_info_type": "historical_verification",
+    "requires_current_data": false,
+    "difficulty": "medium"
+  }
+]

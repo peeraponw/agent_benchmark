@@ -1,0 +1,23 @@
+[
+  {
+    "id": "qa_001",
+    "question": "What is the capital of France?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer"
+  },
+  {
+    "id": "qa_002", 
+    "question": "Explain the process of photosynthesis in plants.",
+    "category": "scientific",
+    "difficulty": "medium",
+    "expected_response_type": "detailed_explanation"
+  },
+  {
+    "id": "qa_003",
+    "question": "If a train travels at 80 km/h for 2.5 hours, how far does it travel?",
+    "category": "reasoning",
+    "difficulty": "easy",
+    "expected_response_type": "calculation"
+  }
+]

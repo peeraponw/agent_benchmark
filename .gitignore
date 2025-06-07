@@ -1,12 +1,285 @@
-# Python-generated files
+# ============================================================================
+# AI Agent Frameworks Comparison Project - Global .gitignore
+# ============================================================================
+
+# ============================================================================
+# Python-specific ignores
+# ============================================================================
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
 wheels/
-*.egg-info
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Virtual environments
-.venv
+# PyInstaller
+*.manifest
+*.spec
 
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
 .env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================================================
+# Docker-specific ignores
+# ============================================================================
+# Docker volumes and data
+**/volumes/
+**/docker-data/
+**/postgres-data/
+**/qdrant-data/
+**/langfuse-data/
+
+# Docker logs
+**/logs/
+*.log
+
+# Docker Compose override files
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# ============================================================================
+# IDE-specific ignores
+# ============================================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================================================
+# Framework-specific patterns
+# ============================================================================
+
+# CrewAI specific
+crewai/uv.lock
+crewai/.env
+crewai/logs/
+crewai/outputs/
+crewai/crew_outputs/
+
+# DSPy specific
+dspy/uv.lock
+dspy/.env
+dspy/logs/
+dspy/compiled_programs/
+dspy/optimized_models/
+
+# PocketFlow specific
+pocketflow/uv.lock
+pocketflow/.env
+pocketflow/logs/
+pocketflow/graph_cache/
+pocketflow/api_cache/
+
+# Google ADK specific
+google_adk/uv.lock
+google_adk/.env
+google_adk/logs/
+google_adk/state_cache/
+google_adk/orchestration_logs/
+
+# Pydantic AI specific
+pydantic_ai/uv.lock
+pydantic_ai/.env
+pydantic_ai/logs/
+pydantic_ai/validation_cache/
+pydantic_ai/type_cache/
+
+# ============================================================================
+# Evaluation and benchmark result ignores
+# ============================================================================
+evaluation/reports/
+evaluation/results/
+evaluation/benchmarks/output/
+evaluation/metrics/raw_data/
+evaluation/comparison_data/
+evaluation/performance_logs/
+
+# Benchmark artifacts
+**/benchmark_results.json
+**/performance_metrics.json
+**/comparison_report.html
+**/evaluation_summary.csv
+
+# ============================================================================
+# Shared datasets (ignore generated/processed data, keep source data)
+# ============================================================================
+shared_datasets/processed/
+shared_datasets/embeddings/computed/
+shared_datasets/cache/
+shared_datasets/temp/
+
+# ============================================================================
+# Infrastructure and deployment
+# ============================================================================
+# Kubernetes
+*.kubeconfig
+k8s-secrets/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Ansible
+*.retry
+
+# ============================================================================
+# API Keys and Secrets (extra protection)
+# ============================================================================
+**/secrets/
+**/*_secrets.json
+**/*_keys.json
+**/api_keys.txt
+**/.env.local
+**/.env.production
+**/.env.staging
+
+# ============================================================================
+# Temporary and cache files
+# ============================================================================
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+*.bak
+*.backup
+*.orig
+
+# ============================================================================
+# Large files and datasets (use Git LFS if needed)
+# ============================================================================
+*.bin
+*.model
+*.weights
+*.checkpoint
+*.ckpt
