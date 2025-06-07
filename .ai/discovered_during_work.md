@@ -129,7 +129,15 @@ This file tracks tasks and requirements discovered during implementation that we
 - [~] **DEFERRED**: Implement hot-reload for configuration changes during development
 - [~] **DEFERRED**: Add automated dependency vulnerability scanning
 
-**Rationale**: These are advanced features for future phases when core functionality is stable and production deployment is considered
+### Comprehensive Testing and Security (Removed from Task 004)
+- [~] **DEFERRED**: Comprehensive infrastructure testing suite with performance baselines
+- [~] **DEFERRED**: Advanced security configurations including non-root user execution
+- [~] **DEFERRED**: Comprehensive network security configurations
+- [~] **DEFERRED**: Advanced secrets management integration
+- [~] **DEFERRED**: Infrastructure deployment testing automation
+- [~] **DEFERRED**: Performance baseline testing and monitoring
+
+**Rationale**: These are advanced features for future phases when core functionality is stable and production deployment is considered. Essential validation and security measures are already implemented.
 
 ---
 
