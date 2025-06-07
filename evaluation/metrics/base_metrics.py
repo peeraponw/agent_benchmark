@@ -7,27 +7,44 @@ that all specific metric implementations should inherit from.
 
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional, Union
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from datetime import datetime
 import numpy as np
-from dataclasses import dataclass
 
 
-@dataclass
-class MetricResult:
+class MetricResult(BaseModel):
     """
     Result of a metric calculation.
-    
+
     Contains the metric score, confidence interval, and additional metadata.
     """
-    name: str
-    score: float
-    confidence_interval: Optional[tuple[float, float]] = None
-    metadata: Dict[str, Any] = None
-    
-    def __post_init__(self):
-        if self.metadata is None:
-            self.metadata = {}
+
+    model_config = ConfigDict(
+        str_strip_whitespace=True,
+        validate_assignment=True,
+        extra='forbid'
+    )
+
+    name: str = Field(
+        ...,
+        description="Name of the metric",
+        min_length=1,
+        max_length=100
+    )
+    score: float = Field(
+        ...,
+        description="Calculated metric score",
+        ge=0.0,
+        le=1.0
+    )
+    confidence_interval: Optional[tuple[float, float]] = Field(
+        default=None,
+        description="95% confidence interval for the score (lower_bound, upper_bound)"
+    )
+    metadata: Dict[str, Any] = Field(
+        default_factory=dict,
+        description="Additional metadata about the metric calculation"
+    )
 
 
 class BaseMetric(ABC):

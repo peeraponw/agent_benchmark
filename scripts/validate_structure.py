@@ -14,7 +14,7 @@ import json
 import re
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
-from dataclasses import dataclass
+from pydantic import BaseModel, Field, ConfigDict
 
 try:
     import yaml
@@ -32,12 +32,30 @@ except ImportError:
     RICH_AVAILABLE = False
 
 
-@dataclass
-class ValidationResult:
+class ValidationResult(BaseModel):
     """Result of a validation check."""
-    passed: bool
-    message: str
-    details: str = ""
+
+    model_config = ConfigDict(
+        str_strip_whitespace=True,
+        validate_assignment=True,
+        extra='forbid'
+    )
+
+    passed: bool = Field(
+        ...,
+        description="Whether the validation check passed"
+    )
+    message: str = Field(
+        ...,
+        description="Human-readable validation message",
+        min_length=1,
+        max_length=500
+    )
+    details: str = Field(
+        default="",
+        description="Additional details about the validation result",
+        max_length=2000
+    )
 
 
 class StructureValidator:

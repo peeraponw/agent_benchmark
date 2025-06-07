@@ -20,16 +20,16 @@ services:
   # Provides vector storage and similarity search capabilities
   qdrant:
     image: qdrant/qdrant:latest
-    container_name: "${FRAMEWORK_NAME}_qdrant"
+    container_name: "dspy_qdrant"
     ports:
-      - "${QDRANT_PORT}:6333"
+      - "6334:6333"
     volumes:
-      - ${FRAMEWORK_NAME}_qdrant_data:/qdrant/storage
+      - dspy_qdrant_data:/qdrant/storage
     environment:
       - QDRANT__SERVICE__HTTP_PORT=6333
       - QDRANT__SERVICE__GRPC_PORT=6334
     networks:
-      - ${FRAMEWORK_NAME}_network
+      - dspy_network
     restart: unless-stopped
     deploy:
       resources:
@@ -54,16 +54,16 @@ services:
   # Backend database for Langfuse observability platform
   postgres:
     image: postgres:15-alpine
-    container_name: "${FRAMEWORK_NAME}_postgres"
+    container_name: "dspy_postgres"
     environment:
       - POSTGRES_DB=langfuse
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=langfuse_user
+      - POSTGRES_PASSWORD=langfuse_password
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
     volumes:
-      - ${FRAMEWORK_NAME}_postgres_data:/var/lib/postgresql/data
+      - dspy_postgres_data:/var/lib/postgresql/data
     networks:
-      - ${FRAMEWORK_NAME}_network
+      - dspy_network
     restart: unless-stopped
     deploy:
       resources:
@@ -79,7 +79,7 @@ services:
         max-size: "10m"
         max-file: "3"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d langfuse"]
+      test: ["CMD-SHELL", "pg_isready -U langfuse_user -d langfuse"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -88,21 +88,21 @@ services:
   # Provides LLM observability, tracing, and analytics
   langfuse:
     image: langfuse/langfuse:latest
-    container_name: "${FRAMEWORK_NAME}_langfuse"
+    container_name: "dspy_langfuse"
     ports:
-      - "${LANGFUSE_PORT}:3000"
+      - "3001:3000"
     environment:
-      - DATABASE_URL=${LANGFUSE_DB_URL}
-      - NEXTAUTH_SECRET=${LANGFUSE_NEXTAUTH_SECRET}
-      - SALT=${LANGFUSE_SALT}
-      - NEXTAUTH_URL=http://localhost:${LANGFUSE_PORT}
+      - DATABASE_URL=postgresql://langfuse_user:langfuse_password@postgres:5432/langfuse
+      - NEXTAUTH_SECRET=dspy_nextauth_secret_change_me
+      - SALT=dspy_salt_change_me
+      - NEXTAUTH_URL=http://localhost:3001
       - TELEMETRY_ENABLED=true
       - LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES=false
     depends_on:
       postgres:
         condition: service_healthy
     networks:
-      - ${FRAMEWORK_NAME}_network
+      - dspy_network
     restart: unless-stopped
     deploy:
       resources:
@@ -148,25 +148,25 @@ services:
   # For local development, you can run MCP servers directly:
   # uvx mcp-server-filesystem --allowed-dirs /path/to/shared_datasets
   # uvx mcp-server-brave-search
-  # uvx mcp-server-qdrant --host localhost --port ${QDRANT_PORT}
+  # uvx mcp-server-qdrant --host localhost --port 6334
 
 # Named Volumes for Data Persistence
 volumes:
-  ${FRAMEWORK_NAME}_qdrant_data:
+  dspy_qdrant_data:
     driver: local
-    name: ${FRAMEWORK_NAME}_qdrant_data
-  ${FRAMEWORK_NAME}_postgres_data:
+    name: dspy_qdrant_data
+  dspy_postgres_data:
     driver: local
-    name: ${FRAMEWORK_NAME}_postgres_data
+    name: dspy_postgres_data
 
 # Isolated Network for Framework Services
 networks:
-  ${FRAMEWORK_NAME}_network:
+  dspy_network:
     driver: bridge
-    name: ${FRAMEWORK_NAME}_network
+    name: dspy_network
     ipam:
       config:
-        - subnet: 172.${NETWORK_SUBNET}.0.0/16
+        - subnet: 172.21.0.0/16
 
 # Environment Variables Required:
 # FRAMEWORK_NAME: Unique identifier for the framework (e.g., "crewai", "dspy")
