@@ -75,7 +75,7 @@ Each framework directory follows a consistent internal structure:
 graph TD
     A[Input Data] --> B[Framework Task Implementation]
     B --> C[Framework-Specific Processing]
-    C --> D[LLM API Calls]
+    C --> D[OpenRouter API Calls]
     C --> E[Vector Database Operations]
     C --> F[MCP Tool Interactions]
     D --> G[Langfuse Tracing]
@@ -96,7 +96,7 @@ graph LR
     B --> F[Vector Storage]
     C --> G[Trace Data]
     D --> H[Tool Execution]
-    E --> I[LLM Responses]
+    E --> I[OpenRouter LLM Responses]
 ```
 
 ## 🛡️ Isolation Mechanisms
@@ -174,10 +174,11 @@ class BaseEvaluator(ABC):
 
 ## 🔒 Security Architecture
 
-### 1. API Key Management
-- **Environment Isolation**: Framework-specific API key storage
-- **Secret Management**: Secure handling of sensitive credentials
-- **Access Control**: Limited scope API permissions
+### 1. OpenRouter API Management
+- **Unified Provider**: Single OpenRouter API key across all frameworks
+- **Environment Isolation**: Framework-specific OpenRouter configuration
+- **Secret Management**: Secure handling of OpenRouter credentials
+- **Model Selection**: Standardized access to Claude Sonnet 4, Gemini 2.5 Pro, and DeepSeek R1
 
 ### 2. Network Security
 - **Container Isolation**: Restricted network communication

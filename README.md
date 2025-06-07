@@ -170,29 +170,15 @@ uv run python main.py
 - [API Reference](docs/api/) - Code documentation
 - [Evaluation Guide](docs/evaluation/) - Metrics and benchmarking
 
-## 🤝 Contributing
+## 🛠️ Development Standards
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+This project follows modern Python development practices:
 
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch
-3. Implement changes with tests
-4. Run evaluation suite
-5. Submit pull request
-
-### Code Standards
-
-- Python 3.11+ with type hints
-- UV for dependency management
-- Pydantic for data validation
-- Comprehensive docstrings
-- 95%+ test coverage
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Python 3.11+ with comprehensive type hints
+- UV for dependency management and project configuration
+- Pydantic for data validation and modeling
+- Framework isolation with dedicated infrastructure
+- Comprehensive docstrings and code documentation
 
 ## 🙏 Acknowledgments
 

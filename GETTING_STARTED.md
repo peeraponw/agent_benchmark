@@ -62,7 +62,7 @@ uv sync
 # Copy environment template
 cp .env.template .env
 
-# Edit API keys (optional for basic testing)
+# Edit OpenRouter API key (optional for basic testing)
 nano .env
 ```
 
@@ -203,10 +203,8 @@ POSTGRES_USER=langfuse_user
 POSTGRES_PASSWORD=your_secure_password
 LANGFUSE_DB_URL=postgresql://langfuse_user:your_secure_password@postgres:5432/langfuse
 
-# API Keys (add your own)
-OPENAI_API_KEY=your_openai_key
-ANTHROPIC_API_KEY=your_anthropic_key
-GOOGLE_API_KEY=your_google_key
+# OpenRouter API Key (single LLM provider)
+OPENROUTER_API_KEY=sk-or-your-openrouter-api-key-here
 ```
 
 ### Port Management
@@ -221,23 +219,31 @@ To run multiple frameworks simultaneously, use different ports:
 | Google ADK | 6336 | 3003 | 8083 | 5435 |
 | Pydantic AI | 6337 | 3004 | 8084 | 5436 |
 
-### API Keys Setup
+### OpenRouter API Setup
 
-1. **OpenAI API Key**
-   - Visit [platform.openai.com](https://platform.openai.com/api-keys)
-   - Create new API key
-   - Add to `.env` file
+**Single LLM Provider Configuration**
 
-2. **Anthropic API Key**
-   - Visit [console.anthropic.com](https://console.anthropic.com/)
-   - Generate API key
-   - Add to `.env` file
+1. **OpenRouter API Key**
+   - Visit [openrouter.ai](https://openrouter.ai/)
+   - Create an account and generate API key
+   - Add to `.env` file as `OPENROUTER_API_KEY`
 
-3. **Google API Key**
-   - Visit [console.cloud.google.com](https://console.cloud.google.com/)
-   - Enable required APIs
-   - Create credentials
-   - Add to `.env` file
+2. **Available Models via OpenRouter**
+   - **DeepSeek R1**: `deepseek/deepseek-r1-0528` [DEFAULT]
+   - **Claude Sonnet 4**: `anthropic/claude-sonnet-4`
+   - **Google Gemini 2.5 Pro**: `google/gemini-2.5-pro-preview`
+
+3. **Model Switching for Comparisons**
+   - **Default Testing**: All frameworks use DeepSeek R1 for consistent baseline testing
+   - **Easy Switching**: Change `DEFAULT_LLM_MODEL` in `.env` to test different models
+   - **Framework Comparison**: Compare same framework with different models
+   - **Cross-Framework Studies**: Test different frameworks with same model
+
+4. **Benefits of OpenRouter**
+   - Single API key for multiple LLM providers
+   - Unified interface and billing
+   - Automatic failover and load balancing
+   - Cost optimization across providers
 
 ## 🐛 Troubleshooting
 
