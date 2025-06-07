@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project will systematically compare five leading Python AI agent frameworks (CrewAI, DSPy, PocketFlow, Google ADK, and Pydantic AI) across six standardized tasks. The architecture ensures complete framework isolation while enabling fair comparison through shared infrastructure components and evaluation metrics.
+This project will systematically compare five leading Python AI agent frameworks (DSPy, PocketFlow, CrewAI, Google ADK, and Pydantic AI) across six standardized use cases. The architecture ensures complete framework isolation while enabling fair comparison through shared infrastructure components and evaluation metrics.
 
 ## Phase 1: Foundation Setup (Weeks 1-2)
 
@@ -32,9 +32,9 @@ from abc import ABC, abstractmethod
 from typing import Dict, Any, List
 from pydantic import BaseModel
 
-class TaskResult(BaseModel):
+class UseCaseResult(BaseModel):
     framework_name: str
-    task_name: str
+    use_case_name: str
     execution_time: float
     memory_usage: float
     cpu_usage: float
@@ -130,7 +130,7 @@ networks:
 ```
 
 ### Step 1.3: Test Data Preparation
-**Objective**: Create comprehensive, standardized datasets for all tasks.
+**Objective**: Create comprehensive, standardized datasets for all use cases.
 
 **Tasks:**
 1. **Q&A Dataset Creation**:
@@ -148,7 +148,7 @@ networks:
    - Include fact-checking scenarios
    - Prepare expected source verification cases
 
-4. **Multi-Agent Task Definitions**:
+4. **Multi-Agent Use Case Definitions**:
    - Define research pipeline scenarios
    - Create customer service simulation data
    - Prepare content creation workflows
@@ -163,7 +163,7 @@ networks:
 ### Step 2.1: Framework Directory Initialization
 **Objective**: Set up isolated environments for each framework with proper dependency management.
 
-**For Each Framework (CrewAI, DSPy, PocketFlow, Google ADK, Pydantic AI):**
+**For Each Framework (DSPy, PocketFlow, CrewAI, Google ADK, Pydantic AI):**
 
 #### 2.1.1: Environment Setup
 1. **Navigate to framework directory** (e.g., `crewai/`)
@@ -175,11 +175,11 @@ networks:
 3. **Configure `pyproject.toml`** with framework-specific dependencies:
    ```toml
    [project]
-   name = "crewai-comparison"
+   name = "dspy-comparison"
    version = "0.1.0"
    requires-python = ">=3.11"
    dependencies = [
-       "crewai>=0.80.0",
+       "dspy-ai>=2.0.0",
        "pydantic>=2.0.0",
        "qdrant-client>=1.7.0",
        "langfuse>=2.0.0",
@@ -190,9 +190,9 @@ networks:
 4. **Create framework-specific environment file**:
    ```bash
    # .env template for each framework
-   FRAMEWORK_NAME=crewai
-   QDRANT_PORT=6333
-   LANGFUSE_PORT=3000
+   FRAMEWORK_NAME=dspy
+   QDRANT_PORT=6334
+   LANGFUSE_PORT=3001
    POSTGRES_USER=langfuse_user
    POSTGRES_PASSWORD=langfuse_password
    LANGFUSE_DB_URL=postgresql://langfuse_user:langfuse_password@postgres:5432/langfuse
@@ -206,7 +206,7 @@ networks:
 #### 2.1.2: Docker Infrastructure
 1. **Copy and customize docker-compose template**:
    - Replace placeholder values with framework-specific configurations
-   - Adjust port numbers to prevent conflicts (CrewAI: 6333, DSPy: 6334, etc.)
+   - Adjust port numbers to prevent conflicts (DSPy: 6334, PocketFlow: 6335, CrewAI: 6333, etc.)
    - Set unique container names and volume names
 
 2. **Test infrastructure deployment**:
@@ -333,13 +333,13 @@ def get_mcp_client() -> MCPClient:
     return MCPClient()
 ```
 
-### Step 2.3: Task Structure Template
-**Objective**: Create standardized task directories with consistent interfaces.
+### Step 2.3: Use Case Structure Template
+**Objective**: Create standardized use case directories with consistent interfaces.
 
-**For Each Framework, Create Task Template Structure:**
+**For Each Framework, Create Use Case Template Structure:**
 
 ```python
-# Template for each task's main.py
+# Template for each use case's main.py
 from abc import ABC, abstractmethod
 from typing import Any, Dict
 from shared.config import get_config
@@ -347,29 +347,29 @@ from shared.database import get_qdrant_client
 from shared.tracing import setup_langfuse
 from shared.mcp_client import get_mcp_client
 
-class BaseTask(ABC):
+class BaseUseCase(ABC):
     def __init__(self):
         self.config = get_config()
         self.qdrant = get_qdrant_client()
         self.langfuse = setup_langfuse()
         self.mcp_client = get_mcp_client()
-        self.task_name = self.__class__.__name__
+        self.use_case_name = self.__class__.__name__
     
     @abstractmethod
     def execute(self, input_data: Any) -> Any:
-        """Execute the main task logic"""
+        """Execute the main use case logic"""
         pass
-    
+
     @abstractmethod
     def evaluate(self, input_data: Any, output_data: Any) -> Dict[str, float]:
-        """Evaluate task performance"""
+        """Evaluate use case performance"""
         pass
-    
+
     def run_with_tracing(self, input_data: Any) -> Dict[str, Any]:
-        """Execute task with full observability"""
+        """Execute use case with full observability"""
         trace = self.langfuse.create_trace(
-            name=f"{self.config.framework_name}_{self.task_name}",
-            metadata={"framework": self.config.framework_name, "task": self.task_name}
+            name=f"{self.config.framework_name}_{self.use_case_name}",
+            metadata={"framework": self.config.framework_name, "use_case": self.use_case_name}
         )
         
         try:
@@ -388,30 +388,30 @@ class BaseTask(ABC):
             raise
 ```
 
-## Phase 3: Task Implementation (Weeks 5-9)
+## Phase 3: Use Case Implementation (Weeks 5-9)
 
-### Step 3.1: Task Implementation Strategy
-**Objective**: Implement each task across all frameworks following a systematic approach.
+### Step 3.1: Use Case Implementation Strategy
+**Objective**: Implement each use case across all frameworks following a systematic approach.
 
 **Implementation Order:**
-1. **Task 1: Q&A System** (Week 5) - Simplest task to validate infrastructure
-2. **Task 2: Simple RAG** (Week 6) - Builds on Q&A, introduces vector operations
-3. **Task 4: Web Search** (Week 7) - Independent task, tests external integrations
-4. **Task 3: Agentic RAG** (Week 8) - Complex task building on Simple RAG
-5. **Task 5: Multi-Agent** (Week 9) - Tests framework collaboration features
-6. **Task 6: Advanced Tasks** (Week 9) - Showcase framework-specific strengths
+1. **Use Case 1: Q&A System** (Week 5) - Simplest use case to validate infrastructure
+2. **Use Case 2: Simple RAG** (Week 6) - Builds on Q&A, introduces vector operations
+3. **Use Case 4: Web Search** (Week 7) - Independent use case, tests external integrations
+4. **Use Case 3: Agentic RAG** (Week 8) - Complex use case building on Simple RAG
+5. **Use Case 5: Multi-Agent** (Week 9) - Tests framework collaboration features
+6. **Use Case 6: Advanced Use Cases** (Week 9) - Showcase framework-specific strengths
 
-### Step 3.2: Task Implementation Process
-**For Each Task, Follow This Process:**
+### Step 3.2: Use Case Implementation Process
+**For Each Use Case, Follow This Process:**
 
 #### 3.2.1: Requirements Analysis
-1. **Review task specification** from PRD2.md
+1. **Review use case specification** from PRD2.md
 2. **Identify framework-specific approaches** for implementation
 3. **Define success criteria** and evaluation metrics
 4. **Plan testing strategy** with shared datasets
 
 #### 3.2.2: Implementation Workflow
-1. **Create task directory structure** in each framework
+1. **Create use case directory structure** in each framework
 2. **Implement framework-specific logic** following each framework's patterns
 3. **Integrate with shared infrastructure** (Qdrant, Langfuse, MCP)
 4. **Add comprehensive error handling** and logging
@@ -467,10 +467,10 @@ class BenchmarkRunner:
 **Objective**: Analyze quantitative metrics across frameworks.
 
 **Metrics to Collect:**
-1. **Execution Time**: Task completion latency
+1. **Execution Time**: Use case completion latency
 2. **Resource Usage**: CPU, memory, network utilization
 3. **API Costs**: LLM API call expenses
-4. **Accuracy Scores**: Task-specific quality metrics
+4. **Accuracy Scores**: Use case-specific quality metrics
 5. **Scalability Metrics**: Performance under load
 
 ### Step 4.3: Qualitative Assessment

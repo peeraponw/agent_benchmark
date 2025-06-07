@@ -2,7 +2,7 @@
 Base evaluation framework for AI agent frameworks comparison.
 
 This module provides the abstract base classes and data models for evaluating
-AI agent frameworks across different tasks and metrics.
+AI agent frameworks across different use cases and metrics.
 """
 
 from abc import ABC, abstractmethod
@@ -14,25 +14,25 @@ import psutil
 import os
 
 
-class TaskResult(BaseModel):
+class UseCaseResult(BaseModel):
     """
-    Standardized result structure for task execution across all frameworks.
+    Standardized result structure for use case execution across all frameworks.
     
     This model ensures consistent data collection and comparison across
     different AI agent frameworks.
     """
     framework_name: str = Field(..., description="Name of the AI framework used")
-    task_name: str = Field(..., description="Name of the executed task")
-    execution_time: float = Field(..., description="Task execution time in seconds")
+    use_case_name: str = Field(..., description="Name of the executed use case")
+    execution_time: float = Field(..., description="Use case execution time in seconds")
     memory_usage: float = Field(..., description="Peak memory usage in MB")
     cpu_usage: float = Field(..., description="Average CPU usage percentage")
     api_costs: Dict[str, float] = Field(default_factory=dict, description="API costs by provider")
-    quality_metrics: Dict[str, float] = Field(default_factory=dict, description="Task-specific quality scores")
+    quality_metrics: Dict[str, float] = Field(default_factory=dict, description="Use case-specific quality scores")
     raw_output: Any = Field(..., description="Raw output from the framework")
     metadata: Dict[str, Any] = Field(default_factory=dict, description="Additional execution metadata")
     timestamp: datetime = Field(default_factory=datetime.now, description="Execution timestamp")
-    success: bool = Field(default=True, description="Whether task completed successfully")
-    error_message: Optional[str] = Field(default=None, description="Error message if task failed")
+    success: bool = Field(default=True, description="Whether use case completed successfully")
+    error_message: Optional[str] = Field(default=None, description="Error message if use case failed")
 
 
 class BaseEvaluator(ABC):
@@ -70,29 +70,29 @@ class BaseEvaluator(ABC):
     @abstractmethod
     def measure_performance(self, execution_func: Callable) -> Dict[str, float]:
         """
-        Measure performance metrics during task execution.
-        
+        Measure performance metrics during use case execution.
+
         Args:
             execution_func: Function to execute and measure
-            
+
         Returns:
             Dictionary of performance metrics
         """
         pass
     
-    def execute_with_monitoring(self, task_name: str, execution_func: Callable, 
-                              input_data: Any, expected_output: Any = None) -> TaskResult:
+    def execute_with_monitoring(self, use_case_name: str, execution_func: Callable,
+                              input_data: Any, expected_output: Any = None) -> UseCaseResult:
         """
-        Execute a task with comprehensive monitoring and evaluation.
-        
+        Execute a use case with comprehensive monitoring and evaluation.
+
         Args:
-            task_name: Name of the task being executed
-            execution_func: Function that executes the task
-            input_data: Input data for the task
+            use_case_name: Name of the use case being executed
+            execution_func: Function that executes the use case
+            input_data: Input data for the use case
             expected_output: Expected output for quality evaluation (optional)
-            
+
         Returns:
-            TaskResult with comprehensive metrics and evaluation
+            UseCaseResult with comprehensive metrics and evaluation
         """
         # Initialize monitoring
         start_time = time.time()
@@ -100,7 +100,7 @@ class BaseEvaluator(ABC):
         cpu_percent_start = self.current_process.cpu_percent()
         
         try:
-            # Execute the task
+            # Execute the use case
             raw_output = execution_func(input_data)
             
             # Calculate execution metrics
@@ -117,9 +117,9 @@ class BaseEvaluator(ABC):
             # Get performance metrics
             performance_metrics = self.measure_performance(execution_func)
             
-            return TaskResult(
+            return UseCaseResult(
                 framework_name=self.framework_name,
-                task_name=task_name,
+                use_case_name=use_case_name,
                 execution_time=execution_time,
                 memory_usage=memory_usage,
                 cpu_usage=cpu_usage,
@@ -136,9 +136,9 @@ class BaseEvaluator(ABC):
             
         except Exception as e:
             execution_time = time.time() - start_time
-            return TaskResult(
+            return UseCaseResult(
                 framework_name=self.framework_name,
-                task_name=task_name,
+                use_case_name=use_case_name,
                 execution_time=execution_time,
                 memory_usage=0.0,
                 cpu_usage=0.0,
@@ -150,13 +150,13 @@ class BaseEvaluator(ABC):
                 error_message=str(e)
             )
     
-    def calculate_aggregate_metrics(self, results: List[TaskResult]) -> Dict[str, Any]:
+    def calculate_aggregate_metrics(self, results: List[UseCaseResult]) -> Dict[str, Any]:
         """
-        Calculate aggregate metrics across multiple task results.
-        
+        Calculate aggregate metrics across multiple use case results.
+
         Args:
-            results: List of TaskResult objects
-            
+            results: List of UseCaseResult objects
+
         Returns:
             Dictionary of aggregate metrics
         """
@@ -166,11 +166,11 @@ class BaseEvaluator(ABC):
         successful_results = [r for r in results if r.success]
         
         if not successful_results:
-            return {"success_rate": 0.0, "total_tasks": len(results)}
+            return {"success_rate": 0.0, "total_use_cases": len(results)}
         
         return {
             "success_rate": len(successful_results) / len(results),
-            "total_tasks": len(results),
+            "total_use_cases": len(results),
             "average_execution_time": sum(r.execution_time for r in successful_results) / len(successful_results),
             "average_memory_usage": sum(r.memory_usage for r in successful_results) / len(successful_results),
             "average_cpu_usage": sum(r.cpu_usage for r in successful_results) / len(successful_results),
@@ -178,7 +178,7 @@ class BaseEvaluator(ABC):
             "average_quality_scores": self._calculate_average_quality_scores(successful_results)
         }
     
-    def _calculate_average_quality_scores(self, results: List[TaskResult]) -> Dict[str, float]:
+    def _calculate_average_quality_scores(self, results: List[UseCaseResult]) -> Dict[str, float]:
         """Calculate average quality scores across results."""
         if not results:
             return {}

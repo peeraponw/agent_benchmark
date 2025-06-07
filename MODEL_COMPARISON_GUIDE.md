@@ -76,9 +76,9 @@ Compare how different frameworks perform with the same LLM:
 
 ```bash
 # Test all frameworks with DeepSeek R1 (default configuration)
-for framework in crewai dspy pocketflow google_adk pydantic_ai; do
+for framework in dspy pocketflow crewai google_adk pydantic_ai; do
     cd $framework/
-    uv run python tasks/qa_task.py
+    uv run python use_cases/qa_use_case.py
     cd ..
 done
 ```
@@ -88,7 +88,7 @@ Comprehensive comparison across all frameworks and models:
 
 ```bash
 # Matrix testing script example
-frameworks=("crewai" "dspy" "pocketflow" "google_adk" "pydantic_ai")
+frameworks=("dspy" "pocketflow" "crewai" "google_adk" "pydantic_ai")
 models=("deepseek/deepseek-r1-0528" "anthropic/claude-sonnet-4" "google/gemini-2.5-pro-preview")
 
 for framework in "${frameworks[@]}"; do
@@ -96,7 +96,7 @@ for framework in "${frameworks[@]}"; do
         cd $framework/
         sed -i "s/DEFAULT_LLM_MODEL=.*/DEFAULT_LLM_MODEL=$model/" .env
         echo "Testing $framework with $model"
-        uv run python tasks/qa_task.py
+        uv run python use_cases/qa_use_case.py
         cd ..
     done
 done
@@ -139,9 +139,9 @@ All frameworks should report consistent metrics for comparison:
 ### Results Structure
 ```json
 {
-  "framework": "crewai",
+  "framework": "dspy",
   "model": "deepseek/deepseek-r1-0528",
-  "task": "qa_task",
+  "use_case": "qa_use_case",
   "timestamp": "2024-12-19T10:00:00Z",
   "metrics": {
     "accuracy": 0.85,
@@ -226,7 +226,7 @@ This will verify:
 ## 📝 Example Study
 
 ### Research Question
-"How do different LLMs perform on Q&A tasks across agent frameworks?"
+"How do different LLMs perform on Q&A use cases across agent frameworks?"
 
 ### Methodology
 1. Use default DeepSeek R1 configuration for baseline

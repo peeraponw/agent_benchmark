@@ -76,31 +76,31 @@ docker-compose up -d
 docker-compose ps
 ```
 
-### 5. Run Your First Task
+### 5. Run Your First Use Case
 
 ```bash
-# Navigate to Q&A task
-cd task1_qa/
+# Navigate to Q&A use case
+cd usecase1_qa/
 
-# Run the task
+# Run the use case
 uv run python main.py
 
 # Check results
 ls -la outputs/
 ```
 
-🎉 **Congratulations!** You've successfully run your first AI agent task.
+🎉 **Congratulations!** You've successfully run your first AI agent use case.
 
 ## 📋 What's Next?
 
-### Explore More Tasks
+### Explore More Use Cases
 
 ```bash
-# Try different tasks
-cd ../task2_simple_rag/
+# Try different use cases
+cd ../usecase2_simple_rag/
 uv run python main.py
 
-cd ../task4_web_search/
+cd ../usecase4_web_search/
 uv run python main.py
 ```
 
@@ -111,7 +111,7 @@ uv run python main.py
 cd ../../
 
 # Run comparison across frameworks (start with highest priority)
-python evaluation/benchmark_runner.py --frameworks dspy,pocketflow --tasks qa
+python evaluation/benchmark_runner.py --frameworks dspy,pocketflow --use-cases qa
 
 # Generate comparison report
 python evaluation/report_generator.py
@@ -120,14 +120,14 @@ python evaluation/report_generator.py
 ### Customize and Experiment
 
 ```bash
-# Modify task parameters (using highest priority framework)
-nano dspy/task1_qa/config.yaml
+# Modify use case parameters (using highest priority framework)
+nano dspy/usecase1_qa/config.yaml
 
 # Add your own test data
 nano shared_datasets/qa/questions.json
 
 # Re-run with custom data
-cd dspy/task1_qa/
+cd dspy/usecase1_qa/
 uv run python main.py
 ```
 
@@ -318,7 +318,7 @@ python scripts/health_check.py --framework dspy
 ### Learn More
 - [Architecture Guide](ARCHITECTURE.md) - Understand the system design
 - [Framework Guides](docs/frameworks/) - Deep dive into each framework
-- [Task Documentation](docs/tasks/) - Detailed task descriptions
+- [Use Case Documentation](docs/use_cases/) - Detailed use case descriptions
 - [Evaluation Guide](docs/evaluation/) - Understanding metrics and benchmarks
 
 ### Contribute
@@ -327,7 +327,7 @@ python scripts/health_check.py --framework dspy
 - [Testing Guide](docs/testing/) - Running and writing tests
 
 ### Advanced Usage
-- [Custom Tasks](docs/custom_tasks.md) - Creating new evaluation tasks
+- [Custom Use Cases](docs/custom_use_cases.md) - Creating new evaluation use cases
 - [Framework Integration](docs/integration.md) - Adding new frameworks
 - [Production Deployment](docs/deployment.md) - Enterprise deployment guide
 

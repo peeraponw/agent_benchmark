@@ -1,6 +1,6 @@
 # AI Agent Frameworks Comparison Project
 
-A comprehensive evaluation and comparison of leading Python AI agent frameworks across standardized tasks and metrics.
+A comprehensive evaluation and comparison of leading Python AI agent frameworks across standardized use cases and metrics.
 
 ## 🎯 Project Overview
 
@@ -11,7 +11,7 @@ This project systematically compares five leading Python AI agent frameworks:
 - **Google ADK** - Google's Agent Development Kit
 - **Pydantic AI** - Type-safe agent framework [LOWEST PRIORITY]
 
-Each framework is evaluated across six standardized tasks with complete isolation to ensure fair comparison.
+Each framework is evaluated across six standardized use cases with complete isolation to ensure fair comparison.
 
 ## 🏗️ Architecture
 
@@ -75,43 +75,43 @@ agent_benchmark/
    docker-compose up -d
    ```
 
-5. **Run a task**
+5. **Run a use case**
    ```bash
-   cd task1_qa/
+   cd usecase1_qa/
    uv run python main.py
    ```
 
 ### Running Evaluations
 
 ```bash
-# Run all frameworks on all tasks
-python evaluation/benchmark_runner.py --frameworks all --tasks all
+# Run all frameworks on all use cases
+python evaluation/benchmark_runner.py --frameworks all --use-cases all
 
 # Run specific framework (start with highest priority)
-python evaluation/benchmark_runner.py --frameworks dspy --tasks all
+python evaluation/benchmark_runner.py --frameworks dspy --use-cases all
 
 # Generate comparison report
 python evaluation/report_generator.py
 ```
 
-## 📋 Evaluation Tasks
+## 📋 Evaluation Use Cases
 
-### Task 1: Question & Answer System
+### Use Case 1: Question & Answer System
 Simple Q&A implementation testing basic agent capabilities.
 
-### Task 2: Simple RAG (Retrieval-Augmented Generation)
+### Use Case 2: Simple RAG (Retrieval-Augmented Generation)
 Document retrieval and answer generation with vector databases.
 
-### Task 3: Agentic RAG
+### Use Case 3: Agentic RAG
 Advanced RAG with multiple specialized agents for research and synthesis.
 
-### Task 4: Web Search Integration
+### Use Case 4: Web Search Integration
 Real-time information retrieval and fact verification.
 
-### Task 5: Multi-Agent Collaboration
+### Use Case 5: Multi-Agent Collaboration
 Complex workflows requiring agent coordination and specialization.
 
-### Task 6: Advanced Agentic Tasks
+### Use Case 6: Advanced Agentic Use Cases
 Framework-specific advanced capabilities and optimizations.
 
 ## 📈 Evaluation Metrics
@@ -123,7 +123,7 @@ Framework-specific advanced capabilities and optimizations.
 - **Coherence**: Logical consistency and flow
 
 ### Performance Metrics
-- **Execution Time**: Task completion speed
+- **Execution Time**: Use case completion speed
 - **Resource Usage**: Memory and CPU consumption
 - **API Costs**: LLM and service expenses
 - **Scalability**: Performance under load
@@ -153,12 +153,12 @@ docker-compose up -d
 # Run tests
 uv run pytest
 
-# Run specific task
-cd task1_qa/
+# Run specific use case
+cd usecase1_qa/
 uv run python main.py
 ```
 
-### Adding New Tasks
+### Adding New Use Cases
 
 1. Create task directory in each framework
 2. Implement standardized task interface
