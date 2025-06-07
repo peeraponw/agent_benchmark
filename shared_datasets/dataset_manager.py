@@ -1066,7 +1066,7 @@ class DatasetManager:
 
         return overall
 
-    def export_dataset(self, dataset_type: str, format: str, output_path: Path) -> None:
+    def export_dataset(self, dataset_type: str, format: str, output_path: Path, compress: bool = False) -> None:
         """
         Export dataset to specified format and location.
 
@@ -1074,6 +1074,7 @@ class DatasetManager:
             dataset_type: Type of dataset to export (qa, rag, web_search, multi_agent)
             format: Export format (json, jsonl, csv)
             output_path: Path where to save the exported data
+            compress: Whether to compress the output file using gzip
 
         Raises:
             ValueError: If dataset type or format is not supported
@@ -1100,29 +1101,47 @@ class DatasetManager:
         # Ensure output directory exists
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
+        # Adjust output path for compression
+        final_output_path = output_path
+        if compress:
+            final_output_path = output_path.with_suffix(f"{output_path.suffix}.gz")
+
         # Export based on format
         if format == 'json':
-            self._export_json(data, output_path)
+            self._export_json(data, final_output_path, compress)
         elif format == 'jsonl':
-            self._export_jsonl(data, output_path)
+            self._export_jsonl(data, final_output_path, compress)
         elif format == 'csv':
-            self._export_csv(data, output_path, dataset_type)
+            self._export_csv(data, final_output_path, dataset_type, compress)
 
-        self.logger.info(f"Successfully exported {len(data)} items to {output_path}")
+        compression_info = " (compressed)" if compress else ""
+        self.logger.info(f"Successfully exported {len(data)} items to {final_output_path}{compression_info}")
 
-    def _export_json(self, data: List[Dict[str, Any]], output_path: Path) -> None:
+    def _export_json(self, data: List[Dict[str, Any]], output_path: Path, compress: bool = False) -> None:
         """Export data as JSON."""
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False, default=str)
+        if compress:
+            import gzip
+            with gzip.open(output_path, 'wt', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False, default=str)
+        else:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False, default=str)
 
-    def _export_jsonl(self, data: List[Dict[str, Any]], output_path: Path) -> None:
+    def _export_jsonl(self, data: List[Dict[str, Any]], output_path: Path, compress: bool = False) -> None:
         """Export data as JSON Lines."""
-        with open(output_path, 'w', encoding='utf-8') as f:
-            for item in data:
-                json.dump(item, f, ensure_ascii=False, default=str)
-                f.write('\n')
+        if compress:
+            import gzip
+            with gzip.open(output_path, 'wt', encoding='utf-8') as f:
+                for item in data:
+                    json.dump(item, f, ensure_ascii=False, default=str)
+                    f.write('\n')
+        else:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                for item in data:
+                    json.dump(item, f, ensure_ascii=False, default=str)
+                    f.write('\n')
 
-    def _export_csv(self, data: List[Dict[str, Any]], output_path: Path, dataset_type: str) -> None:
+    def _export_csv(self, data: List[Dict[str, Any]], output_path: Path, dataset_type: str, compress: bool = False) -> None:
         """Export data as CSV with dataset-specific column handling."""
         import csv
 
@@ -1142,14 +1161,25 @@ class DatasetManager:
             # Fallback: use all keys from first item
             fieldnames = list(data[0].keys())
 
-        with open(output_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
-            writer.writeheader()
+        if compress:
+            import gzip
+            with gzip.open(output_path, 'wt', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
+                writer.writeheader()
 
-            for item in data:
-                # Flatten complex fields for CSV
-                flattened_item = self._flatten_for_csv(item, dataset_type)
-                writer.writerow(flattened_item)
+                for item in data:
+                    # Flatten complex fields for CSV
+                    flattened_item = self._flatten_for_csv(item, dataset_type)
+                    writer.writerow(flattened_item)
+        else:
+            with open(output_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
+                writer.writeheader()
+
+                for item in data:
+                    # Flatten complex fields for CSV
+                    flattened_item = self._flatten_for_csv(item, dataset_type)
+                    writer.writerow(flattened_item)
 
     def _flatten_for_csv(self, item: Dict[str, Any], dataset_type: str) -> Dict[str, Any]:
         """Flatten complex data structures for CSV export."""

@@ -1,0 +1,42 @@
+{
+  "title": "Docker Containerization Guide",
+  "version": "1.0",
+  "sections": {
+    "introduction": {
+      "description": "Docker is a platform for developing, shipping, and running applications using containerization technology.",
+      "benefits": [
+        "Consistent environments across development, testing, and production",
+        "Improved resource utilization",
+        "Faster deployment and scaling",
+        "Simplified dependency management"
+      ]
+    },
+    "core_concepts": {
+      "image": "Read-only template used to create containers",
+      "container": "Running instance of an image",
+      "dockerfile": "Text file with instructions to build an image",
+      "registry": "Storage and distribution system for Docker images"
+    },
+    "dockerfile_example": {
+      "content": "FROM node:16-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --only=production\nCOPY . .\nEXPOSE 3000\nCMD [\"npm\", \"start\"]",
+      "explanation": "Multi-stage build for Node.js application"
+    },
+    "commands": {
+      "build": "docker build -t myapp:latest .",
+      "run": "docker run -d -p 3000:3000 myapp:latest",
+      "list": "docker ps",
+      "logs": "docker logs container_id",
+      "exec": "docker exec -it container_id /bin/bash"
+    },
+    "best_practices": [
+      "Use official base images",
+      "Minimize layer count",
+      "Use .dockerignore file",
+      "Don't run as root user",
+      "Use multi-stage builds",
+      "Keep images small",
+      "Use specific tags, not 'latest'",
+      "Implement health checks"
+    ]
+  }
+}

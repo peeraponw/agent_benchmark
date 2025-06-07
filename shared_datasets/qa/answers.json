@@ -19,5 +19,159 @@
     "explanation": "Distance = Speed × Time = 80 km/h × 2.5 h = 200 km",
     "sources": ["mathematical_calculation"],
     "confidence": 1.0
+  },
+  {
+    "id": "qa_004",
+    "answer": "Jupiter",
+    "explanation": "Jupiter is the largest planet in our solar system with a diameter of about 142,984 km.",
+    "sources": ["astronomy_facts"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_005",
+    "answer": "George Orwell",
+    "explanation": "George Orwell (Eric Arthur Blair) wrote the dystopian novel '1984', published in 1949.",
+    "sources": ["literature_reference"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_006",
+    "answer": "Au",
+    "explanation": "The chemical symbol for gold is Au, derived from the Latin word 'aurum'.",
+    "sources": ["chemistry_reference"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_007",
+    "answer": "78.54 square meters",
+    "explanation": "Area = π × r² = π × 5² = π × 25 ≈ 78.54 square meters",
+    "sources": ["mathematical_calculation"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_008",
+    "answer": "Renewable energy sources can be naturally replenished (solar, wind, hydro, geothermal), while non-renewable sources are finite and will eventually be depleted (fossil fuels, nuclear materials).",
+    "explanation": "This distinction is crucial for sustainable energy planning and environmental protection.",
+    "sources": ["environmental_science"],
+    "confidence": 0.95
+  },
+  {
+    "id": "qa_009",
+    "answer": "Executive, Legislative, and Judicial",
+    "explanation": "The U.S. government is divided into three branches: Executive (President), Legislative (Congress), and Judicial (Supreme Court and federal courts).",
+    "sources": ["civics_textbook"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_010",
+    "answer": "$1,157.63",
+    "explanation": "Using compound interest formula: A = P(1 + r)^t = 1000(1 + 0.05)^3 = 1000(1.157625) = $1,157.63",
+    "sources": ["financial_mathematics"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_011",
+    "answer": "The water cycle consists of evaporation (water becomes vapor), condensation (vapor forms clouds), precipitation (rain/snow falls), and collection (water returns to bodies of water).",
+    "explanation": "This continuous process is driven by solar energy and gravity, redistributing water across Earth's surface.",
+    "sources": ["earth_science"],
+    "confidence": 0.95
+  },
+  {
+    "id": "qa_012",
+    "answer": "50%",
+    "explanation": "Percentage increase = ((New Value - Old Value) / Old Value) × 100 = ((150,000 - 100,000) / 100,000) × 100 = 50%",
+    "sources": ["business_mathematics"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_013",
+    "answer": "The Industrial Revolution (1760-1840) transformed society through mechanization, urbanization, and new social classes. Causes included technological innovations, capital accumulation, and natural resources. Effects included improved living standards for some, harsh working conditions, environmental pollution, and the rise of capitalism and labor movements.",
+    "explanation": "This analysis requires understanding multiple interconnected historical, economic, and social factors.",
+    "sources": ["history_textbook", "economic_history"],
+    "confidence": 0.85
+  },
+  {
+    "id": "qa_014",
+    "answer": "Capitalism emphasizes private ownership, market competition, and profit maximization, leading to economic efficiency but potential inequality. Socialism emphasizes collective ownership, central planning, and wealth redistribution, aiming for equality but potentially reducing efficiency. Both systems have evolved into mixed economies in practice.",
+    "explanation": "This comparison requires understanding complex economic theories and their real-world implementations.",
+    "sources": ["economics_textbook", "political_economy"],
+    "confidence": 0.85
+  },
+  {
+    "id": "qa_015",
+    "answer": "x = 3, y = 2",
+    "explanation": "From x - y = 1, we get x = y + 1. Substituting into 2x + 3y = 12: 2(y + 1) + 3y = 12, so 2y + 2 + 3y = 12, thus 5y = 10, y = 2. Therefore x = 3.",
+    "sources": ["algebra_textbook"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_016",
+    "answer": "Quantum entanglement is a phenomenon where particles become correlated such that measuring one instantly affects the other, regardless of distance. In quantum computing, entangled qubits enable parallel processing and quantum algorithms like Shor's algorithm, potentially providing exponential speedups for certain problems.",
+    "explanation": "This requires deep understanding of quantum mechanics and its applications in computing.",
+    "sources": ["quantum_physics", "quantum_computing_research"],
+    "confidence": 0.80
+  },
+  {
+    "id": "qa_017",
+    "answer": "AI in healthcare raises concerns about accountability (who is responsible for AI decisions?), bias (algorithms may discriminate against certain groups), privacy (patient data protection), and autonomy (maintaining human oversight). Benefits include improved accuracy and accessibility, but implementation requires careful ethical frameworks and regulatory oversight.",
+    "explanation": "This analysis requires balancing technological capabilities with ethical principles and practical considerations.",
+    "sources": ["medical_ethics", "AI_ethics_research"],
+    "confidence": 0.80
+  },
+  {
+    "id": "qa_018",
+    "answer": "A sustainable transportation system would integrate electric buses and trains powered by renewable energy, bike-sharing networks, pedestrian-friendly infrastructure, smart traffic management, and mixed-use development to reduce travel distances. Key features include intermodal connectivity, real-time information systems, and pricing mechanisms that incentivize sustainable choices.",
+    "explanation": "This design proposal requires integrating urban planning, environmental science, and transportation engineering principles.",
+    "sources": ["urban_planning", "sustainable_transportation"],
+    "confidence": 0.75
+  },
+  {
+    "id": "qa_019",
+    "answer": "During recessions, central banks can use interest rate cuts to stimulate borrowing, quantitative easing to increase money supply, and forward guidance to manage expectations. Fiscal policy tools include government spending increases and tax cuts. Effectiveness depends on economic conditions, debt levels, and coordination between monetary and fiscal authorities.",
+    "explanation": "This evaluation requires understanding macroeconomic theory and historical policy outcomes.",
+    "sources": ["macroeconomics", "monetary_policy_research"],
+    "confidence": 0.80
+  },
+  {
+    "id": "qa_020",
+    "answer": "Starting with ax² + bx + c = 0, divide by a: x² + (b/a)x + c/a = 0. Complete the square: x² + (b/a)x + (b/2a)² = (b/2a)² - c/a. This gives (x + b/2a)² = (b² - 4ac)/4a². Taking the square root: x + b/2a = ±√(b² - 4ac)/2a. Therefore: x = (-b ± √(b² - 4ac))/2a.",
+    "explanation": "This mathematical derivation demonstrates the algebraic manipulation techniques used to solve quadratic equations.",
+    "sources": ["algebra_textbook", "mathematical_proofs"],
+    "confidence": 1.0
+  },
+  {
+    "id": "qa_021",
+    "answer": "Dr. Sarah Chen discovered that time flows differently in her laboratory. Each day, she could step back exactly 24 hours, but only within the lab's walls. She used this power to perfect her experiments, but realized that changing the past created parallel timelines rather than altering her original reality. The story explores the isolation of being the only person aware of multiple timelines and the ethical dilemma of whether to share this knowledge.",
+    "explanation": "This creative response demonstrates narrative structure, scientific plausibility, and exploration of philosophical themes.",
+    "sources": ["creative_writing", "time_travel_fiction"],
+    "confidence": 0.70
+  },
+  {
+    "id": "qa_022",
+    "answer": "Consciousness might emerge through integrated information processing, where complex neural networks create unified experiences from distributed brain activity. The Global Workspace Theory suggests consciousness arises when information becomes globally accessible across brain regions. Alternatively, consciousness could be a fundamental property of matter (panpsychism) or emerge from quantum processes in microtubules.",
+    "explanation": "This philosophical exploration requires synthesizing neuroscience, philosophy of mind, and speculative theories.",
+    "sources": ["neuroscience", "philosophy_of_mind", "consciousness_studies"],
+    "confidence": 0.60
+  },
+  {
+    "id": "qa_023",
+    "answer": "Atmospheric Carbon Harvesting Networks: Deploy millions of small, solar-powered devices that mimic tree photosynthesis but operate 24/7, converting CO2 directly into solid carbon materials for construction. These devices would be integrated into urban infrastructure, creating a distributed carbon capture system that also produces useful building materials, turning climate action into economic opportunity.",
+    "explanation": "This innovative proposal combines existing technologies in a novel way to address climate change while creating economic value.",
+    "sources": ["climate_science", "materials_engineering", "innovative_thinking"],
+    "confidence": 0.65
+  },
+  {
+    "id": "qa_024",
+    "answer": "I would establish: 1) Universal Basic Resources (not just income) ensuring everyone has access to food, shelter, healthcare, and education; 2) Participatory Democracy with rotating leadership and citizen assemblies; 3) Ecological Stewardship as a core value with legal rights for nature; 4) Collaborative Competition where success is measured by collective wellbeing; 5) Continuous Learning systems that adapt governance based on evidence and changing needs.",
+    "explanation": "This philosophical design integrates political theory, economics, environmental ethics, and social psychology.",
+    "sources": ["political_philosophy", "social_design", "systems_thinking"],
+    "confidence": 0.60
+  },
+  {
+    "id": "qa_025",
+    "answer": "The model would track: Cultural Tension Index (measuring social/political stress), Technology Adoption Rate (new tools enabling expression), Economic Inequality Coefficient (driving artistic rebellion), and Cross-Cultural Exchange Frequency (enabling fusion movements). Formula: P(new movement) = f(CTI × TAR × EIC × CCEF) where movements emerge when this product exceeds historical thresholds, modified by random innovation events.",
+    "explanation": "This theoretical model attempts to quantify cultural phenomena using mathematical frameworks, though art's inherent unpredictability limits precision.",
+    "sources": ["cultural_studies", "mathematical_modeling", "art_history"],
+    "confidence": 0.50
   }
 ]

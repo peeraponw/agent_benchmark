@@ -1,0 +1,34 @@
+Service Type,Provider,Service Name,Description,Use Cases,Pricing Model,Key Features
+IaaS,AWS,EC2,Virtual servers in the cloud,Web hosting; Development environments; Big data processing,Pay-per-hour,Auto-scaling; Multiple instance types; Global availability
+IaaS,Azure,Virtual Machines,Scalable compute resources,Enterprise applications; Disaster recovery; Testing,Pay-as-you-go,Hybrid cloud support; Windows/Linux; High availability
+IaaS,GCP,Compute Engine,High-performance virtual machines,Machine learning; Analytics; Gaming,Per-second billing,Custom machine types; Live migration; Preemptible instances
+PaaS,AWS,Elastic Beanstalk,Application deployment platform,Web applications; API backends; Microservices,Application-based pricing,Multiple language support; Auto-scaling; Health monitoring
+PaaS,Azure,App Service,Fully managed platform,Web apps; Mobile backends; APIs,App-based pricing,Built-in DevOps; Multiple frameworks; Auto-scaling
+PaaS,GCP,App Engine,Serverless application platform,Web applications; Mobile backends; IoT,Request-based pricing,Automatic scaling; Multiple runtimes; Traffic splitting
+SaaS,Microsoft,Office 365,Productivity suite,Document creation; Email; Collaboration,Per-user monthly,Real-time collaboration; Cloud storage; Mobile apps
+SaaS,Salesforce,Sales Cloud,Customer relationship management,Sales automation; Lead management; Analytics,Per-user monthly,Customizable workflows; Mobile access; AI insights
+SaaS,Google,Workspace,Business productivity tools,Email; Video conferencing; Document sharing,Per-user monthly,Real-time collaboration; Unlimited storage; Admin controls
+Container,AWS,EKS,Managed Kubernetes service,Container orchestration; Microservices; CI/CD,Cluster + node pricing,Fully managed; Auto-scaling; Security patches
+Container,Azure,AKS,Azure Kubernetes Service,Application modernization; DevOps; Hybrid cloud,Node-based pricing,Integrated monitoring; RBAC; Virtual nodes
+Container,GCP,GKE,Google Kubernetes Engine,Cloud-native applications; Machine learning; Data processing,Cluster management fee,Autopilot mode; Multi-cloud; Workload identity
+Database,AWS,RDS,Managed relational database,Web applications; E-commerce; Analytics,Instance + storage,Multi-AZ deployment; Automated backups; Read replicas
+Database,Azure,SQL Database,Cloud database service,Modern applications; Data warehousing; Analytics,DTU or vCore model,Built-in intelligence; Elastic scaling; Advanced security
+Database,GCP,Cloud SQL,Fully managed database,Web frameworks; Business applications; Analytics,Instance + storage,High availability; Automatic backups; Point-in-time recovery
+Storage,AWS,S3,Object storage service,Backup; Data archiving; Static websites,Storage + requests,99.999999999% durability; Lifecycle policies; Cross-region replication
+Storage,Azure,Blob Storage,Massively scalable object storage,Backup; Media streaming; Big data,Storage tier based,Hot/cool/archive tiers; Geo-redundancy; Lifecycle management
+Storage,GCP,Cloud Storage,Unified object storage,Content distribution; Data lakes; Backup,Storage class based,Multi-regional; Nearline/coldline; Object lifecycle
+Serverless,AWS,Lambda,Event-driven compute,API backends; Data processing; IoT,Request + duration,Automatic scaling; Multiple runtimes; Event triggers
+Serverless,Azure,Functions,Serverless compute platform,Event processing; Scheduled tasks; APIs,Consumption based,Multiple triggers; Durable functions; Premium plan
+Serverless,GCP,Cloud Functions,Lightweight serverless platform,Webhooks; Data processing; Mobile backends,Invocation + duration,HTTP triggers; Cloud events; Source-based deployment
+AI/ML,AWS,SageMaker,Machine learning platform,Model training; Deployment; Data labeling,Instance + storage,Built-in algorithms; Jupyter notebooks; Model registry
+AI/ML,Azure,Machine Learning,End-to-end ML lifecycle,Predictive analytics; Computer vision; NLP,Compute + storage,Automated ML; MLOps; Responsible AI
+AI/ML,GCP,AI Platform,Unified ML platform,Custom models; Pre-trained APIs; AutoML,Training + prediction,Vertex AI; TensorFlow integration; Explainable AI
+Analytics,AWS,Redshift,Data warehouse service,Business intelligence; Analytics; Reporting,Node hours,Columnar storage; Massively parallel; Spectrum
+Analytics,Azure,Synapse Analytics,Analytics service,Data warehousing; Big data; Real-time analytics,DWU or serverless,Integrated workspace; Spark pools; Data flows
+Analytics,GCP,BigQuery,Serverless data warehouse,Business intelligence; Machine learning; Real-time analytics,Query + storage,Petabyte scale; Standard SQL; ML integration
+CDN,AWS,CloudFront,Content delivery network,Website acceleration; Video streaming; API acceleration,Data transfer + requests,Global edge locations; Real-time metrics; Security features
+CDN,Azure,CDN,Global content delivery,Web acceleration; Media streaming; Software distribution,Data transfer based,Multiple providers; Custom domains; Compression
+CDN,GCP,Cloud CDN,Global content delivery,Website performance; Video delivery; API acceleration,Cache egress pricing,Global anycast; HTTP/2; Cache invalidation
+Security,AWS,IAM,Identity and access management,User authentication; Resource access; Compliance,Free service,Fine-grained permissions; MFA; Federation
+Security,Azure,Active Directory,Identity platform,Single sign-on; Multi-factor auth; Conditional access,Per-user pricing,Hybrid identity; B2B/B2C; Privileged identity
+Security,GCP,Cloud IAM,Identity and access management,Resource access control; Service accounts; Audit logs,Free service,Hierarchical organization; Predefined roles; Conditions
