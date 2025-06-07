@@ -3,133 +3,56 @@ Shared Dataset Manager for AI Agent Framework Comparison.
 
 This module provides the core dataset management functionality for loading,
 validating, and managing test datasets across all AI agent frameworks.
+
+This is the main interface module that coordinates between the specialized
+modules for loading, statistics, and I/O operations.
 """
 
-import json
 import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
-from pydantic import BaseModel, Field, field_validator, model_validator
-from enum import Enum
 
-
-class DifficultyLevel(str, Enum):
-    """Enumeration for dataset item difficulty levels."""
-    EASY = "easy"
-    MEDIUM = "medium"
-    HARD = "hard"
-    EXPERT = "expert"
-    CREATIVE = "creative"
-
-
-class DatasetItem(BaseModel):
-    """
-    Core data model for individual dataset items.
-    
-    This model provides a standardized structure for all types of test data
-    across different evaluation scenarios (Q&A, RAG, multi-agent, etc.).
-    """
-    
-    id: str = Field(
-        ...,
-        description="Unique identifier for the dataset item",
-        min_length=1,
-        max_length=100
-    )
-    
-    input_data: Any = Field(
-        ...,
-        description="Input data for the test case - can be question, query, scenario, etc."
-    )
-    
-    expected_output: Any = Field(
-        ...,
-        description="Expected output or ground truth for evaluation"
-    )
-    
-    metadata: Dict[str, Any] = Field(
-        default_factory=dict,
-        description="Additional context and metadata for the dataset item"
-    )
-    
-    difficulty_level: Optional[DifficultyLevel] = Field(
-        None,
-        description="Difficulty level categorization"
-    )
-    
-    category: Optional[str] = Field(
-        None,
-        description="Category or type classification for grouping",
-        max_length=50
-    )
-    
-    @field_validator('id')
-    @classmethod
-    def validate_id(cls, v):
-        """Validate that ID follows expected format."""
-        if not v or not isinstance(v, str):
-            raise ValueError("ID must be a non-empty string")
-
-        # Check for valid ID format (alphanumeric with underscores)
-        if not v.replace('_', '').replace('-', '').isalnum():
-            raise ValueError("ID must contain only alphanumeric characters, underscores, and hyphens")
-
-        return v
-
-    @field_validator('metadata')
-    @classmethod
-    def validate_metadata(cls, v):
-        """Ensure metadata is a valid dictionary."""
-        if not isinstance(v, dict):
-            raise ValueError("Metadata must be a dictionary")
-        return v
-
-    @model_validator(mode='after')
-    def validate_consistency(self):
-        """Validate consistency between fields."""
-        # Ensure input_data and expected_output are not None
-        if self.input_data is None:
-            raise ValueError("input_data cannot be None")
-
-        if self.expected_output is None:
-            raise ValueError("expected_output cannot be None")
-
-        return self
-    
-    class Config:
-        """Pydantic model configuration."""
-        use_enum_values = True
-        validate_assignment = True
-        extra = "forbid"  # Prevent additional fields
-        
-    def to_dict(self) -> Dict[str, Any]:
-        """Convert the model to a dictionary."""
-        return self.model_dump()
-    
-    @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> 'DatasetItem':
-        """Create a DatasetItem from a dictionary."""
-        return cls(**data)
+# Import from modular components
+from .core.models import DatasetItem
+from .core.exceptions import DatasetError, create_user_friendly_error_message
+from .loaders import DatasetLoader
+from .statistics import DatasetStatistics
+from .io_utils import DatasetIOManager
 
 
 class DatasetManager:
     """
     Core dataset management class for loading and managing test datasets.
-    
+
     This class provides centralized access to all shared datasets used for
     evaluating AI agent frameworks, ensuring consistency and standardization.
+
+    The class now uses a modular architecture with specialized components for
+    loading, statistics, and I/O operations while maintaining backward compatibility.
     """
-    
+
     def __init__(self, dataset_path: Union[str, Path]):
         """
-        Initialize the DatasetManager.
-        
+        Initialize the DatasetManager with modular components.
+
         Args:
             dataset_path: Path to the root directory containing datasets
         """
         self.dataset_path = Path(dataset_path)
         self._setup_logging()
         self._validate_dataset_path()
+
+        # Initialize modular components
+        try:
+            self.loader = DatasetLoader(self.dataset_path)
+            self.statistics = DatasetStatistics()
+            self.io_manager = DatasetIOManager(self.dataset_path)
+        except Exception as e:
+            error_msg = create_user_friendly_error_message(
+                DatasetError(f"Failed to initialize dataset components: {str(e)}")
+            )
+            self.logger.error(error_msg)
+            raise
     
     def _setup_logging(self) -> None:
         """Set up logging for dataset operations."""
@@ -165,64 +88,43 @@ class DatasetManager:
     
     def _load_json_file(self, file_path: Path) -> List[Dict[str, Any]]:
         """
-        Load and parse a JSON file safely.
-        
+        Load and parse a JSON file safely using the modular loader.
+
         Args:
             file_path: Path to the JSON file
-            
+
         Returns:
             List of dictionaries from the JSON file
-            
+
         Raises:
-            FileNotFoundError: If the file doesn't exist
-            json.JSONDecodeError: If the file contains invalid JSON
+            DatasetError: If loading fails
         """
-        if not file_path.exists():
-            raise FileNotFoundError(f"File not found: {file_path}")
-        
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            if not isinstance(data, list):
-                raise ValueError(f"Expected list in JSON file, got {type(data)}")
-            
-            self.logger.info(f"Successfully loaded {len(data)} items from {file_path}")
-            return data
-            
-        except json.JSONDecodeError as e:
-            self.logger.error(f"Invalid JSON in file {file_path}: {e}")
-            raise
+            return self.loader.load_json_file(file_path)
         except Exception as e:
-            self.logger.error(f"Error loading file {file_path}: {e}")
+            # Convert to user-friendly error message
+            error_msg = create_user_friendly_error_message(
+                DatasetError(f"Failed to load JSON file {file_path}: {str(e)}")
+            )
+            self.logger.error(error_msg)
             raise
     
     def _save_json_file(self, data: List[Dict[str, Any]], file_path: Path) -> None:
         """
-        Save data to a JSON file safely.
-        
+        Save data to a JSON file safely using the modular I/O manager.
+
         Args:
             data: List of dictionaries to save
             file_path: Path where to save the file
         """
         try:
-            # Create backup if file exists
-            if file_path.exists():
-                backup_path = file_path.with_suffix(f"{file_path.suffix}.backup")
-                file_path.rename(backup_path)
-                self.logger.info(f"Created backup: {backup_path}")
-            
-            # Ensure parent directory exists
-            file_path.parent.mkdir(parents=True, exist_ok=True)
-            
-            # Save the data
-            with open(file_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=2, ensure_ascii=False)
-            
-            self.logger.info(f"Successfully saved {len(data)} items to {file_path}")
-            
+            self.io_manager.save_json_file(data, file_path, create_backup=True)
         except Exception as e:
-            self.logger.error(f"Error saving file {file_path}: {e}")
+            # Convert to user-friendly error message
+            error_msg = create_user_friendly_error_message(
+                DatasetError(f"Failed to save JSON file {file_path}: {str(e)}")
+            )
+            self.logger.error(error_msg)
             raise
 
     def load_qa_dataset(self) -> List[DatasetItem]:
@@ -405,7 +307,7 @@ class DatasetManager:
 
     def _load_document_file(self, file_path: Path) -> Optional[Dict[str, Any]]:
         """
-        Load a single document file and extract its content and metadata.
+        Load a single document file using the modular loader.
 
         Args:
             file_path: Path to the document file
@@ -414,103 +316,12 @@ class DatasetManager:
             Dictionary containing document content and metadata, or None if failed
         """
         try:
-            # Read file content based on extension
-            if file_path.suffix.lower() in {'.txt', '.md'}:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-            elif file_path.suffix.lower() == '.json':
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = json.load(f)
-            else:
-                # For other formats, read as text for now
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-
-            # Extract metadata
-            stat = file_path.stat()
-
-            document = {
-                'id': str(file_path.relative_to(self.dataset_path)),
-                'filename': file_path.name,
-                'filepath': str(file_path),
-                'content': content,
-                'format': file_path.suffix.lower().lstrip('.'),
-                'size_bytes': stat.st_size,
-                'created_date': stat.st_ctime,
-                'modified_date': stat.st_mtime,
-                'metadata': {
-                    'source': 'local_file',
-                    'domain': self._infer_domain_from_path(file_path),
-                    'content_type': self._infer_content_type(file_path, content)
-                }
-            }
-
-            return document
-
+            return self.loader.load_document_file(file_path)
         except Exception as e:
             self.logger.error(f"Error loading document {file_path}: {e}")
             return None
 
-    def _infer_domain_from_path(self, file_path: Path) -> str:
-        """
-        Infer document domain from file path structure.
 
-        Args:
-            file_path: Path to the document
-
-        Returns:
-            Inferred domain category
-        """
-        path_parts = file_path.parts
-
-        # Look for domain indicators in path
-        domain_keywords = {
-            'technology': ['tech', 'software', 'programming', 'code'],
-            'business': ['business', 'finance', 'marketing', 'sales'],
-            'science': ['science', 'research', 'academic', 'study'],
-            'legal': ['legal', 'law', 'policy', 'regulation'],
-            'education': ['education', 'learning', 'tutorial', 'guide']
-        }
-
-        for part in path_parts:
-            part_lower = part.lower()
-            for domain, keywords in domain_keywords.items():
-                if any(keyword in part_lower for keyword in keywords):
-                    return domain
-
-        return 'general'
-
-    def _infer_content_type(self, file_path: Path, content: Any) -> str:
-        """
-        Infer content type from file extension and content.
-
-        Args:
-            file_path: Path to the document
-            content: Document content
-
-        Returns:
-            Inferred content type
-        """
-        extension = file_path.suffix.lower()
-
-        if extension == '.md':
-            return 'markdown'
-        elif extension == '.json':
-            return 'structured_data'
-        elif extension == '.csv':
-            return 'tabular_data'
-        elif extension == '.xml':
-            return 'structured_markup'
-        elif extension == '.txt':
-            # Try to infer from content
-            if isinstance(content, str):
-                if content.strip().startswith(('# ', '## ', '### ')):
-                    return 'markdown'
-                elif content.count('\n') > content.count(' ') * 0.1:
-                    return 'structured_text'
-            return 'plain_text'
-        else:
-            return 'unknown'
 
     def load_rag_ground_truth(self) -> List[Dict[str, Any]]:
         """
@@ -818,257 +629,54 @@ class DatasetManager:
         return stats
 
     def _get_current_timestamp(self) -> str:
-        """Get current timestamp in ISO format."""
-        from datetime import datetime
-        return datetime.now().isoformat()
+        """Get current timestamp in ISO format using the modular statistics component."""
+        return self.statistics.get_current_timestamp()
 
     def _calculate_qa_stats(self, items: List[DatasetItem]) -> Dict[str, Any]:
-        """Calculate Q&A dataset statistics."""
-        if not items:
-            return {'count': 0}
+        """Calculate Q&A dataset statistics using the modular statistics component."""
+        try:
+            return self.statistics.calculate_qa_stats(items)
+        except Exception as e:
+            self.logger.error(f"Error calculating Q&A statistics: {e}")
+            return {'error': str(e), 'total_items': len(items) if items else 0}
 
-        from collections import Counter
-
-        stats = {
-            'count': len(items),
-            'categories': dict(Counter(item.category for item in items if item.category)),
-            'difficulty_levels': dict(Counter(item.difficulty_level for item in items if item.difficulty_level)),
-            'avg_question_length': 0,
-            'avg_answer_length': 0,
-            'question_types': {},
-            'confidence_distribution': {}
-        }
-
-        # Calculate average lengths and analyze content
-        question_lengths = []
-        answer_lengths = []
-        question_types = Counter()
-        confidences = []
-
-        for item in items:
-            # Question analysis
-            if isinstance(item.input_data, dict) and 'question' in item.input_data:
-                question = item.input_data['question']
-                if isinstance(question, str):
-                    question_lengths.append(len(question))
-                    question_types[item.input_data.get('expected_response_type', 'unknown')] += 1
-
-            # Answer analysis
-            if isinstance(item.expected_output, dict):
-                answer = item.expected_output.get('answer', '')
-                if isinstance(answer, str):
-                    answer_lengths.append(len(answer))
-
-                confidence = item.expected_output.get('confidence')
-                if confidence is not None:
-                    confidences.append(confidence)
-
-        if question_lengths:
-            stats['avg_question_length'] = sum(question_lengths) / len(question_lengths)
-
-        if answer_lengths:
-            stats['avg_answer_length'] = sum(answer_lengths) / len(answer_lengths)
-
-        stats['question_types'] = dict(question_types)
-
-        if confidences:
-            stats['confidence_distribution'] = {
-                'min': min(confidences),
-                'max': max(confidences),
-                'avg': sum(confidences) / len(confidences)
-            }
-
-        return stats
-
-    def _calculate_rag_stats(self, documents: List[Dict[str, Any]], ground_truth: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Calculate RAG dataset statistics."""
-        from collections import Counter
-
-        stats = {
-            'document_count': len(documents),
-            'ground_truth_count': len(ground_truth),
-            'document_formats': {},
-            'document_domains': {},
-            'content_types': {},
-            'avg_document_size': 0,
-            'total_size_mb': 0
-        }
-
-        if documents:
-            # Analyze document formats and domains
-            formats = Counter(doc.get('format', 'unknown') for doc in documents)
-            domains = Counter(doc.get('metadata', {}).get('domain', 'unknown') for doc in documents)
-            content_types = Counter(doc.get('metadata', {}).get('content_type', 'unknown') for doc in documents)
-
-            stats['document_formats'] = dict(formats)
-            stats['document_domains'] = dict(domains)
-            stats['content_types'] = dict(content_types)
-
-            # Calculate size statistics
-            sizes = [doc.get('size_bytes', 0) for doc in documents]
-            if sizes:
-                stats['avg_document_size'] = sum(sizes) / len(sizes)
-                stats['total_size_mb'] = sum(sizes) / (1024 * 1024)
-
-        if ground_truth:
-            # Analyze ground truth data
-            query_types = Counter(item.get('metadata', {}).get('query_type', 'unknown') for item in ground_truth)
-            difficulties = Counter(item.get('metadata', {}).get('difficulty', 'unknown') for item in ground_truth)
-
-            stats['query_types'] = dict(query_types)
-            stats['query_difficulties'] = dict(difficulties)
-
-            # Calculate average expected documents per query
-            expected_doc_counts = [len(item.get('expected_documents', [])) for item in ground_truth]
-            if expected_doc_counts:
-                stats['avg_expected_docs_per_query'] = sum(expected_doc_counts) / len(expected_doc_counts)
-
-        return stats
+    def _calculate_rag_stats(self, documents: List[Dict[str, Any]], ground_truth: List[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Calculate RAG dataset statistics using the modular statistics component."""
+        try:
+            # Note: ground_truth parameter maintained for backward compatibility
+            # but not currently used by the modular statistics component
+            return self.statistics.calculate_rag_stats(documents)
+        except Exception as e:
+            self.logger.error(f"Error calculating RAG statistics: {e}")
+            return {'error': str(e), 'total_documents': len(documents) if documents else 0}
 
     def _calculate_search_stats(self, queries: List[DatasetItem]) -> Dict[str, Any]:
-        """Calculate web search dataset statistics."""
-        if not queries:
-            return {'count': 0}
-
-        from collections import Counter
-
-        stats = {
-            'count': len(queries),
-            'search_types': {},
-            'complexity_levels': {},
-            'time_sensitive_queries': 0,
-            'avg_expected_results': 0,
-            'domains': {}
-        }
-
-        search_types = Counter()
-        complexity_levels = Counter()
-        domains = Counter()
-        expected_result_counts = []
-        time_sensitive_count = 0
-
-        for query in queries:
-            if isinstance(query.input_data, dict):
-                search_type = query.input_data.get('search_type', 'general')
-                search_types[search_type] += 1
-
-                expected_count = query.input_data.get('expected_result_count', 0)
-                if expected_count:
-                    expected_result_counts.append(expected_count)
-
-            if query.metadata:
-                complexity = query.metadata.get('complexity', 'medium')
-                complexity_levels[complexity] += 1
-
-                domain = query.metadata.get('domain', 'general')
-                domains[domain] += 1
-
-                if query.metadata.get('time_sensitive', False):
-                    time_sensitive_count += 1
-
-        stats['search_types'] = dict(search_types)
-        stats['complexity_levels'] = dict(complexity_levels)
-        stats['domains'] = dict(domains)
-        stats['time_sensitive_queries'] = time_sensitive_count
-
-        if expected_result_counts:
-            stats['avg_expected_results'] = sum(expected_result_counts) / len(expected_result_counts)
-
-        return stats
+        """Calculate web search dataset statistics using the modular statistics component."""
+        try:
+            return self.statistics.calculate_web_search_stats(queries)
+        except Exception as e:
+            self.logger.error(f"Error calculating web search statistics: {e}")
+            return {'error': str(e), 'total_queries': len(queries) if queries else 0}
 
     def _calculate_multiagent_stats(self, scenarios: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Calculate multi-agent dataset statistics."""
-        if not scenarios:
-            return {'count': 0}
-
-        from collections import Counter
-
-        stats = {
-            'count': len(scenarios),
-            'scenario_types': {},
-            'complexity_levels': {},
-            'coordination_patterns': {},
-            'agent_count_distribution': {},
-            'avg_agents_per_scenario': 0,
-            'role_frequency': {}
-        }
-
-        scenario_types = Counter(scenario.get('type', 'unknown') for scenario in scenarios)
-        complexity_levels = Counter(scenario.get('complexity_level', 'unknown') for scenario in scenarios)
-        coordination_patterns = Counter(scenario.get('coordination_pattern', 'unknown') for scenario in scenarios)
-
-        agent_counts = []
-        all_roles = Counter()
-
-        for scenario in scenarios:
-            agent_count = scenario.get('metadata', {}).get('agent_count', 0)
-            if agent_count:
-                agent_counts.append(agent_count)
-
-            # Count roles across all scenarios
-            agents = scenario.get('required_agents', [])
-            for agent in agents:
-                role = agent.get('role', 'unknown')
-                all_roles[role] += 1
-
-        stats['scenario_types'] = dict(scenario_types)
-        stats['complexity_levels'] = dict(complexity_levels)
-        stats['coordination_patterns'] = dict(coordination_patterns)
-        stats['role_frequency'] = dict(all_roles)
-
-        if agent_counts:
-            stats['avg_agents_per_scenario'] = sum(agent_counts) / len(agent_counts)
-            agent_count_dist = Counter(agent_counts)
-            stats['agent_count_distribution'] = dict(agent_count_dist)
-
-        return stats
+        """Calculate multi-agent dataset statistics using the modular statistics component."""
+        try:
+            return self.statistics.calculate_multi_agent_stats(scenarios)
+        except Exception as e:
+            self.logger.error(f"Error calculating multi-agent statistics: {e}")
+            return {'error': str(e), 'total_scenarios': len(scenarios) if scenarios else 0}
 
     def _calculate_overall_stats(self, stats: Dict[str, Any]) -> Dict[str, Any]:
-        """Calculate overall dataset statistics."""
-        overall = {
-            'total_datasets': 0,
-            'total_items': 0,
-            'datasets_with_errors': 0,
-            'coverage_analysis': {},
-            'freshness_info': {
-                'last_updated': stats.get('timestamp'),
-                'dataset_path': stats.get('dataset_path')
-            }
-        }
-
-        # Count datasets and items
-        for dataset_type in ['qa_stats', 'rag_stats', 'web_search_stats', 'multi_agent_stats']:
-            dataset_stats = stats.get(dataset_type, {})
-
-            if 'error' not in dataset_stats:
-                overall['total_datasets'] += 1
-
-                # Add item counts
-                if dataset_type == 'qa_stats':
-                    overall['total_items'] += dataset_stats.get('count', 0)
-                elif dataset_type == 'rag_stats':
-                    overall['total_items'] += dataset_stats.get('document_count', 0)
-                    overall['total_items'] += dataset_stats.get('ground_truth_count', 0)
-                elif dataset_type == 'web_search_stats':
-                    overall['total_items'] += dataset_stats.get('count', 0)
-                elif dataset_type == 'multi_agent_stats':
-                    overall['total_items'] += dataset_stats.get('count', 0)
-            else:
-                overall['datasets_with_errors'] += 1
-
-        # Coverage analysis
-        overall['coverage_analysis'] = {
-            'qa_available': 'error' not in stats.get('qa_stats', {}),
-            'rag_available': 'error' not in stats.get('rag_stats', {}),
-            'web_search_available': 'error' not in stats.get('web_search_stats', {}),
-            'multi_agent_available': 'error' not in stats.get('multi_agent_stats', {})
-        }
-
-        return overall
+        """Calculate overall dataset statistics using the modular statistics component."""
+        try:
+            return self.statistics.calculate_overall_stats(stats)
+        except Exception as e:
+            self.logger.error(f"Error calculating overall statistics: {e}")
+            return {'error': str(e), 'total_datasets': 0, 'total_items': 0}
 
     def export_dataset(self, dataset_type: str, format: str, output_path: Path, compress: bool = False) -> None:
         """
-        Export dataset to specified format and location.
+        Export dataset to specified format and location using the modular I/O manager.
 
         Args:
             dataset_type: Type of dataset to export (qa, rag, web_search, multi_agent)
@@ -1077,138 +685,38 @@ class DatasetManager:
             compress: Whether to compress the output file using gzip
 
         Raises:
-            ValueError: If dataset type or format is not supported
-            FileNotFoundError: If dataset doesn't exist
+            DatasetError: If export operation fails
         """
-        # Validate format
-        if format not in ['json', 'jsonl', 'csv']:
-            raise ValueError(f"Unsupported export format: {format}")
-
-        # Load the appropriate dataset
-        if dataset_type == 'qa':
-            items = self.load_qa_dataset()
-            data = [item.to_dict() for item in items]
-        elif dataset_type == 'rag':
-            data = self.load_rag_documents()
-        elif dataset_type == 'web_search':
-            items = self.load_search_queries()
-            data = [item.to_dict() for item in items]
-        elif dataset_type == 'multi_agent':
-            data = self.load_multiagent_scenarios()
-        else:
-            raise ValueError(f"Unsupported dataset type: {dataset_type}")
-
-        # Ensure output directory exists
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-
-        # Adjust output path for compression
-        final_output_path = output_path
-        if compress:
-            final_output_path = output_path.with_suffix(f"{output_path.suffix}.gz")
-
-        # Export based on format
-        if format == 'json':
-            self._export_json(data, final_output_path, compress)
-        elif format == 'jsonl':
-            self._export_jsonl(data, final_output_path, compress)
-        elif format == 'csv':
-            self._export_csv(data, final_output_path, dataset_type, compress)
-
-        compression_info = " (compressed)" if compress else ""
-        self.logger.info(f"Successfully exported {len(data)} items to {final_output_path}{compression_info}")
-
-    def _export_json(self, data: List[Dict[str, Any]], output_path: Path, compress: bool = False) -> None:
-        """Export data as JSON."""
-        if compress:
-            import gzip
-            with gzip.open(output_path, 'wt', encoding='utf-8') as f:
-                json.dump(data, f, indent=2, ensure_ascii=False, default=str)
-        else:
-            with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=2, ensure_ascii=False, default=str)
-
-    def _export_jsonl(self, data: List[Dict[str, Any]], output_path: Path, compress: bool = False) -> None:
-        """Export data as JSON Lines."""
-        if compress:
-            import gzip
-            with gzip.open(output_path, 'wt', encoding='utf-8') as f:
-                for item in data:
-                    json.dump(item, f, ensure_ascii=False, default=str)
-                    f.write('\n')
-        else:
-            with open(output_path, 'w', encoding='utf-8') as f:
-                for item in data:
-                    json.dump(item, f, ensure_ascii=False, default=str)
-                    f.write('\n')
-
-    def _export_csv(self, data: List[Dict[str, Any]], output_path: Path, dataset_type: str, compress: bool = False) -> None:
-        """Export data as CSV with dataset-specific column handling."""
-        import csv
-
-        if not data:
-            return
-
-        # Define column mappings for different dataset types
-        if dataset_type == 'qa':
-            fieldnames = ['id', 'input_data', 'expected_output', 'category', 'difficulty_level', 'metadata']
-        elif dataset_type == 'rag':
-            fieldnames = ['id', 'filename', 'content', 'format', 'size_bytes', 'domain', 'content_type']
-        elif dataset_type == 'web_search':
-            fieldnames = ['id', 'input_data', 'expected_output', 'category', 'difficulty_level', 'metadata']
-        elif dataset_type == 'multi_agent':
-            fieldnames = ['id', 'type', 'title', 'description', 'agent_count', 'complexity_level']
-        else:
-            # Fallback: use all keys from first item
-            fieldnames = list(data[0].keys())
-
-        if compress:
-            import gzip
-            with gzip.open(output_path, 'wt', newline='', encoding='utf-8') as f:
-                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
-                writer.writeheader()
-
-                for item in data:
-                    # Flatten complex fields for CSV
-                    flattened_item = self._flatten_for_csv(item, dataset_type)
-                    writer.writerow(flattened_item)
-        else:
-            with open(output_path, 'w', newline='', encoding='utf-8') as f:
-                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
-                writer.writeheader()
-
-                for item in data:
-                    # Flatten complex fields for CSV
-                    flattened_item = self._flatten_for_csv(item, dataset_type)
-                    writer.writerow(flattened_item)
-
-    def _flatten_for_csv(self, item: Dict[str, Any], dataset_type: str) -> Dict[str, Any]:
-        """Flatten complex data structures for CSV export."""
-        flattened = {}
-
-        for key, value in item.items():
-            if isinstance(value, (dict, list)):
-                # Convert complex types to JSON strings
-                flattened[key] = json.dumps(value, default=str)
+        try:
+            # Load the appropriate dataset
+            if dataset_type == 'qa':
+                items = self.load_qa_dataset()
+                data = [item.to_dict() for item in items]
+            elif dataset_type == 'rag':
+                data = self.load_rag_documents()
+            elif dataset_type == 'web_search':
+                items = self.load_search_queries()
+                data = [item.to_dict() for item in items]
+            elif dataset_type == 'multi_agent':
+                data = self.load_multiagent_scenarios()
             else:
-                flattened[key] = value
+                raise ValueError(f"Unsupported dataset type: {dataset_type}")
 
-        # Add dataset-specific flattening
-        if dataset_type == 'rag' and 'metadata' in item:
-            metadata = item['metadata']
-            if isinstance(metadata, dict):
-                flattened['domain'] = metadata.get('domain', '')
-                flattened['content_type'] = metadata.get('content_type', '')
+            # Use the modular I/O manager for export
+            self.io_manager.export_dataset(dataset_type, format, output_path, data, compress)
 
-        if dataset_type == 'multi_agent' and 'metadata' in item:
-            metadata = item['metadata']
-            if isinstance(metadata, dict):
-                flattened['agent_count'] = metadata.get('agent_count', 0)
+        except Exception as e:
+            error_msg = create_user_friendly_error_message(
+                DatasetError(f"Failed to export {dataset_type} dataset: {str(e)}")
+            )
+            self.logger.error(error_msg)
+            raise
 
-        return flattened
+
 
     def import_dataset(self, source_path: Path, format: str, dataset_type: str, merge: bool = False) -> None:
         """
-        Import dataset from external source.
+        Import dataset from external source using the modular I/O manager.
 
         Args:
             source_path: Path to the source file
@@ -1217,122 +725,31 @@ class DatasetManager:
             merge: Whether to merge with existing data or replace
 
         Raises:
-            ValueError: If format or dataset type is not supported
-            FileNotFoundError: If source file doesn't exist
+            DatasetError: If import operation fails
         """
-        if not source_path.exists():
-            raise FileNotFoundError(f"Source file not found: {source_path}")
+        try:
+            # Use the modular I/O manager for import
+            imported_data = self.io_manager.import_dataset(source_path, format, dataset_type)
 
-        if format not in ['json', 'jsonl', 'csv']:
-            raise ValueError(f"Unsupported import format: {format}")
-
-        if dataset_type not in ['qa', 'rag', 'web_search', 'multi_agent']:
-            raise ValueError(f"Unsupported dataset type: {dataset_type}")
-
-        # Load data from source
-        if format == 'json':
-            imported_data = self._import_json(source_path)
-        elif format == 'jsonl':
-            imported_data = self._import_jsonl(source_path)
-        elif format == 'csv':
-            imported_data = self._import_csv(source_path, dataset_type)
-
-        # Validate imported data
-        self._validate_imported_data(imported_data, dataset_type)
-
-        # Convert to appropriate format and save
-        if dataset_type == 'qa':
-            self._import_qa_dataset(imported_data, merge)
-        elif dataset_type == 'web_search':
-            self._import_search_dataset(imported_data, merge)
-        else:
-            # For rag and multi_agent, direct file replacement for now
-            self._import_direct_dataset(imported_data, dataset_type, merge)
-
-        self.logger.info(f"Successfully imported {len(imported_data)} items for {dataset_type} dataset")
-
-    def _import_json(self, source_path: Path) -> List[Dict[str, Any]]:
-        """Import data from JSON file."""
-        return self._load_json_file(source_path)
-
-    def _import_jsonl(self, source_path: Path) -> List[Dict[str, Any]]:
-        """Import data from JSON Lines file."""
-        data = []
-        with open(source_path, 'r', encoding='utf-8') as f:
-            for line_num, line in enumerate(f, 1):
-                line = line.strip()
-                if line:
-                    try:
-                        item = json.loads(line)
-                        data.append(item)
-                    except json.JSONDecodeError as e:
-                        self.logger.warning(f"Invalid JSON on line {line_num}: {e}")
-                        continue
-        return data
-
-    def _import_csv(self, source_path: Path, dataset_type: str) -> List[Dict[str, Any]]:
-        """Import data from CSV file."""
-        import csv
-
-        data = []
-        with open(source_path, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row_num, row in enumerate(reader, 1):
-                try:
-                    # Unflatten complex fields that were JSON-encoded
-                    processed_row = self._unflatten_from_csv(row, dataset_type)
-                    data.append(processed_row)
-                except Exception as e:
-                    self.logger.warning(f"Error processing CSV row {row_num}: {e}")
-                    continue
-
-        return data
-
-    def _unflatten_from_csv(self, row: Dict[str, str], dataset_type: str) -> Dict[str, Any]:
-        """Unflatten CSV row data back to complex structures."""
-        processed = {}
-
-        # Dataset-specific field handling
-        json_fields = {
-            'qa': ['input_data', 'expected_output', 'metadata'],
-            'rag': ['metadata'],
-            'web_search': ['input_data', 'expected_output', 'metadata'],
-            'multi_agent': ['required_agents', 'metadata', 'expected_workflow', 'success_criteria']
-        }.get(dataset_type, ['metadata'])
-
-        for key, value in row.items():
-            if not value:  # Skip empty values
-                continue
-
-            # Try to parse JSON-encoded fields
-            if key in json_fields:
-                try:
-                    processed[key] = json.loads(value)
-                except json.JSONDecodeError:
-                    processed[key] = value
+            # Convert to appropriate format and save
+            if dataset_type == 'qa':
+                self._import_qa_dataset(imported_data, merge)
+            elif dataset_type == 'web_search':
+                self._import_search_dataset(imported_data, merge)
             else:
-                processed[key] = value
+                # For rag and multi_agent, direct file replacement for now
+                self._import_direct_dataset(imported_data, dataset_type, merge)
 
-        return processed
+            self.logger.info(f"Successfully imported {len(imported_data)} items for {dataset_type} dataset")
 
-    def _validate_imported_data(self, data: List[Dict[str, Any]], dataset_type: str) -> None:
-        """Validate imported data structure."""
-        if not data:
-            raise ValueError("Imported data is empty")
+        except Exception as e:
+            error_msg = create_user_friendly_error_message(
+                DatasetError(f"Failed to import {dataset_type} dataset: {str(e)}")
+            )
+            self.logger.error(error_msg)
+            raise
 
-        required_fields = {
-            'qa': ['id'],
-            'rag': ['id', 'content'],
-            'web_search': ['id'],
-            'multi_agent': ['id', 'type']
-        }
 
-        required = required_fields.get(dataset_type, ['id'])
-
-        for i, item in enumerate(data):
-            for field in required:
-                if field not in item or not item[field]:
-                    raise ValueError(f"Item {i}: Missing required field '{field}'")
 
     def _import_qa_dataset(self, data: List[Dict[str, Any]], merge: bool) -> None:
         """Import Q&A dataset with proper structure conversion."""
