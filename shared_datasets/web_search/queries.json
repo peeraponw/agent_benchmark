@@ -2,26 +2,32 @@
   {
     "id": "ws_001",
     "query": "Current weather in New York City",
-    "category": "real_time_data",
+    "category": "current_events",
     "expected_info_type": "weather_data",
     "requires_current_data": true,
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["weather.com", "noaa.gov", "accuweather.com"]
   },
   {
     "id": "ws_002",
     "query": "Latest developments in quantum computing 2024",
-    "category": "recent_news",
+    "category": "current_events",
     "expected_info_type": "technology_news",
     "requires_current_data": true,
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["nature.com", "ieee.org", "sciencedaily.com"]
   },
   {
     "id": "ws_003",
     "query": "Stock price of Apple Inc today",
-    "category": "financial_data",
-    "expected_info_type": "stock_information",
+    "category": "current_events",
+    "expected_info_type": "financial_data",
     "requires_current_data": true,
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["yahoo.finance", "bloomberg.com", "marketwatch.com"]
   },
   {
     "id": "ws_004",
@@ -29,6 +35,718 @@
     "category": "fact_checking",
     "expected_info_type": "historical_verification",
     "requires_current_data": false,
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["nasa.gov", "snopes.com", "factcheck.org"]
+  },
+  {
+    "id": "ws_005",
+    "query": "Breaking news today United States",
+    "category": "current_events",
+    "expected_info_type": "news_headlines",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["reuters.com", "ap.org", "bbc.com"]
+  },
+  {
+    "id": "ws_006",
+    "query": "COVID-19 vaccination rates by country 2024",
+    "category": "current_events",
+    "expected_info_type": "health_statistics",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["who.int", "ourworldindata.org", "cdc.gov"]
+  },
+  {
+    "id": "ws_007",
+    "query": "Cryptocurrency Bitcoin price today",
+    "category": "current_events",
+    "expected_info_type": "financial_data",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["coinbase.com", "coinmarketcap.com", "binance.com"]
+  },
+  {
+    "id": "ws_008",
+    "query": "2024 US presidential election results",
+    "category": "current_events",
+    "expected_info_type": "election_data",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["fec.gov", "ballotpedia.org", "politico.com"]
+  },
+  {
+    "id": "ws_009",
+    "query": "Climate change temperature records 2024",
+    "category": "current_events",
+    "expected_info_type": "environmental_data",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["noaa.gov", "nasa.gov", "ipcc.ch"]
+  },
+  {
+    "id": "ws_010",
+    "query": "Latest iPhone release features and price",
+    "category": "current_events",
+    "expected_info_type": "product_information",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "medium",
+    "expected_sources": ["apple.com", "techcrunch.com", "theverge.com"]
+  },
+  {
+    "id": "ws_011",
+    "query": "Current gas prices in California",
+    "category": "current_events",
+    "expected_info_type": "pricing_data",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["gasbuddy.com", "aaa.com", "eia.gov"]
+  },
+  {
+    "id": "ws_012",
+    "query": "Space X latest rocket launch news",
+    "category": "current_events",
+    "expected_info_type": "space_news",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["spacex.com", "space.com", "nasa.gov"]
+  },
+  {
+    "id": "ws_013",
+    "query": "AI artificial intelligence breakthrough 2024",
+    "category": "current_events",
+    "expected_info_type": "technology_news",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["arxiv.org", "openai.com", "deepmind.com"]
+  },
+  {
+    "id": "ws_014",
+    "query": "Olympic Games 2024 medal count",
+    "category": "current_events",
+    "expected_info_type": "sports_data",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["olympics.com", "espn.com", "bbc.com"]
+  },
+  {
+    "id": "ws_015",
+    "query": "Earthquake activity today worldwide",
+    "category": "current_events",
+    "expected_info_type": "geological_data",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["usgs.gov", "emsc-csem.org", "earthquake.usgs.gov"]
+  },
+  {
+    "id": "ws_016",
+    "query": "Federal Reserve interest rate decision 2024",
+    "category": "current_events",
+    "expected_info_type": "financial_policy",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["federalreserve.gov", "wsj.com", "reuters.com"]
+  },
+  {
+    "id": "ws_017",
+    "query": "Global supply chain disruptions current status",
+    "category": "current_events",
+    "expected_info_type": "economic_data",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["worldbank.org", "wto.org", "bloomberg.com"]
+  },
+  {
+    "id": "ws_018",
+    "query": "Renewable energy adoption statistics 2024",
+    "category": "current_events",
+    "expected_info_type": "energy_statistics",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["irena.org", "iea.org", "eia.gov"]
+  },
+  {
+    "id": "ws_019",
+    "query": "Social media platform user statistics 2024",
+    "category": "current_events",
+    "expected_info_type": "technology_statistics",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["statista.com", "pewresearch.org", "socialmediatoday.com"]
+  },
+  {
+    "id": "ws_020",
+    "query": "Current wildfire activity United States",
+    "category": "current_events",
+    "expected_info_type": "emergency_data",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["nifc.gov", "inciweb.nwcg.gov", "fire.ca.gov"]
+  },
+  {
+    "id": "ws_021",
+    "query": "Fact check: Does drinking coffee cause dehydration?",
+    "category": "fact_checking",
+    "expected_info_type": "health_verification",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["mayoclinic.org", "healthline.com", "pubmed.ncbi.nlm.nih.gov"]
+  },
+  {
+    "id": "ws_022",
+    "query": "Fact check: Is the Great Wall of China visible from space?",
+    "category": "fact_checking",
+    "expected_info_type": "scientific_verification",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["nasa.gov", "snopes.com", "nationalgeographic.com"]
+  },
+  {
+    "id": "ws_023",
+    "query": "Verify: Do vaccines cause autism?",
+    "category": "fact_checking",
+    "expected_info_type": "medical_verification",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["cdc.gov", "who.int", "cochrane.org"]
+  },
+  {
+    "id": "ws_024",
+    "query": "Fact check: Is climate change caused by human activities?",
+    "category": "fact_checking",
+    "expected_info_type": "scientific_verification",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["ipcc.ch", "nasa.gov", "noaa.gov"]
+  },
+  {
+    "id": "ws_025",
+    "query": "Verify: Does cracking knuckles cause arthritis?",
+    "category": "fact_checking",
+    "expected_info_type": "medical_verification",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["arthritis.org", "mayoclinic.org", "webmd.com"]
+  },
+  {
+    "id": "ws_026",
+    "query": "Research: History of artificial intelligence development",
+    "category": "research",
+    "expected_info_type": "historical_information",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["stanford.edu", "mit.edu", "britannica.com"]
+  },
+  {
+    "id": "ws_027",
+    "query": "Academic research: Quantum computing applications in cryptography",
+    "category": "research",
+    "expected_info_type": "technical_information",
+    "requires_current_data": false,
+    "difficulty": "expert",
+    "time_sensitivity": "low",
+    "expected_sources": ["arxiv.org", "ieee.org", "acm.org"]
+  },
+  {
+    "id": "ws_028",
+    "query": "Research: Impact of social media on mental health studies",
+    "category": "research",
+    "expected_info_type": "academic_research",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["pubmed.ncbi.nlm.nih.gov", "psycnet.apa.org", "scholar.google.com"]
+  },
+  {
+    "id": "ws_029",
+    "query": "Scientific research: CRISPR gene editing ethical considerations",
+    "category": "research",
+    "expected_info_type": "scientific_ethics",
+    "requires_current_data": false,
+    "difficulty": "expert",
+    "time_sensitivity": "low",
+    "expected_sources": ["nature.com", "science.org", "bioethics.gov"]
+  },
+  {
+    "id": "ws_030",
+    "query": "Research: Renewable energy efficiency comparison studies",
+    "category": "research",
+    "expected_info_type": "technical_analysis",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["nrel.gov", "iea.org", "sciencedirect.com"]
+  },
+  {
+    "id": "ws_031",
+    "query": "Best restaurants near Times Square New York",
+    "category": "local_information",
+    "expected_info_type": "business_listings",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "medium",
+    "expected_sources": ["yelp.com", "tripadvisor.com", "opentable.com"]
+  },
+  {
+    "id": "ws_032",
+    "query": "Public transportation schedule San Francisco BART",
+    "category": "local_information",
+    "expected_info_type": "transit_information",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["bart.gov", "511.org", "transit.app"]
+  },
+  {
+    "id": "ws_033",
+    "query": "Local events this weekend Chicago",
+    "category": "local_information",
+    "expected_info_type": "event_listings",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["eventbrite.com", "timeout.com", "choosechicago.com"]
+  },
+  {
+    "id": "ws_034",
+    "query": "Hospital emergency rooms near me Los Angeles",
+    "category": "local_information",
+    "expected_info_type": "healthcare_services",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["google.com/maps", "healthgrades.com", "lacounty.gov"]
+  },
+  {
+    "id": "ws_035",
+    "query": "Local weather forecast Miami Florida next 7 days",
+    "category": "local_information",
+    "expected_info_type": "weather_forecast",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["weather.com", "nws.noaa.gov", "accuweather.com"]
+  },
+  {
+    "id": "ws_036",
+    "query": "Compare iPhone 15 vs Samsung Galaxy S24 specifications",
+    "category": "comparative",
+    "expected_info_type": "product_comparison",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["gsmarena.com", "techradar.com", "cnet.com"]
+  },
+  {
+    "id": "ws_037",
+    "query": "Tesla Model 3 vs BMW i4 electric vehicle comparison",
+    "category": "comparative",
+    "expected_info_type": "vehicle_comparison",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["edmunds.com", "caranddriver.com", "motortrend.com"]
+  },
+  {
+    "id": "ws_038",
+    "query": "Netflix vs Disney Plus vs HBO Max streaming service comparison",
+    "category": "comparative",
+    "expected_info_type": "service_comparison",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["techcrunch.com", "variety.com", "streamingmedia.com"]
+  },
+  {
+    "id": "ws_039",
+    "query": "Solar panels vs wind turbines cost effectiveness analysis",
+    "category": "comparative",
+    "expected_info_type": "energy_comparison",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["nrel.gov", "eia.gov", "irena.org"]
+  },
+  {
+    "id": "ws_040",
+    "query": "Public vs private healthcare systems cost comparison",
+    "category": "comparative",
+    "expected_info_type": "policy_comparison",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["oecd.org", "who.int", "commonwealthfund.org"]
+  },
+  {
+    "id": "ws_041",
+    "query": "Current inflation rate United States 2024",
+    "category": "current_events",
+    "expected_info_type": "economic_data",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["bls.gov", "federalreserve.gov", "tradingeconomics.com"]
+  },
+  {
+    "id": "ws_042",
+    "query": "Latest Mars rover discoveries NASA",
+    "category": "current_events",
+    "expected_info_type": "space_science",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["nasa.gov", "jpl.nasa.gov", "space.com"]
+  },
+  {
+    "id": "ws_043",
+    "query": "Global semiconductor chip shortage update 2024",
+    "category": "current_events",
+    "expected_info_type": "industry_news",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["semiconductors.org", "reuters.com", "bloomberg.com"]
+  },
+  {
+    "id": "ws_044",
+    "query": "Electric vehicle sales statistics worldwide 2024",
+    "category": "current_events",
+    "expected_info_type": "market_data",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["iea.org", "ev-volumes.com", "insideevs.com"]
+  },
+  {
+    "id": "ws_045",
+    "query": "Cybersecurity threats and data breaches 2024",
+    "category": "current_events",
+    "expected_info_type": "security_news",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "high",
+    "expected_sources": ["cisa.gov", "krebsonsecurity.com", "darkreading.com"]
+  },
+  {
+    "id": "ws_046",
+    "query": "Verify: Do goldfish have 3-second memory?",
+    "category": "fact_checking",
+    "expected_info_type": "animal_behavior",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["nationalgeographic.com", "scientificamerican.com", "snopes.com"]
+  },
+  {
+    "id": "ws_047",
+    "query": "Fact check: Is MSG monosodium glutamate harmful?",
+    "category": "fact_checking",
+    "expected_info_type": "food_safety",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["fda.gov", "mayoclinic.org", "who.int"]
+  },
+  {
+    "id": "ws_048",
+    "query": "Verify: Does lightning never strike the same place twice?",
+    "category": "fact_checking",
+    "expected_info_type": "weather_science",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["noaa.gov", "weather.gov", "nationalgeographic.com"]
+  },
+  {
+    "id": "ws_049",
+    "query": "Research: Machine learning applications in healthcare",
+    "category": "research",
+    "expected_info_type": "technical_research",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["pubmed.ncbi.nlm.nih.gov", "nature.com", "ieee.org"]
+  },
+  {
+    "id": "ws_050",
+    "query": "Academic research: Blockchain technology environmental impact",
+    "category": "research",
+    "expected_info_type": "environmental_analysis",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["cambridge.org", "nature.com", "sciencedirect.com"]
+  },
+  {
+    "id": "ws_051",
+    "query": "Best coffee shops downtown Seattle",
+    "category": "local_information",
+    "expected_info_type": "business_listings",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "medium",
+    "expected_sources": ["yelp.com", "foursquare.com", "visitseattle.org"]
+  },
+  {
+    "id": "ws_052",
+    "query": "Parking rates downtown Boston today",
+    "category": "local_information",
+    "expected_info_type": "pricing_information",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["boston.gov", "parkwhiz.com", "spothero.com"]
+  },
+  {
+    "id": "ws_053",
+    "query": "Local hiking trails near Denver Colorado",
+    "category": "local_information",
+    "expected_info_type": "recreation_information",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "medium",
+    "expected_sources": ["alltrails.com", "colorado.gov", "denvergov.org"]
+  },
+  {
+    "id": "ws_054",
+    "query": "Compare MacBook Air vs MacBook Pro 2024 models",
+    "category": "comparative",
+    "expected_info_type": "product_comparison",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["apple.com", "macrumors.com", "techcrunch.com"]
+  },
+  {
+    "id": "ws_055",
+    "query": "Android vs iOS mobile operating system comparison",
+    "category": "comparative",
+    "expected_info_type": "technology_comparison",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["androidauthority.com", "imore.com", "techradar.com"]
+  },
+  {
+    "id": "ws_056",
+    "query": "Remote work vs office work productivity studies",
+    "category": "comparative",
+    "expected_info_type": "workplace_analysis",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["harvard.edu", "stanford.edu", "mckinsey.com"]
+  },
+  {
+    "id": "ws_057",
+    "query": "Nuclear energy vs renewable energy safety comparison",
+    "category": "comparative",
+    "expected_info_type": "energy_safety",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["iaea.org", "world-nuclear.org", "irena.org"]
+  },
+  {
+    "id": "ws_058",
+    "query": "Public transportation vs private car environmental impact",
+    "category": "comparative",
+    "expected_info_type": "environmental_comparison",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["epa.gov", "transit.dot.gov", "ucsusa.org"]
+  },
+  {
+    "id": "ws_059",
+    "query": "Current unemployment rate by state United States",
+    "category": "current_events",
+    "expected_info_type": "employment_statistics",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["bls.gov", "dol.gov", "statista.com"]
+  },
+  {
+    "id": "ws_060",
+    "query": "Latest breakthrough in cancer treatment research",
+    "category": "current_events",
+    "expected_info_type": "medical_news",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["cancer.gov", "nature.com", "nejm.org"]
+  },
+  {
+    "id": "ws_061",
+    "query": "Global food security crisis 2024 status",
+    "category": "current_events",
+    "expected_info_type": "humanitarian_data",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "high",
+    "expected_sources": ["fao.org", "wfp.org", "worldbank.org"]
+  },
+  {
+    "id": "ws_062",
+    "query": "Artificial intelligence regulation updates Europe",
+    "category": "current_events",
+    "expected_info_type": "policy_news",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["europa.eu", "politico.eu", "techcrunch.com"]
+  },
+  {
+    "id": "ws_063",
+    "query": "Ocean plastic pollution cleanup efforts 2024",
+    "category": "current_events",
+    "expected_info_type": "environmental_news",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["theoceancleanup.com", "unep.org", "nationalgeographic.com"]
+  },
+  {
+    "id": "ws_064",
+    "query": "Verify: Does eating carrots improve night vision?",
+    "category": "fact_checking",
+    "expected_info_type": "nutrition_science",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["aao.org", "healthline.com", "snopes.com"]
+  },
+  {
+    "id": "ws_065",
+    "query": "Fact check: Is the Earth's magnetic field weakening?",
+    "category": "fact_checking",
+    "expected_info_type": "geophysical_science",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["nasa.gov", "usgs.gov", "nature.com"]
+  },
+  {
+    "id": "ws_066",
+    "query": "Research: Impact of microplastics on human health",
+    "category": "research",
+    "expected_info_type": "health_research",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["who.int", "pubmed.ncbi.nlm.nih.gov", "nature.com"]
+  },
+  {
+    "id": "ws_067",
+    "query": "Academic research: Urban heat island effect solutions",
+    "category": "research",
+    "expected_info_type": "urban_planning",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["epa.gov", "sciencedirect.com", "urbanclimate.org"]
+  },
+  {
+    "id": "ws_068",
+    "query": "Local farmers markets near Portland Oregon",
+    "category": "local_information",
+    "expected_info_type": "market_listings",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "medium",
+    "expected_sources": ["portlandoregon.gov", "oregonfarmersmarkets.org", "yelp.com"]
+  },
+  {
+    "id": "ws_069",
+    "query": "Public libraries hours Austin Texas",
+    "category": "local_information",
+    "expected_info_type": "service_hours",
+    "requires_current_data": true,
+    "difficulty": "easy",
+    "time_sensitivity": "high",
+    "expected_sources": ["austinpubliclibrary.org", "austintexas.gov", "google.com"]
+  },
+  {
+    "id": "ws_070",
+    "query": "Compare hybrid vs electric vs gasoline car costs",
+    "category": "comparative",
+    "expected_info_type": "cost_analysis",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["fueleconomy.gov", "edmunds.com", "consumerreports.org"]
+  },
+  {
+    "id": "ws_071",
+    "query": "Online learning vs traditional classroom effectiveness",
+    "category": "comparative",
+    "expected_info_type": "education_research",
+    "requires_current_data": true,
+    "difficulty": "hard",
+    "time_sensitivity": "medium",
+    "expected_sources": ["ed.gov", "educause.edu", "chronicle.com"]
+  },
+  {
+    "id": "ws_072",
+    "query": "Renewable energy job market growth 2024",
+    "category": "current_events",
+    "expected_info_type": "employment_trends",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "medium",
+    "expected_sources": ["irena.org", "bls.gov", "greenjobs.com"]
+  },
+  {
+    "id": "ws_073",
+    "query": "Mental health support resources during pandemic",
+    "category": "current_events",
+    "expected_info_type": "health_resources",
+    "requires_current_data": true,
+    "difficulty": "medium",
+    "time_sensitivity": "high",
+    "expected_sources": ["cdc.gov", "nimh.nih.gov", "who.int"]
+  },
+  {
+    "id": "ws_074",
+    "query": "Verify: Does sugar make children hyperactive?",
+    "category": "fact_checking",
+    "expected_info_type": "behavioral_science",
+    "requires_current_data": false,
+    "difficulty": "medium",
+    "time_sensitivity": "low",
+    "expected_sources": ["aap.org", "mayoclinic.org", "pubmed.ncbi.nlm.nih.gov"]
+  },
+  {
+    "id": "ws_075",
+    "query": "Research: Vertical farming sustainability analysis",
+    "category": "research",
+    "expected_info_type": "agricultural_research",
+    "requires_current_data": false,
+    "difficulty": "hard",
+    "time_sensitivity": "low",
+    "expected_sources": ["nature.com", "usda.gov", "sciencedirect.com"]
   }
 ]
