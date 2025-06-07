@@ -1,0 +1,142 @@
+version: '3.8'
+
+# Docker Compose Template for AI Agent Framework Infrastructure
+# This template provides isolated infrastructure services for each framework
+# 
+# Usage:
+#   1. Copy this file to your framework directory as docker-compose.yaml
+#   2. Replace environment variables with framework-specific values
+#   3. Customize ports to avoid conflicts between frameworks
+#
+# Port Allocation Strategy:
+#   CrewAI:     Qdrant: 6333, Langfuse: 3000, Postgres: 5432, MCP: 8080
+#   DSPy:       Qdrant: 6334, Langfuse: 3001, Postgres: 5433, MCP: 8081
+#   PocketFlow: Qdrant: 6335, Langfuse: 3002, Postgres: 5434, MCP: 8082
+#   Google ADK: Qdrant: 6336, Langfuse: 3003, Postgres: 5435, MCP: 8083
+#   Pydantic AI:Qdrant: 6337, Langfuse: 3004, Postgres: 5436, MCP: 8084
+
+services:
+  # Qdrant Vector Database
+  # Provides vector storage and similarity search capabilities
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: "${FRAMEWORK_NAME}_qdrant"
+    ports:
+      - "${QDRANT_PORT}:6333"
+    volumes:
+      - ${FRAMEWORK_NAME}_qdrant_data:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    networks:
+      - ${FRAMEWORK_NAME}_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL Database
+  # Backend database for Langfuse observability platform
+  postgres:
+    image: postgres:15-alpine
+    container_name: "${FRAMEWORK_NAME}_postgres"
+    environment:
+      - POSTGRES_DB=langfuse
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - ${FRAMEWORK_NAME}_postgres_data:/var/lib/postgresql/data
+    networks:
+      - ${FRAMEWORK_NAME}_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d langfuse"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Langfuse Observability Platform
+  # Provides LLM observability, tracing, and analytics
+  langfuse:
+    image: langfuse/langfuse:latest
+    container_name: "${FRAMEWORK_NAME}_langfuse"
+    ports:
+      - "${LANGFUSE_PORT}:3000"
+    environment:
+      - DATABASE_URL=${LANGFUSE_DB_URL}
+      - NEXTAUTH_SECRET=${LANGFUSE_NEXTAUTH_SECRET}
+      - SALT=${LANGFUSE_SALT}
+      - NEXTAUTH_URL=http://localhost:${LANGFUSE_PORT}
+      - TELEMETRY_ENABLED=true
+      - LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES=false
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ${FRAMEWORK_NAME}_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/public/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # External MCP Services Integration
+  # Note: This project uses external MCP servers instead of custom implementation
+  # Recommended MCP servers for different capabilities:
+  #
+  # Web Search:
+  #   - Brave Search MCP (privacy-focused)
+  #   - Tavily Search MCP (premium features)
+  #   - DuckDuckGo MCP (no API key required)
+  #
+  # Vector Search:
+  #   - Official Qdrant MCP server
+  #   - Typesense MCP server
+  #
+  # File Operations:
+  #   - Official Filesystem MCP server
+  #   - GitHub MCP server for repository access
+  #
+  # Setup Instructions:
+  # 1. Install desired MCP servers using: uvx mcp-server-<name>
+  # 2. Configure in Claude Desktop or your preferred MCP client
+  # 3. Update framework configurations to use external MCP endpoints
+  #
+  # For local development, you can run MCP servers directly:
+  # uvx mcp-server-filesystem --allowed-dirs /path/to/shared_datasets
+  # uvx mcp-server-brave-search
+  # uvx mcp-server-qdrant --host localhost --port ${QDRANT_PORT}
+
+# Named Volumes for Data Persistence
+volumes:
+  ${FRAMEWORK_NAME}_qdrant_data:
+    driver: local
+    name: ${FRAMEWORK_NAME}_qdrant_data
+  ${FRAMEWORK_NAME}_postgres_data:
+    driver: local
+    name: ${FRAMEWORK_NAME}_postgres_data
+
+# Isolated Network for Framework Services
+networks:
+  ${FRAMEWORK_NAME}_network:
+    driver: bridge
+    name: ${FRAMEWORK_NAME}_network
+    ipam:
+      config:
+        - subnet: 172.${NETWORK_SUBNET}.0.0/16
+
+# Environment Variables Required:
+# FRAMEWORK_NAME: Unique identifier for the framework (e.g., "crewai", "dspy")
+# QDRANT_PORT: External port for Qdrant service (6333-6337)
+# LANGFUSE_PORT: External port for Langfuse web interface (3000-3004)
+# MCP_PORT: External port for MCP server (8080-8084)
+# POSTGRES_USER: PostgreSQL username for Langfuse
+# POSTGRES_PASSWORD: PostgreSQL password for Langfuse
+# LANGFUSE_DB_URL: Full PostgreSQL connection URL for Langfuse
+# LANGFUSE_NEXTAUTH_SECRET: Secret key for NextAuth.js authentication
+# LANGFUSE_SALT: Salt for password hashing
+# NETWORK_SUBNET: Unique subnet number for network isolation (20-24)

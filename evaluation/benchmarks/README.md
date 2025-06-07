@@ -12,14 +12,14 @@ This directory contains automated benchmark scripts for running comprehensive ev
 
 ## Benchmark Types
 
-### Individual Task Benchmarks
-- `qa_benchmark.py` - Question-answering task evaluation
+### Individual Use Case Benchmarks
+- `qa_benchmark.py` - Question-answering use case evaluation
 - `rag_benchmark.py` - RAG (Retrieval-Augmented Generation) evaluation
 - `web_search_benchmark.py` - Web search integration testing
 - `multi_agent_benchmark.py` - Multi-agent collaboration assessment
 
 ### Comprehensive Benchmarks
-- `full_suite_benchmark.py` - Complete evaluation across all tasks
+- `full_suite_benchmark.py` - Complete evaluation across all use cases
 - `performance_benchmark.py` - Resource usage and speed testing
 - `scalability_benchmark.py` - Load testing and scaling evaluation
 - `cost_analysis_benchmark.py` - Economic comparison analysis
@@ -28,17 +28,17 @@ This directory contains automated benchmark scripts for running comprehensive ev
 
 ### Run All Benchmarks
 ```bash
-python evaluation/benchmarks/benchmark_runner.py --frameworks all --tasks all
+python evaluation/benchmarks/benchmark_runner.py --frameworks all --use-cases all
 ```
 
 ### Run Specific Framework
 ```bash
-python evaluation/benchmarks/benchmark_runner.py --frameworks crewai --tasks all
+python evaluation/benchmarks/benchmark_runner.py --frameworks dspy --use-cases all
 ```
 
-### Run Specific Task
+### Run Specific Use Case
 ```bash
-python evaluation/benchmarks/benchmark_runner.py --frameworks all --tasks qa
+python evaluation/benchmarks/benchmark_runner.py --frameworks all --use-cases qa
 ```
 
 ### Generate Reports
@@ -51,7 +51,7 @@ python evaluation/benchmarks/report_generator.py --input results/ --output repor
 Benchmark configurations are stored in YAML files:
 - `config/benchmark_config.yaml` - Global benchmark settings
 - `config/framework_configs/` - Framework-specific configurations
-- `config/task_configs/` - Task-specific evaluation parameters
+- `config/use_case_configs/` - Use case-specific evaluation parameters
 
 ## Output
 

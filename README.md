@@ -1,17 +1,17 @@
 # AI Agent Frameworks Comparison Project
 
-A comprehensive evaluation and comparison of leading Python AI agent frameworks across standardized tasks and metrics.
+A comprehensive evaluation and comparison of leading Python AI agent frameworks across standardized use cases and metrics.
 
 ## 🎯 Project Overview
 
 This project systematically compares five leading Python AI agent frameworks:
-- **CrewAI** - Multi-agent orchestration framework
-- **DSPy** - Programming framework for language models
+- **DSPy** - Programming framework for language models [HIGHEST PRIORITY]
 - **PocketFlow** - Nested directed graph framework
+- **CrewAI** - Multi-agent orchestration framework
 - **Google ADK** - Google's Agent Development Kit
-- **Pydantic AI** - Type-safe agent framework
+- **Pydantic AI** - Type-safe agent framework [LOWEST PRIORITY]
 
-Each framework is evaluated across six standardized tasks with complete isolation to ensure fair comparison.
+Each framework is evaluated across six standardized use cases with complete isolation to ensure fair comparison.
 
 ## 🏗️ Architecture
 
@@ -19,11 +19,11 @@ The project uses a **framework-isolated architecture** where each AI framework o
 
 ```
 agent_benchmark/
-├── crewai/           # CrewAI framework implementation
-├── dspy/             # DSPy framework implementation
-├── pocketflow/       # PocketFlow framework implementation
-├── google_adk/       # Google ADK framework implementation
-├── pydantic_ai/      # Pydantic AI framework implementation
+├── dspy/             # DSPy framework implementation [PRIORITY 1]
+├── pocketflow/       # PocketFlow framework implementation [PRIORITY 2]
+├── crewai/           # CrewAI framework implementation [PRIORITY 3]
+├── google_adk/       # Google ADK framework implementation [PRIORITY 4]
+├── pydantic_ai/      # Pydantic AI framework implementation [PRIORITY 5]
 ├── shared_datasets/  # Common test data across frameworks
 ├── evaluation/       # Cross-framework evaluation tools
 └── docs/            # Project documentation
@@ -31,13 +31,13 @@ agent_benchmark/
 
 ## 📊 Framework Comparison Matrix
 
-| Framework | Multi-Agent | Type Safety | Learning | Web Search | RAG Support | Complexity |
-|-----------|-------------|-------------|----------|------------|-------------|------------|
-| CrewAI | ✅ Excellent | ⚠️ Basic | ❌ Limited | ✅ Good | ✅ Good | Medium |
-| DSPy | ⚠️ Limited | ✅ Good | ✅ Excellent | ⚠️ Basic | ✅ Good | High |
-| PocketFlow | ✅ Good | ⚠️ Basic | ⚠️ Basic | ✅ Excellent | ⚠️ Basic | Medium |
-| Google ADK | ✅ Good | ✅ Good | ⚠️ Basic | ✅ Good | ✅ Good | Medium |
-| Pydantic AI | ⚠️ Limited | ✅ Excellent | ❌ Limited | ⚠️ Basic | ⚠️ Basic | Low |
+| Framework | Multi-Agent | Type Safety | Learning | Web Search | RAG Support | Complexity | Priority |
+|-----------|-------------|-------------|----------|------------|-------------|------------|----------|
+| DSPy | ⚠️ Limited | ✅ Good | ✅ Excellent | ⚠️ Basic | ✅ Good | High | 🥇 1st |
+| PocketFlow | ✅ Good | ⚠️ Basic | ⚠️ Basic | ✅ Excellent | ⚠️ Basic | Medium | 🥈 2nd |
+| CrewAI | ✅ Excellent | ⚠️ Basic | ❌ Limited | ✅ Good | ✅ Good | Medium | 🥉 3rd |
+| Google ADK | ✅ Good | ✅ Good | ⚠️ Basic | ✅ Good | ✅ Good | Medium | 4th |
+| Pydantic AI | ⚠️ Limited | ✅ Excellent | ❌ Limited | ⚠️ Basic | ⚠️ Basic | Low | 5th |
 
 ## 🚀 Quick Start
 
@@ -56,9 +56,13 @@ agent_benchmark/
    cd agent_benchmark
    ```
 
-2. **Choose a framework to explore**
+2. **Choose a framework to explore** (in priority order)
    ```bash
-   cd crewai/  # or dspy/, pocketflow/, google_adk/, pydantic_ai/
+   cd dspy/        # Priority 1: Programming framework for LMs
+   cd pocketflow/  # Priority 2: Nested directed graph framework
+   cd crewai/      # Priority 3: Multi-agent orchestration
+   cd google_adk/  # Priority 4: Google's Agent Development Kit
+   cd pydantic_ai/ # Priority 5: Type-safe agent framework
    ```
 
 3. **Install dependencies**
@@ -71,43 +75,43 @@ agent_benchmark/
    docker-compose up -d
    ```
 
-5. **Run a task**
+5. **Run a use case**
    ```bash
-   cd task1_qa/
+   cd usecase1_qa/
    uv run python main.py
    ```
 
 ### Running Evaluations
 
 ```bash
-# Run all frameworks on all tasks
-python evaluation/benchmark_runner.py --frameworks all --tasks all
+# Run all frameworks on all use cases
+python evaluation/benchmark_runner.py --frameworks all --use-cases all
 
-# Run specific framework
-python evaluation/benchmark_runner.py --frameworks crewai --tasks all
+# Run specific framework (start with highest priority)
+python evaluation/benchmark_runner.py --frameworks dspy --use-cases all
 
 # Generate comparison report
 python evaluation/report_generator.py
 ```
 
-## 📋 Evaluation Tasks
+## 📋 Evaluation Use Cases
 
-### Task 1: Question & Answer System
+### Use Case 1: Question & Answer System
 Simple Q&A implementation testing basic agent capabilities.
 
-### Task 2: Simple RAG (Retrieval-Augmented Generation)
+### Use Case 2: Simple RAG (Retrieval-Augmented Generation)
 Document retrieval and answer generation with vector databases.
 
-### Task 3: Agentic RAG
+### Use Case 3: Agentic RAG
 Advanced RAG with multiple specialized agents for research and synthesis.
 
-### Task 4: Web Search Integration
+### Use Case 4: Web Search Integration
 Real-time information retrieval and fact verification.
 
-### Task 5: Multi-Agent Collaboration
+### Use Case 5: Multi-Agent Collaboration
 Complex workflows requiring agent coordination and specialization.
 
-### Task 6: Advanced Agentic Tasks
+### Use Case 6: Advanced Agentic Use Cases
 Framework-specific advanced capabilities and optimizations.
 
 ## 📈 Evaluation Metrics
@@ -119,7 +123,7 @@ Framework-specific advanced capabilities and optimizations.
 - **Coherence**: Logical consistency and flow
 
 ### Performance Metrics
-- **Execution Time**: Task completion speed
+- **Execution Time**: Use case completion speed
 - **Resource Usage**: Memory and CPU consumption
 - **API Costs**: LLM and service expenses
 - **Scalability**: Performance under load
@@ -137,8 +141,8 @@ Framework-specific advanced capabilities and optimizations.
 Each framework maintains its own development environment:
 
 ```bash
-# Navigate to framework directory
-cd crewai/
+# Navigate to framework directory (start with highest priority)
+cd dspy/
 
 # Install dependencies
 uv sync
@@ -149,12 +153,12 @@ docker-compose up -d
 # Run tests
 uv run pytest
 
-# Run specific task
-cd task1_qa/
+# Run specific use case
+cd usecase1_qa/
 uv run python main.py
 ```
 
-### Adding New Tasks
+### Adding New Use Cases
 
 1. Create task directory in each framework
 2. Implement standardized task interface
@@ -170,29 +174,15 @@ uv run python main.py
 - [API Reference](docs/api/) - Code documentation
 - [Evaluation Guide](docs/evaluation/) - Metrics and benchmarking
 
-## 🤝 Contributing
+## 🛠️ Development Standards
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+This project follows modern Python development practices:
 
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch
-3. Implement changes with tests
-4. Run evaluation suite
-5. Submit pull request
-
-### Code Standards
-
-- Python 3.11+ with type hints
-- UV for dependency management
-- Pydantic for data validation
-- Comprehensive docstrings
-- 95%+ test coverage
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Python 3.11+ with comprehensive type hints
+- UV for dependency management and project configuration
+- Pydantic for data validation and modeling
+- Framework isolation with dedicated infrastructure
+- Comprehensive docstrings and code documentation
 
 ## 🙏 Acknowledgments
 

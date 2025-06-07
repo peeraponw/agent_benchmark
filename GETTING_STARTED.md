@@ -34,22 +34,22 @@ cd agent_benchmark
 
 ### 2. Choose Your Framework
 
-Pick one framework to start with:
+Pick one framework to start with (in priority order):
 
 ```bash
-# Option 1: CrewAI (recommended for beginners)
-cd crewai/
-
-# Option 2: DSPy (for ML-focused users)
+# Priority 1: DSPy (programming framework for LMs - HIGHEST PRIORITY)
 cd dspy/
 
-# Option 3: PocketFlow (for graph-based workflows)
+# Priority 2: PocketFlow (nested directed graph framework)
 cd pocketflow/
 
-# Option 4: Google ADK (for enterprise users)
+# Priority 3: CrewAI (multi-agent orchestration framework)
+cd crewai/
+
+# Priority 4: Google ADK (Google's Agent Development Kit)
 cd google_adk/
 
-# Option 5: Pydantic AI (for type-safety focused)
+# Priority 5: Pydantic AI (type-safe agent framework - LOWEST PRIORITY)
 cd pydantic_ai/
 ```
 
@@ -62,7 +62,7 @@ uv sync
 # Copy environment template
 cp .env.template .env
 
-# Edit API keys (optional for basic testing)
+# Edit OpenRouter API key (optional for basic testing)
 nano .env
 ```
 
@@ -76,31 +76,31 @@ docker-compose up -d
 docker-compose ps
 ```
 
-### 5. Run Your First Task
+### 5. Run Your First Use Case
 
 ```bash
-# Navigate to Q&A task
-cd task1_qa/
+# Navigate to Q&A use case
+cd usecase1_qa/
 
-# Run the task
+# Run the use case
 uv run python main.py
 
 # Check results
 ls -la outputs/
 ```
 
-🎉 **Congratulations!** You've successfully run your first AI agent task.
+🎉 **Congratulations!** You've successfully run your first AI agent use case.
 
 ## 📋 What's Next?
 
-### Explore More Tasks
+### Explore More Use Cases
 
 ```bash
-# Try different tasks
-cd ../task2_simple_rag/
+# Try different use cases
+cd ../usecase2_simple_rag/
 uv run python main.py
 
-cd ../task4_web_search/
+cd ../usecase4_web_search/
 uv run python main.py
 ```
 
@@ -110,8 +110,8 @@ uv run python main.py
 # Return to project root
 cd ../../
 
-# Run comparison across frameworks
-python evaluation/benchmark_runner.py --frameworks crewai,dspy --tasks qa
+# Run comparison across frameworks (start with highest priority)
+python evaluation/benchmark_runner.py --frameworks dspy,pocketflow --use-cases qa
 
 # Generate comparison report
 python evaluation/report_generator.py
@@ -120,14 +120,14 @@ python evaluation/report_generator.py
 ### Customize and Experiment
 
 ```bash
-# Modify task parameters
-nano crewai/task1_qa/config.yaml
+# Modify use case parameters (using highest priority framework)
+nano dspy/usecase1_qa/config.yaml
 
 # Add your own test data
 nano shared_datasets/qa/questions.json
 
 # Re-run with custom data
-cd crewai/task1_qa/
+cd dspy/usecase1_qa/
 uv run python main.py
 ```
 
@@ -190,8 +190,8 @@ Download Docker Desktop from [docker.com](https://www.docker.com/products/docker
 Each framework requires specific environment variables:
 
 ```bash
-# Framework identification
-FRAMEWORK_NAME=crewai
+# Framework identification (example using highest priority framework)
+FRAMEWORK_NAME=dspy
 
 # Infrastructure ports (adjust to avoid conflicts)
 QDRANT_PORT=6333
@@ -203,41 +203,47 @@ POSTGRES_USER=langfuse_user
 POSTGRES_PASSWORD=your_secure_password
 LANGFUSE_DB_URL=postgresql://langfuse_user:your_secure_password@postgres:5432/langfuse
 
-# API Keys (add your own)
-OPENAI_API_KEY=your_openai_key
-ANTHROPIC_API_KEY=your_anthropic_key
-GOOGLE_API_KEY=your_google_key
+# OpenRouter API Key (single LLM provider)
+OPENROUTER_API_KEY=sk-or-your-openrouter-api-key-here
 ```
 
 ### Port Management
 
 To run multiple frameworks simultaneously, use different ports:
 
-| Framework | Qdrant | Langfuse | MCP | Postgres |
-|-----------|--------|----------|-----|----------|
-| CrewAI | 6333 | 3000 | 8080 | 5432 |
-| DSPy | 6334 | 3001 | 8081 | 5433 |
-| PocketFlow | 6335 | 3002 | 8082 | 5434 |
-| Google ADK | 6336 | 3003 | 8083 | 5435 |
-| Pydantic AI | 6337 | 3004 | 8084 | 5436 |
+| Framework | Qdrant | Langfuse | MCP | Postgres | Priority |
+|-----------|--------|----------|-----|----------|----------|
+| DSPy | 6334 | 3001 | 8081 | 5433 | 🥇 1st |
+| PocketFlow | 6335 | 3002 | 8082 | 5434 | 🥈 2nd |
+| CrewAI | 6333 | 3000 | 8080 | 5432 | 🥉 3rd |
+| Google ADK | 6336 | 3003 | 8083 | 5435 | 4th |
+| Pydantic AI | 6337 | 3004 | 8084 | 5436 | 5th |
 
-### API Keys Setup
+### OpenRouter API Setup
 
-1. **OpenAI API Key**
-   - Visit [platform.openai.com](https://platform.openai.com/api-keys)
-   - Create new API key
-   - Add to `.env` file
+**Single LLM Provider Configuration**
 
-2. **Anthropic API Key**
-   - Visit [console.anthropic.com](https://console.anthropic.com/)
-   - Generate API key
-   - Add to `.env` file
+1. **OpenRouter API Key**
+   - Visit [openrouter.ai](https://openrouter.ai/)
+   - Create an account and generate API key
+   - Add to `.env` file as `OPENROUTER_API_KEY`
 
-3. **Google API Key**
-   - Visit [console.cloud.google.com](https://console.cloud.google.com/)
-   - Enable required APIs
-   - Create credentials
-   - Add to `.env` file
+2. **Available Models via OpenRouter**
+   - **DeepSeek R1**: `deepseek/deepseek-r1-0528` [DEFAULT]
+   - **Claude Sonnet 4**: `anthropic/claude-sonnet-4`
+   - **Google Gemini 2.5 Pro**: `google/gemini-2.5-pro-preview`
+
+3. **Model Switching for Comparisons**
+   - **Default Testing**: All frameworks use DeepSeek R1 for consistent baseline testing
+   - **Easy Switching**: Change `DEFAULT_LLM_MODEL` in `.env` to test different models
+   - **Framework Comparison**: Compare same framework with different models
+   - **Cross-Framework Studies**: Test different frameworks with same model
+
+4. **Benefits of OpenRouter**
+   - Single API key for multiple LLM providers
+   - Unified interface and billing
+   - Automatic failover and load balancing
+   - Cost optimization across providers
 
 ## 🐛 Troubleshooting
 
@@ -298,8 +304,8 @@ docker-compose logs langfuse
 # Run validation script
 python scripts/validate_setup.py
 
-# Check framework health
-python scripts/health_check.py --framework crewai
+# Check framework health (example using highest priority framework)
+python scripts/health_check.py --framework dspy
 ```
 
 **Community Support:**
@@ -312,7 +318,7 @@ python scripts/health_check.py --framework crewai
 ### Learn More
 - [Architecture Guide](ARCHITECTURE.md) - Understand the system design
 - [Framework Guides](docs/frameworks/) - Deep dive into each framework
-- [Task Documentation](docs/tasks/) - Detailed task descriptions
+- [Use Case Documentation](docs/use_cases/) - Detailed use case descriptions
 - [Evaluation Guide](docs/evaluation/) - Understanding metrics and benchmarks
 
 ### Contribute
@@ -321,7 +327,7 @@ python scripts/health_check.py --framework crewai
 - [Testing Guide](docs/testing/) - Running and writing tests
 
 ### Advanced Usage
-- [Custom Tasks](docs/custom_tasks.md) - Creating new evaluation tasks
+- [Custom Use Cases](docs/custom_use_cases.md) - Creating new evaluation use cases
 - [Framework Integration](docs/integration.md) - Adding new frameworks
 - [Production Deployment](docs/deployment.md) - Enterprise deployment guide
 
