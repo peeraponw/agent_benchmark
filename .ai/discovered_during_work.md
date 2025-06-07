@@ -16,6 +16,103 @@
 - **Task 001 (Phase 1.1)**: 5 items moved (infrastructure templates, validation enhancements, licensing)
 - **Task 002 (Phase 1.2a)**: 1 item moved (dataset content enhancement)
 - **Task 008 (Phase 1.3b)**: 1 item moved (environment template security enhancement)
+
+---
+
+# Discovered Tasks During Phase 1.2a Implementation
+
+**Date**: 2024-12-19
+**Phase**: 1.2a - Evaluation Framework Development
+
+## New Discoveries During Task 002 Implementation
+
+### Integration and Testing Tasks
+
+- [ ] Create integration tests for full evaluation pipeline
+- **Priority**: Medium
+- **Phase**: 1.2.1 (Evaluation Framework)
+- **Dependencies**: All evaluation components completed
+- **Estimated Time**: 2-3 hours
+
+- [ ] Add mock data generators for testing
+- **Priority**: Medium
+- **Phase**: 1.2.1 (Evaluation Framework)
+- **Dependencies**: Basic test structure in place
+- **Estimated Time**: 1-2 hours
+
+- [ ] Achieve >90% test coverage for evaluation framework
+- **Priority**: Medium
+- **Phase**: 1.2.1 (Evaluation Framework)
+- **Dependencies**: All components implemented
+- **Estimated Time**: 2-4 hours
+
+### Dataset Enhancement Tasks (Moved from Task 002)
+
+- [ ] Expand Q&A dataset from 3 to 20+ questions across categories
+- **Priority**: High
+- **Phase**: 1.2.2 (Dataset Enhancement)
+- **Dependencies**: Evaluation framework completed
+- **Estimated Time**: 3-4 hours
+
+- [ ] Add more diverse document types for RAG testing (PDF, markdown, code)
+- **Priority**: High
+- **Phase**: 1.2.2 (Dataset Enhancement)
+- **Dependencies**: RAG evaluation metrics completed
+- **Estimated Time**: 2-3 hours
+
+- [ ] Create more complex multi-agent scenarios with dependencies
+- **Priority**: Medium
+- **Phase**: 1.2.2 (Dataset Enhancement)
+- **Dependencies**: Basic multi-agent structure in place
+- **Estimated Time**: 4-5 hours
+
+- [ ] Add difficulty progression in test cases
+- **Priority**: Medium
+- **Phase**: 1.2.2 (Dataset Enhancement)
+- **Dependencies**: Basic test cases created
+- **Estimated Time**: 2-3 hours
+
+- [ ] Include edge cases and error scenarios for robust testing
+- **Priority**: High
+- **Phase**: 1.2.2 (Dataset Enhancement)
+- **Dependencies**: Core test cases completed
+- **Estimated Time**: 3-4 hours
+
+### Infrastructure Tasks (Completed During Implementation)
+
+- [x] Create root-level pyproject.toml with proper package configuration
+- **Priority**: High
+- **Phase**: 1.0 (Infrastructure)
+- **Dependencies**: None
+- **Estimated Time**: 30 minutes
+- **Status**: ✅ Completed during Task 002 implementation
+
+- [x] Set up proper dependency management with UV
+- **Priority**: High
+- **Phase**: 1.0 (Infrastructure)
+- **Dependencies**: pyproject.toml created
+- **Estimated Time**: 30 minutes
+- **Status**: ✅ Completed during Task 002 implementation
+
+### Future Enhancement Ideas
+
+- [ ] Add support for custom metric plugins
+- **Priority**: Low
+- **Phase**: 2.0 (Future Enhancements)
+- **Dependencies**: Core evaluation framework stable
+- **Estimated Time**: 6-8 hours
+
+- [ ] Implement real-time evaluation dashboard
+- **Priority**: Low
+- **Phase**: 2.0 (Future Enhancements)
+- **Dependencies**: Web framework integration
+- **Estimated Time**: 8-12 hours
+
+- [ ] Add support for distributed evaluation across multiple machines
+- **Priority**: Low
+- **Phase**: 2.0 (Future Enhancements)
+- **Dependencies**: Core evaluation framework stable
+- **Estimated Time**: 12-16 hours
 - **REMOVED**: Task 006 (CI/CD automation) - scope reduced for local development focus
 - **REMOVED**: Task 007 (custom MCP server) - replaced with external MCP integration
 - **NEW**: External MCP integration research and documentation

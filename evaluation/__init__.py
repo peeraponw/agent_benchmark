@@ -5,7 +5,7 @@ This module provides the evaluation framework for comparing different AI agent f
 across standardized tasks and metrics.
 """
 
-from .base_evaluator import BaseEvaluator, TaskResult
+from .base_evaluator import BaseEvaluator, UseCaseResult
 
 __version__ = "1.0.0"
-__all__ = ["BaseEvaluator", "TaskResult"]
+__all__ = ["BaseEvaluator", "UseCaseResult"]
