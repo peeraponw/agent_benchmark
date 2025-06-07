@@ -1,0 +1,192 @@
+{
+  "title": "Advanced Materials Science and Engineering",
+  "overview": "Study of materials properties, processing, and applications",
+  "material_categories": {
+    "metals": {
+      "properties": [
+        "High strength",
+        "Electrical conductivity",
+        "Ductility"
+      ],
+      "examples": [
+        "Steel",
+        "Aluminum",
+        "Titanium",
+        "Copper"
+      ],
+      "applications": [
+        "Construction",
+        "Transportation",
+        "Electronics"
+      ]
+    },
+    "ceramics": {
+      "properties": [
+        "High temperature resistance",
+        "Chemical inertness",
+        "Brittleness"
+      ],
+      "examples": [
+        "Alumina",
+        "Silicon carbide",
+        "Zirconia"
+      ],
+      "applications": [
+        "Aerospace",
+        "Electronics",
+        "Biomedical"
+      ]
+    },
+    "polymers": {
+      "properties": [
+        "Lightweight",
+        "Chemical resistance",
+        "Flexibility"
+      ],
+      "examples": [
+        "Polyethylene",
+        "Polystyrene",
+        "Nylon"
+      ],
+      "applications": [
+        "Packaging",
+        "Textiles",
+        "Medical devices"
+      ]
+    },
+    "composites": {
+      "properties": [
+        "High strength-to-weight ratio",
+        "Tailorable properties"
+      ],
+      "examples": [
+        "Carbon fiber reinforced plastic",
+        "Fiberglass"
+      ],
+      "applications": [
+        "Aerospace",
+        "Automotive",
+        "Sports equipment"
+      ]
+    }
+  },
+  "advanced_materials": {
+    "nanomaterials": {
+      "carbon_nanotubes": {
+        "properties": [
+          "Exceptional strength",
+          "Electrical conductivity"
+        ],
+        "applications": [
+          "Electronics",
+          "Composites",
+          "Energy storage"
+        ]
+      },
+      "graphene": {
+        "properties": [
+          "2D structure",
+          "High conductivity",
+          "Flexibility"
+        ],
+        "applications": [
+          "Electronics",
+          "Sensors",
+          "Energy devices"
+        ]
+      },
+      "quantum_dots": {
+        "properties": [
+          "Size-tunable properties",
+          "Fluorescence"
+        ],
+        "applications": [
+          "Displays",
+          "Solar cells",
+          "Medical imaging"
+        ]
+      }
+    },
+    "smart_materials": {
+      "shape_memory_alloys": {
+        "behavior": "Return to original shape when heated",
+        "applications": [
+          "Medical devices",
+          "Actuators",
+          "Aerospace"
+        ]
+      },
+      "piezoelectric_materials": {
+        "behavior": "Generate electricity under mechanical stress",
+        "applications": [
+          "Sensors",
+          "Energy harvesting",
+          "Actuators"
+        ]
+      }
+    }
+  },
+  "processing_techniques": {
+    "traditional": [
+      "Casting",
+      "Forging",
+      "Machining",
+      "Welding"
+    ],
+    "advanced": [
+      "3D printing",
+      "Chemical vapor deposition",
+      "Molecular beam epitaxy"
+    ],
+    "emerging": [
+      "Atomic layer deposition",
+      "Self-assembly",
+      "Biomineralization"
+    ]
+  },
+  "characterization_methods": {
+    "microscopy": [
+      "SEM",
+      "TEM",
+      "AFM",
+      "Optical microscopy"
+    ],
+    "spectroscopy": [
+      "XRD",
+      "FTIR",
+      "Raman",
+      "XPS"
+    ],
+    "mechanical_testing": [
+      "Tensile testing",
+      "Hardness testing",
+      "Fatigue testing"
+    ]
+  },
+  "applications": {
+    "energy": [
+      "Solar cells",
+      "Batteries",
+      "Fuel cells",
+      "Supercapacitors"
+    ],
+    "electronics": [
+      "Semiconductors",
+      "Conductors",
+      "Insulators",
+      "Magnetic materials"
+    ],
+    "biomedical": [
+      "Implants",
+      "Drug delivery",
+      "Tissue engineering",
+      "Biosensors"
+    ],
+    "environmental": [
+      "Catalysts",
+      "Membranes",
+      "Adsorbents",
+      "Photocatalysts"
+    ]
+  }
+}

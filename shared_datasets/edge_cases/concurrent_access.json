@@ -1,0 +1,228 @@
+[
+  {
+    "id": "concurrent_001",
+    "category": "race_condition",
+    "description": "Multiple threads accessing shared resource simultaneously",
+    "scenario": {
+      "threads": 5,
+      "shared_resource": "counter_variable",
+      "operations": "increment_operations",
+      "expected_final_value": 5000,
+      "actual_final_value": "varies_due_to_race"
+    },
+    "expected_behavior": "Thread-safe operations with proper synchronization",
+    "error_type": "race_condition",
+    "severity": "high",
+    "solution": "mutex_or_atomic_operations"
+  },
+  {
+    "id": "concurrent_002",
+    "category": "deadlock",
+    "description": "Circular dependency causing deadlock",
+    "scenario": {
+      "thread_a": "holds_lock_1_waits_for_lock_2",
+      "thread_b": "holds_lock_2_waits_for_lock_1",
+      "timeout": "infinite_wait"
+    },
+    "expected_behavior": "Deadlock detection and resolution",
+    "error_type": "deadlock",
+    "severity": "critical",
+    "prevention": "lock_ordering_or_timeout"
+  },
+  {
+    "id": "concurrent_003",
+    "category": "database_lock_contention",
+    "description": "Multiple transactions competing for same database rows",
+    "scenario": {
+      "concurrent_transactions": 10,
+      "target_rows": "same_user_record",
+      "operation": "update_balance",
+      "isolation_level": "read_committed"
+    },
+    "expected_behavior": "Proper transaction isolation and retry logic",
+    "error_type": "lock_contention",
+    "severity": "medium",
+    "strategy": "optimistic_locking_with_retry"
+  },
+  {
+    "id": "concurrent_004",
+    "category": "cache_invalidation",
+    "description": "Cache inconsistency due to concurrent updates",
+    "scenario": {
+      "cache_readers": 5,
+      "cache_writers": 2,
+      "operation": "user_profile_update",
+      "cache_strategy": "write_through"
+    },
+    "expected_behavior": "Cache coherency maintenance",
+    "error_type": "cache_inconsistency",
+    "severity": "medium",
+    "solution": "cache_versioning_or_locking"
+  },
+  {
+    "id": "concurrent_005",
+    "category": "file_access_conflict",
+    "description": "Multiple processes accessing same file",
+    "scenario": {
+      "processes": 3,
+      "file": "shared_log_file",
+      "operations": ["read", "write", "append"],
+      "file_locking": "none"
+    },
+    "expected_behavior": "File locking and coordinated access",
+    "error_type": "file_access_conflict",
+    "severity": "medium",
+    "coordination": "file_locking_mechanism"
+  },
+  {
+    "id": "concurrent_006",
+    "category": "memory_corruption",
+    "description": "Concurrent memory access causing corruption",
+    "scenario": {
+      "threads": 8,
+      "shared_buffer": "1MB_buffer",
+      "operations": "read_write_operations",
+      "synchronization": "none"
+    },
+    "expected_behavior": "Memory protection and synchronization",
+    "error_type": "memory_corruption",
+    "severity": "critical",
+    "protection": "memory_barriers_and_locks"
+  },
+  {
+    "id": "concurrent_007",
+    "category": "resource_starvation",
+    "description": "High-priority threads starving low-priority ones",
+    "scenario": {
+      "high_priority_threads": 10,
+      "low_priority_threads": 5,
+      "resource": "cpu_time",
+      "scheduling": "priority_based"
+    },
+    "expected_behavior": "Fair resource allocation",
+    "error_type": "resource_starvation",
+    "severity": "medium",
+    "fairness": "priority_aging_or_fair_scheduling"
+  },
+  {
+    "id": "concurrent_008",
+    "category": "atomic_operation_failure",
+    "description": "Non-atomic operations causing inconsistent state",
+    "scenario": {
+      "operation": "transfer_money_between_accounts",
+      "steps": ["debit_account_a", "credit_account_b"],
+      "failure_point": "between_steps",
+      "concurrent_readers": 3
+    },
+    "expected_behavior": "Atomic transaction processing",
+    "error_type": "atomicity_violation",
+    "severity": "critical",
+    "guarantee": "transaction_boundaries"
+  },
+  {
+    "id": "concurrent_009",
+    "category": "producer_consumer_imbalance",
+    "description": "Producer/consumer rate mismatch",
+    "scenario": {
+      "producers": 5,
+      "consumers": 2,
+      "production_rate": "1000_items_per_second",
+      "consumption_rate": "400_items_per_second",
+      "buffer_size": 100
+    },
+    "expected_behavior": "Backpressure and flow control",
+    "error_type": "buffer_overflow",
+    "severity": "medium",
+    "control": "backpressure_mechanism"
+  },
+  {
+    "id": "concurrent_010",
+    "category": "distributed_consensus",
+    "description": "Nodes failing to reach consensus",
+    "scenario": {
+      "nodes": 5,
+      "failed_nodes": 2,
+      "consensus_algorithm": "raft",
+      "network_partition": true
+    },
+    "expected_behavior": "Consensus despite failures",
+    "error_type": "consensus_failure",
+    "severity": "high",
+    "tolerance": "byzantine_fault_tolerance"
+  },
+  {
+    "id": "concurrent_011",
+    "category": "session_collision",
+    "description": "Multiple sessions for same user",
+    "scenario": {
+      "user_id": "user123",
+      "concurrent_sessions": 3,
+      "session_data": "conflicting_state",
+      "storage": "shared_session_store"
+    },
+    "expected_behavior": "Session management and conflict resolution",
+    "error_type": "session_conflict",
+    "severity": "medium",
+    "resolution": "last_writer_wins_or_merge"
+  },
+  {
+    "id": "concurrent_012",
+    "category": "event_ordering",
+    "description": "Events processed out of order",
+    "scenario": {
+      "event_stream": "user_actions",
+      "events": ["login", "purchase", "logout"],
+      "processing_order": ["purchase", "login", "logout"],
+      "expected_order": "chronological"
+    },
+    "expected_behavior": "Event ordering preservation",
+    "error_type": "ordering_violation",
+    "severity": "medium",
+    "preservation": "sequence_numbers_or_timestamps"
+  },
+  {
+    "id": "concurrent_013",
+    "category": "load_balancer_inconsistency",
+    "description": "Load balancer routing to inconsistent states",
+    "scenario": {
+      "servers": 3,
+      "user_session": "sticky_session_required",
+      "load_balancer": "round_robin",
+      "session_storage": "local_only"
+    },
+    "expected_behavior": "Session affinity or shared storage",
+    "error_type": "state_inconsistency",
+    "severity": "medium",
+    "solution": "sticky_sessions_or_shared_state"
+  },
+  {
+    "id": "concurrent_014",
+    "category": "batch_processing_overlap",
+    "description": "Overlapping batch jobs processing same data",
+    "scenario": {
+      "batch_job_1": "processing_user_data",
+      "batch_job_2": "processing_user_data",
+      "overlap_period": "30_minutes",
+      "data_modification": "concurrent_updates"
+    },
+    "expected_behavior": "Batch job coordination",
+    "error_type": "processing_overlap",
+    "severity": "medium",
+    "coordination": "job_locking_or_partitioning"
+  },
+  {
+    "id": "concurrent_015",
+    "category": "api_rate_limit_bypass",
+    "description": "Concurrent requests bypassing rate limits",
+    "scenario": {
+      "concurrent_requests": 100,
+      "rate_limit": "10_per_second",
+      "timing": "simultaneous_burst",
+      "rate_limiter": "simple_counter"
+    },
+    "expected_behavior": "Accurate rate limiting under concurrency",
+    "error_type": "rate_limit_bypass",
+    "severity": "medium",
+    "enforcement": "distributed_rate_limiting"
+  }
+]

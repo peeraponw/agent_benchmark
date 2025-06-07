@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<international_law_guide>
+    <overview>
+        <title>International Law Principles and Practice</title>
+        <description>Comprehensive guide to public international law, treaties, and international relations</description>
+        <scope>Public international law, international organizations, dispute resolution</scope>
+    </overview>
+
+    <sources_of_international_law>
+        <primary_sources>
+            <treaties>
+                <description>Written agreements between states</description>
+                <types>
+                    <bilateral>Between two states</bilateral>
+                    <multilateral>Between multiple states</multilateral>
+                    <framework>General principles requiring implementation</framework>
+                    <protocol>Amendments or additions to existing treaties</protocol>
+                </types>
+                <examples>
+                    <example>UN Charter</example>
+                    <example>Geneva Conventions</example>
+                    <example>Paris Climate Agreement</example>
+                    <example>Vienna Convention on Diplomatic Relations</example>
+                </examples>
+            </treaties>
+
+            <customary_law>
+                <description>Practices accepted as legally binding</description>
+                <elements>
+                    <state_practice>Consistent behavior by states</state_practice>
+                    <opinio_juris>Belief that practice is legally required</opinio_juris>
+                </elements>
+                <examples>
+                    <example>Diplomatic immunity</example>
+                    <example>Freedom of navigation</example>
+                    <example>Prohibition of torture</example>
+                </examples>
+            </customary_law>
+
+            <general_principles>
+                <description>Fundamental legal principles recognized by civilized nations</description>
+                <examples>
+                    <example>Good faith</example>
+                    <example>Pacta sunt servanda (agreements must be kept)</example>
+                    <example>Due process</example>
+                    <example>Proportionality</example>
+                </examples>
+            </general_principles>
+        </primary_sources>
+
+        <subsidiary_sources>
+            <judicial_decisions>
+                <icj>International Court of Justice decisions</icj>
+                <arbitral_tribunals>International arbitration awards</arbitral_tribunals>
+                <regional_courts>European Court of Human Rights, etc.</regional_courts>
+            </judicial_decisions>
+
+            <scholarly_writings>
+                <description>Academic commentary and analysis</description>
+                <role>Subsidiary means for determining law</role>
+            </scholarly_writings>
+        </subsidiary_sources>
+    </sources_of_international_law>
+
+    <key_principles>
+        <sovereignty>
+            <description>States have supreme authority within their territory</description>
+            <implications>
+                <non_interference>States cannot interfere in domestic affairs of others</non_interference>
+                <territorial_integrity>Borders must be respected</territorial_integrity>
+                <political_independence>States choose their own government</political_independence>
+            </implications>
+        </sovereignty>
+
+        <equality>
+            <description>All states are equal under international law</description>
+            <applications>
+                <voting_rights>Equal representation in international organizations</voting_rights>
+                <legal_capacity>Same rights and obligations</legal_capacity>
+            </applications>
+        </equality>
+
+        <peaceful_settlement>
+            <description>Disputes should be resolved peacefully</description>
+            <methods>
+                <negotiation>Direct talks between parties</negotiation>
+                <mediation>Third party assistance</mediation>
+                <arbitration>Binding third party decision</arbitration>
+                <adjudication>Court proceedings</adjudication>
+            </methods>
+        </peaceful_settlement>
+    </key_principles>
+
+    <international_organizations>
+        <united_nations>
+            <structure>
+                <general_assembly>All member states represented</general_assembly>
+                <security_council>15 members, 5 permanent with veto power</security_council>
+                <economic_social_council>54 members, economic and social issues</economic_social_council>
+                <trusteeship_council>Suspended operations</trusteeship_council>
+                <international_court_justice>Principal judicial organ</international_court_justice>
+                <secretariat>Administrative organ headed by Secretary-General</secretariat>
+            </structure>
+
+            <purposes>
+                <peace_security>Maintain international peace and security</peace_security>
+                <cooperation>Promote international cooperation</cooperation>
+                <human_rights>Promote respect for human rights</human_rights>
+                <self_determination>Respect for equal rights and self-determination</self_determination>
+            </purposes>
+        </united_nations>
+
+        <regional_organizations>
+            <european_union>
+                <description>Political and economic union of European states</description>
+                <institutions>European Parliament, Council, Commission, Court of Justice</institutions>
+            </european_union>
+
+            <african_union>
+                <description>Continental union of African states</description>
+                <goals>Political and economic integration, peace and security</goals>
+            </african_union>
+
+            <organization_american_states>
+                <description>Regional organization of American states</description>
+                <focus>Democracy, human rights, security, development</focus>
+            </organization_american_states>
+        </regional_organizations>
+
+        <specialized_agencies>
+            <world_health_organization>Global health coordination</world_health_organization>
+            <international_labour_organization>Labor standards and rights</international_labour_organization>
+            <world_trade_organization>International trade regulation</world_trade_organization>
+            <international_monetary_fund>Monetary cooperation and stability</international_monetary_fund>
+        </specialized_agencies>
+    </international_organizations>
+
+    <human_rights_law>
+        <universal_declaration>
+            <adoption>1948 by UN General Assembly</adoption>
+            <status>Not legally binding but customary law</status>
+            <rights>Civil, political, economic, social, cultural rights</rights>
+        </universal_declaration>
+
+        <core_treaties>
+            <iccpr>International Covenant on Civil and Political Rights</iccpr>
+            <icescr>International Covenant on Economic, Social and Cultural Rights</icescr>
+            <cerd>Convention on Elimination of Racial Discrimination</cerd>
+            <cedaw>Convention on Elimination of Discrimination Against Women</cedaw>
+            <cat>Convention Against Torture</cat>
+            <crc>Convention on Rights of the Child</crc>
+        </core_treaties>
+
+        <regional_systems>
+            <european>European Convention on Human Rights</european>
+            <inter_american>American Convention on Human Rights</inter_american>
+            <african>African Charter on Human and Peoples' Rights</african>
+        </regional_systems>
+    </human_rights_law>
+
+    <international_humanitarian_law>
+        <geneva_conventions>
+            <description>Laws of war and protection of civilians</description>
+            <conventions>
+                <first>Wounded and sick in armed forces</first>
+                <second>Wounded, sick, and shipwrecked at sea</second>
+                <third>Prisoners of war</third>
+                <fourth>Civilian persons in time of war</fourth>
+            </conventions>
+            <additional_protocols>
+                <protocol_i>International armed conflicts</protocol_i>
+                <protocol_ii>Non-international armed conflicts</protocol_ii>
+                <protocol_iii>Additional distinctive emblem</protocol_iii>
+            </additional_protocols>
+        </geneva_conventions>
+
+        <principles>
+            <distinction>Distinguish between civilians and combatants</distinction>
+            <proportionality>Attacks must not cause excessive civilian harm</proportionality>
+            <precaution>Take precautions to minimize civilian harm</precaution>
+            <humanity>Prohibit unnecessary suffering</humanity>
+        </principles>
+    </international_humanitarian_law>
+
+    <dispute_resolution>
+        <international_court_justice>
+            <jurisdiction>
+                <contentious>Disputes between states</contentious>
+                <advisory>Legal questions from UN organs</advisory>
+            </jurisdiction>
+            <procedure>
+                <written>Memorial, counter-memorial, reply, rejoinder</written>
+                <oral>Public hearings with arguments</oral>
+                <judgment>Final and binding decision</judgment>
+            </procedure>
+        </international_court_justice>
+
+        <arbitration>
+            <permanent_court_arbitration>Established 1899, facilitates arbitration</permanent_court_arbitration>
+            <icsid>Investment dispute arbitration</icsid>
+            <wto_dispute_settlement>Trade dispute resolution</wto_dispute_settlement>
+        </arbitration>
+
+        <diplomatic_methods>
+            <negotiation>Direct talks between parties</negotiation>
+            <good_offices>Third party provides forum</good_offices>
+            <mediation>Third party proposes solutions</mediation>
+            <conciliation>Formal investigation and recommendations</conciliation>
+        </diplomatic_methods>
+    </dispute_resolution>
+
+    <state_responsibility>
+        <elements>
+            <attribution>Conduct attributable to state</attribution>
+            <breach>Violation of international obligation</breach>
+        </elements>
+
+        <circumstances_precluding_wrongfulness>
+            <consent>Injured state consents to conduct</consent>
+            <self_defense>Lawful measures of self-defense</self_defense>
+            <countermeasures>Response to internationally wrongful act</countermeasures>
+            <force_majeure>Irresistible force or unforeseen event</force_majeure>
+            <distress>No other reasonable way to save lives</distress>
+            <necessity>Only way to safeguard essential interest</necessity>
+        </circumstances_precluding_wrongfulness>
+
+        <consequences>
+            <cessation>End the wrongful conduct</cessation>
+            <non_repetition>Assurances and guarantees</non_repetition>
+            <reparation>Restitution, compensation, satisfaction</reparation>
+        </consequences>
+    </state_responsibility>
+
+    <contemporary_challenges>
+        <climate_change>
+            <paris_agreement>Global climate action framework</paris_agreement>
+            <common_differentiated_responsibilities>Different obligations based on capabilities</common_differentiated_responsibilities>
+            <loss_damage>Compensation for climate impacts</loss_damage>
+        </climate_change>
+
+        <cyber_warfare>
+            <tallinn_manual>Expert analysis of cyber law</tallinn_manual>
+            <attribution>Identifying state responsibility for cyber attacks</attribution>
+            <proportionality>Appropriate response to cyber attacks</proportionality>
+        </cyber_warfare>
+
+        <space_law>
+            <outer_space_treaty>Peaceful use of outer space</outer_space_treaty>
+            <moon_agreement>Moon and celestial bodies governance</moon_agreement>
+            <space_debris>Liability for space object damage</space_debris>
+        </space_law>
+
+        <artificial_intelligence>
+            <autonomous_weapons>Regulation of lethal autonomous weapons</autonomous_weapons>
+            <liability>Responsibility for AI decisions</liability>
+            <governance>International AI governance frameworks</governance>
+        </artificial_intelligence>
+    </contemporary_challenges>
+</international_law_guide>

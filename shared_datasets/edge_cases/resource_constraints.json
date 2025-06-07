@@ -1,0 +1,213 @@
+[
+  {
+    "id": "resource_001",
+    "category": "memory_exhaustion",
+    "description": "System runs out of available memory",
+    "scenario": {
+      "available_memory": "100MB",
+      "required_memory": "500MB",
+      "operation": "large_dataset_processing"
+    },
+    "expected_behavior": "Memory management with graceful degradation",
+    "error_type": "out_of_memory_error",
+    "severity": "critical",
+    "mitigation": "chunk_processing_or_streaming"
+  },
+  {
+    "id": "resource_002",
+    "category": "disk_space_full",
+    "description": "Insufficient disk space for operations",
+    "scenario": {
+      "available_space": "10MB",
+      "required_space": "100MB",
+      "operation": "file_download_and_processing"
+    },
+    "expected_behavior": "Disk space validation before operations",
+    "error_type": "disk_full_error",
+    "severity": "high",
+    "prevention": "pre_check_available_space"
+  },
+  {
+    "id": "resource_003",
+    "category": "cpu_overload",
+    "description": "CPU usage at 100% for extended period",
+    "scenario": {
+      "cpu_usage": "100%",
+      "duration": "5+ minutes",
+      "concurrent_processes": 50
+    },
+    "expected_behavior": "CPU throttling and process prioritization",
+    "error_type": "cpu_overload_error",
+    "severity": "high",
+    "management": "process_queuing_and_throttling"
+  },
+  {
+    "id": "resource_004",
+    "category": "file_descriptor_limit",
+    "description": "Maximum file descriptors reached",
+    "scenario": {
+      "max_file_descriptors": 1024,
+      "current_usage": 1024,
+      "operation": "opening_new_file"
+    },
+    "expected_behavior": "File descriptor management and cleanup",
+    "error_type": "file_descriptor_error",
+    "severity": "medium",
+    "solution": "close_unused_descriptors"
+  },
+  {
+    "id": "resource_005",
+    "category": "thread_pool_exhaustion",
+    "description": "All worker threads are busy",
+    "scenario": {
+      "max_threads": 20,
+      "active_threads": 20,
+      "queued_tasks": 100
+    },
+    "expected_behavior": "Thread pool management with queuing",
+    "error_type": "thread_pool_error",
+    "severity": "medium",
+    "strategy": "task_queuing_with_backpressure"
+  },
+  {
+    "id": "resource_006",
+    "category": "database_connection_limit",
+    "description": "Database connection pool exhausted",
+    "scenario": {
+      "max_connections": 50,
+      "active_connections": 50,
+      "pending_requests": 25
+    },
+    "expected_behavior": "Connection pooling with timeout handling",
+    "error_type": "db_connection_error",
+    "severity": "high",
+    "management": "connection_timeout_and_retry"
+  },
+  {
+    "id": "resource_007",
+    "category": "temporary_file_cleanup",
+    "description": "Temporary files accumulating and filling disk",
+    "scenario": {
+      "temp_files_count": 10000,
+      "temp_files_size": "5GB",
+      "cleanup_frequency": "never"
+    },
+    "expected_behavior": "Automatic temporary file cleanup",
+    "error_type": "temp_file_accumulation",
+    "severity": "medium",
+    "solution": "scheduled_cleanup_and_size_limits"
+  },
+  {
+    "id": "resource_008",
+    "category": "network_bandwidth_saturation",
+    "description": "Network bandwidth fully utilized",
+    "scenario": {
+      "available_bandwidth": "10Mbps",
+      "current_usage": "10Mbps",
+      "additional_request": "5Mbps"
+    },
+    "expected_behavior": "Bandwidth throttling and prioritization",
+    "error_type": "bandwidth_saturation",
+    "severity": "medium",
+    "management": "traffic_shaping_and_qos"
+  },
+  {
+    "id": "resource_009",
+    "category": "cache_memory_overflow",
+    "description": "Cache grows beyond allocated memory",
+    "scenario": {
+      "cache_limit": "256MB",
+      "current_cache_size": "300MB",
+      "eviction_policy": "LRU"
+    },
+    "expected_behavior": "Cache eviction and size management",
+    "error_type": "cache_overflow",
+    "severity": "low",
+    "strategy": "implement_eviction_policy"
+  },
+  {
+    "id": "resource_010",
+    "category": "gpu_memory_exhaustion",
+    "description": "GPU memory fully allocated",
+    "scenario": {
+      "gpu_memory": "8GB",
+      "allocated_memory": "8GB",
+      "operation": "large_model_inference"
+    },
+    "expected_behavior": "GPU memory management and batching",
+    "error_type": "gpu_memory_error",
+    "severity": "high",
+    "optimization": "batch_size_reduction"
+  },
+  {
+    "id": "resource_011",
+    "category": "inode_exhaustion",
+    "description": "File system runs out of inodes",
+    "scenario": {
+      "total_inodes": 1000000,
+      "used_inodes": 1000000,
+      "operation": "creating_new_file"
+    },
+    "expected_behavior": "Inode usage monitoring and cleanup",
+    "error_type": "inode_exhaustion",
+    "severity": "high",
+    "prevention": "monitor_inode_usage"
+  },
+  {
+    "id": "resource_012",
+    "category": "swap_space_exhaustion",
+    "description": "Virtual memory swap space full",
+    "scenario": {
+      "swap_size": "2GB",
+      "swap_usage": "2GB",
+      "memory_pressure": "critical"
+    },
+    "expected_behavior": "Memory pressure handling",
+    "error_type": "swap_exhaustion",
+    "severity": "critical",
+    "action": "reduce_memory_usage_or_restart"
+  },
+  {
+    "id": "resource_013",
+    "category": "process_limit_reached",
+    "description": "Maximum number of processes reached",
+    "scenario": {
+      "max_processes": 1024,
+      "current_processes": 1024,
+      "operation": "fork_new_process"
+    },
+    "expected_behavior": "Process limit management",
+    "error_type": "process_limit_error",
+    "severity": "medium",
+    "management": "process_cleanup_and_reuse"
+  },
+  {
+    "id": "resource_014",
+    "category": "semaphore_exhaustion",
+    "description": "System semaphores exhausted",
+    "scenario": {
+      "max_semaphores": 128,
+      "used_semaphores": 128,
+      "operation": "create_new_semaphore"
+    },
+    "expected_behavior": "Semaphore resource management",
+    "error_type": "semaphore_error",
+    "severity": "medium",
+    "solution": "semaphore_cleanup_and_reuse"
+  },
+  {
+    "id": "resource_015",
+    "category": "quota_exceeded",
+    "description": "User or application quota exceeded",
+    "scenario": {
+      "quota_type": "api_calls",
+      "quota_limit": 1000,
+      "current_usage": 1000,
+      "time_period": "daily"
+    },
+    "expected_behavior": "Quota enforcement and user notification",
+    "error_type": "quota_exceeded",
+    "severity": "medium",
+    "handling": "block_requests_until_reset"
+  }
+]

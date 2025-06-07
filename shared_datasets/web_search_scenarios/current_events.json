@@ -1,0 +1,252 @@
+[
+  {
+    "id": "current_001",
+    "category": "breaking_news",
+    "description": "Query about recent breaking news event",
+    "query": "What happened in the latest major earthquake today?",
+    "requirements": {
+      "freshness": "within_24_hours",
+      "source_types": ["news_outlets", "official_agencies"],
+      "verification_needed": true,
+      "geographic_scope": "global"
+    },
+    "expected_challenges": [
+      "Information may be rapidly changing",
+      "Initial reports may be inaccurate",
+      "Multiple conflicting sources",
+      "Need to distinguish verified vs unverified information"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Information must be from last 24 hours",
+      "accuracy": "Facts must be verifiable from multiple sources",
+      "completeness": "Should include key details (location, magnitude, casualties)",
+      "source_quality": "Must cite reputable news sources or official agencies"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "current_002",
+    "category": "financial_markets",
+    "description": "Real-time stock market information",
+    "query": "What is the current stock price of Apple and why did it change today?",
+    "requirements": {
+      "freshness": "within_1_hour",
+      "source_types": ["financial_data_providers", "market_news"],
+      "verification_needed": true,
+      "data_accuracy": "high_precision"
+    },
+    "expected_challenges": [
+      "Stock prices change constantly",
+      "Need real-time or near real-time data",
+      "Market analysis requires expertise",
+      "Multiple factors influence price movements"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Price data within 1 hour",
+      "accuracy": "Correct stock symbol and price",
+      "analysis_quality": "Reasonable explanation for price movement",
+      "source_credibility": "Financial news sources or official exchanges"
+    },
+    "difficulty": "high"
+  },
+  {
+    "id": "current_003",
+    "category": "weather_alerts",
+    "description": "Current weather warnings and alerts",
+    "query": "Are there any severe weather warnings for Miami, Florida right now?",
+    "requirements": {
+      "freshness": "within_30_minutes",
+      "source_types": ["weather_services", "emergency_agencies"],
+      "verification_needed": true,
+      "geographic_precision": "city_level"
+    },
+    "expected_challenges": [
+      "Weather conditions change rapidly",
+      "Need official meteorological sources",
+      "Geographic specificity required",
+      "Severity levels must be accurate"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Information within 30 minutes",
+      "geographic_accuracy": "Specific to Miami area",
+      "source_authority": "National Weather Service or equivalent",
+      "alert_details": "Type, severity, and duration of warnings"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "current_004",
+    "category": "sports_scores",
+    "description": "Live sports game results",
+    "query": "What is the current score of the Lakers vs Warriors game?",
+    "requirements": {
+      "freshness": "within_15_minutes",
+      "source_types": ["sports_networks", "official_leagues"],
+      "verification_needed": false,
+      "real_time_updates": true
+    },
+    "expected_challenges": [
+      "Scores change throughout the game",
+      "Need to identify which specific game",
+      "Game status (live, finished, scheduled)",
+      "Multiple games on same day"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Score within 15 minutes",
+      "game_identification": "Correct teams and date",
+      "score_accuracy": "Current or final score",
+      "game_status": "Live, finished, or scheduled"
+    },
+    "difficulty": "low"
+  },
+  {
+    "id": "current_005",
+    "category": "political_developments",
+    "description": "Recent political news and developments",
+    "query": "What are the latest developments in the ongoing election campaign?",
+    "requirements": {
+      "freshness": "within_6_hours",
+      "source_types": ["news_outlets", "official_statements"],
+      "verification_needed": true,
+      "bias_awareness": true
+    },
+    "expected_challenges": [
+      "Political information can be biased",
+      "Need multiple perspectives",
+      "Rapid developments during campaigns",
+      "Distinguishing facts from opinions"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Information within 6 hours",
+      "source_diversity": "Multiple news sources",
+      "factual_accuracy": "Verifiable statements and events",
+      "bias_recognition": "Acknowledgment of potential bias"
+    },
+    "difficulty": "high"
+  },
+  {
+    "id": "current_006",
+    "category": "technology_releases",
+    "description": "Latest technology product announcements",
+    "query": "What new features were announced in the latest iPhone release?",
+    "requirements": {
+      "freshness": "within_48_hours",
+      "source_types": ["tech_news", "official_announcements"],
+      "verification_needed": true,
+      "technical_accuracy": true
+    },
+    "expected_challenges": [
+      "Technical specifications need accuracy",
+      "Rumors vs official announcements",
+      "Multiple sources with varying details",
+      "Marketing claims vs actual features"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Information within 48 hours",
+      "source_authority": "Official Apple sources or reputable tech news",
+      "technical_accuracy": "Correct specifications and features",
+      "completeness": "Major new features covered"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "current_007",
+    "category": "health_alerts",
+    "description": "Public health announcements and alerts",
+    "query": "Are there any new COVID-19 variants or health advisories this week?",
+    "requirements": {
+      "freshness": "within_7_days",
+      "source_types": ["health_agencies", "medical_institutions"],
+      "verification_needed": true,
+      "scientific_accuracy": true
+    },
+    "expected_challenges": [
+      "Medical information requires expertise",
+      "Need authoritative health sources",
+      "Misinformation is common",
+      "Scientific accuracy is critical"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Information within 7 days",
+      "source_authority": "WHO, CDC, or equivalent agencies",
+      "scientific_accuracy": "Medically accurate information",
+      "public_health_relevance": "Actionable health guidance"
+    },
+    "difficulty": "high"
+  },
+  {
+    "id": "current_008",
+    "category": "traffic_conditions",
+    "description": "Real-time traffic and transportation updates",
+    "query": "What are the current traffic conditions on I-95 between New York and Philadelphia?",
+    "requirements": {
+      "freshness": "within_15_minutes",
+      "source_types": ["traffic_services", "transportation_agencies"],
+      "verification_needed": false,
+      "geographic_precision": "route_specific"
+    },
+    "expected_challenges": [
+      "Traffic conditions change rapidly",
+      "Need specific route information",
+      "Multiple data sources available",
+      "Incidents and construction updates"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Information within 15 minutes",
+      "route_specificity": "I-95 corridor coverage",
+      "incident_reporting": "Accidents, construction, delays",
+      "travel_time_estimates": "Current travel time predictions"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "current_009",
+    "category": "cryptocurrency_prices",
+    "description": "Current cryptocurrency market data",
+    "query": "What is the current price of Bitcoin and what caused the recent price movement?",
+    "requirements": {
+      "freshness": "within_30_minutes",
+      "source_types": ["crypto_exchanges", "financial_news"],
+      "verification_needed": true,
+      "market_analysis": true
+    },
+    "expected_challenges": [
+      "Crypto prices are highly volatile",
+      "Multiple exchanges with different prices",
+      "Market manipulation concerns",
+      "Complex factors affecting prices"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Price within 30 minutes",
+      "price_accuracy": "Current market price from major exchanges",
+      "analysis_quality": "Reasonable explanation for price movement",
+      "source_credibility": "Reputable crypto news or exchange data"
+    },
+    "difficulty": "high"
+  },
+  {
+    "id": "current_010",
+    "category": "social_trends",
+    "description": "Trending topics and viral content",
+    "query": "What are the top trending topics on social media today?",
+    "requirements": {
+      "freshness": "within_2_hours",
+      "source_types": ["social_platforms", "trend_analytics"],
+      "verification_needed": false,
+      "cultural_awareness": true
+    },
+    "expected_challenges": [
+      "Trends change very rapidly",
+      "Platform-specific trending topics",
+      "Cultural context needed",
+      "Distinguishing meaningful trends from noise"
+    ],
+    "evaluation_criteria": {
+      "timeliness": "Trends within 2 hours",
+      "platform_coverage": "Multiple social media platforms",
+      "trend_significance": "Meaningful vs trivial trends",
+      "context_provided": "Explanation of why topics are trending"
+    },
+    "difficulty": "medium"
+  }
+]

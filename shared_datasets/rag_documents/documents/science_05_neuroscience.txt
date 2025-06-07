@@ -1,0 +1,117 @@
+Neuroscience and Brain Function
+
+INTRODUCTION TO NEUROSCIENCE
+
+Neuroscience is the scientific study of the nervous system, including the brain, spinal cord, and peripheral nerves. It encompasses multiple disciplines including biology, psychology, chemistry, physics, and medicine.
+
+BRAIN STRUCTURE AND FUNCTION
+
+Cerebrum:
+- Largest part of the brain
+- Divided into left and right hemispheres
+- Contains cerebral cortex (gray matter)
+- Responsible for higher-order thinking
+
+Cerebellum:
+- Located at back of brain
+- Coordinates movement and balance
+- Involved in motor learning
+- Contains more neurons than rest of brain
+
+Brainstem:
+- Connects brain to spinal cord
+- Controls vital functions (breathing, heart rate)
+- Includes medulla, pons, midbrain
+- Regulates sleep-wake cycles
+
+NEURONS AND SYNAPSES
+
+Neuron Structure:
+- Cell body (soma): Contains nucleus
+- Dendrites: Receive signals
+- Axon: Transmits signals
+- Synapses: Connections between neurons
+
+Neurotransmitters:
+- Dopamine: Reward and motivation
+- Serotonin: Mood regulation
+- Acetylcholine: Memory and learning
+- GABA: Inhibitory neurotransmitter
+
+BRAIN PLASTICITY
+
+Neuroplasticity:
+- Brain's ability to reorganize
+- Forms new neural connections
+- Occurs throughout life
+- Enhanced by learning and experience
+
+Types of Plasticity:
+- Structural: Changes in brain anatomy
+- Functional: Changes in neural activity
+- Synaptic: Strengthening/weakening connections
+
+COGNITIVE FUNCTIONS
+
+Memory:
+- Working memory: Temporary storage
+- Long-term memory: Permanent storage
+- Episodic: Personal experiences
+- Semantic: General knowledge
+
+Learning:
+- Associative learning: Classical/operant conditioning
+- Observational learning: Learning by watching
+- Procedural learning: Motor skills
+- Declarative learning: Facts and events
+
+NEUROSCIENCE RESEARCH METHODS
+
+Brain Imaging:
+- fMRI: Functional magnetic resonance imaging
+- PET: Positron emission tomography
+- EEG: Electroencephalography
+- MEG: Magnetoencephalography
+
+Experimental Techniques:
+- Lesion studies: Brain damage effects
+- Stimulation: Electrical/magnetic stimulation
+- Single-cell recording: Individual neuron activity
+- Optogenetics: Light-controlled neurons
+
+NEUROLOGICAL DISORDERS
+
+Alzheimer's Disease:
+- Progressive memory loss
+- Amyloid plaques and tau tangles
+- Affects 50+ million worldwide
+- No current cure
+
+Parkinson's Disease:
+- Movement disorder
+- Loss of dopamine neurons
+- Tremor, rigidity, bradykinesia
+- Treated with L-DOPA
+
+Depression:
+- Mood disorder
+- Altered neurotransmitter function
+- Affects 300+ million worldwide
+- Treated with therapy and medication
+
+FUTURE DIRECTIONS
+
+Brain-Computer Interfaces:
+- Direct communication between brain and computers
+- Applications in paralysis and prosthetics
+- Ethical considerations about privacy
+
+Artificial Intelligence:
+- Neural networks inspired by brain
+- Machine learning and deep learning
+- Potential for understanding cognition
+
+Precision Medicine:
+- Personalized treatments based on genetics
+- Biomarkers for early diagnosis
+- Targeted therapies for brain disorders

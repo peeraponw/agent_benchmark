@@ -1,0 +1,212 @@
+[
+  {
+    "id": "network_001",
+    "category": "connection_timeout",
+    "description": "Network request times out",
+    "scenario": {
+      "endpoint": "https://slow-api.example.com/data",
+      "timeout": 30,
+      "actual_response_time": 45
+    },
+    "expected_behavior": "Timeout error with retry mechanism",
+    "error_type": "timeout_error",
+    "severity": "medium",
+    "retry_strategy": "exponential_backoff"
+  },
+  {
+    "id": "network_002",
+    "category": "dns_resolution_failure",
+    "description": "DNS lookup fails for domain",
+    "scenario": {
+      "domain": "nonexistent-domain.invalid",
+      "error": "NXDOMAIN"
+    },
+    "expected_behavior": "DNS error handling with fallback options",
+    "error_type": "dns_error",
+    "severity": "high",
+    "fallback_strategy": "alternative_endpoints"
+  },
+  {
+    "id": "network_003",
+    "category": "ssl_certificate_error",
+    "description": "SSL certificate validation fails",
+    "scenario": {
+      "endpoint": "https://expired-cert.example.com",
+      "ssl_error": "certificate_expired"
+    },
+    "expected_behavior": "SSL error with security warning",
+    "error_type": "ssl_error",
+    "severity": "critical",
+    "security_action": "block_connection"
+  },
+  {
+    "id": "network_004",
+    "category": "rate_limiting",
+    "description": "API rate limit exceeded",
+    "scenario": {
+      "endpoint": "https://api.example.com/data",
+      "rate_limit": "100 requests per hour",
+      "current_usage": 101,
+      "response_code": 429
+    },
+    "expected_behavior": "Rate limit handling with backoff",
+    "error_type": "rate_limit_error",
+    "severity": "medium",
+    "backoff_strategy": "respect_retry_after_header"
+  },
+  {
+    "id": "network_005",
+    "category": "partial_response",
+    "description": "Incomplete data received",
+    "scenario": {
+      "expected_size": 1024,
+      "received_size": 512,
+      "connection_status": "interrupted"
+    },
+    "expected_behavior": "Partial data detection and retry",
+    "error_type": "incomplete_data_error",
+    "severity": "medium",
+    "recovery_action": "retry_from_offset"
+  },
+  {
+    "id": "network_006",
+    "category": "server_error_5xx",
+    "description": "Server returns 5xx error codes",
+    "scenario": {
+      "endpoint": "https://api.example.com/data",
+      "response_code": 500,
+      "error_message": "Internal Server Error"
+    },
+    "expected_behavior": "Server error handling with retry logic",
+    "error_type": "server_error",
+    "severity": "high",
+    "retry_policy": "limited_retries_with_backoff"
+  },
+  {
+    "id": "network_007",
+    "category": "client_error_4xx",
+    "description": "Client error responses",
+    "scenario": {
+      "endpoint": "https://api.example.com/data",
+      "response_code": 404,
+      "error_message": "Resource not found"
+    },
+    "expected_behavior": "Client error handling without retry",
+    "error_type": "client_error",
+    "severity": "medium",
+    "action": "log_error_and_fail_gracefully"
+  },
+  {
+    "id": "network_008",
+    "category": "network_unreachable",
+    "description": "Network is completely unreachable",
+    "scenario": {
+      "error": "Network unreachable",
+      "connectivity": "offline"
+    },
+    "expected_behavior": "Offline mode or cached data fallback",
+    "error_type": "network_unreachable_error",
+    "severity": "critical",
+    "fallback_strategy": "use_cached_data"
+  },
+  {
+    "id": "network_009",
+    "category": "proxy_authentication",
+    "description": "Proxy authentication required",
+    "scenario": {
+      "proxy": "proxy.company.com:8080",
+      "response_code": 407,
+      "auth_required": true
+    },
+    "expected_behavior": "Proxy authentication handling",
+    "error_type": "proxy_auth_error",
+    "severity": "medium",
+    "action": "prompt_for_credentials"
+  },
+  {
+    "id": "network_010",
+    "category": "bandwidth_limitation",
+    "description": "Extremely slow network connection",
+    "scenario": {
+      "bandwidth": "56k modem speed",
+      "large_file_size": "100MB",
+      "estimated_time": "4+ hours"
+    },
+    "expected_behavior": "Bandwidth-aware operations",
+    "error_type": "bandwidth_limitation",
+    "severity": "low",
+    "optimization": "compress_data_or_chunk_requests"
+  },
+  {
+    "id": "network_011",
+    "category": "firewall_blocking",
+    "description": "Corporate firewall blocks request",
+    "scenario": {
+      "blocked_port": 443,
+      "firewall_rule": "HTTPS blocked",
+      "alternative_port": 8443
+    },
+    "expected_behavior": "Firewall detection and alternative routing",
+    "error_type": "firewall_error",
+    "severity": "medium",
+    "workaround": "try_alternative_ports"
+  },
+  {
+    "id": "network_012",
+    "category": "content_encoding_error",
+    "description": "Response encoding/compression issues",
+    "scenario": {
+      "content_encoding": "gzip",
+      "decompression_error": "corrupted_data",
+      "raw_size": 1024,
+      "compressed_size": 512
+    },
+    "expected_behavior": "Encoding error detection and fallback",
+    "error_type": "encoding_error",
+    "severity": "medium",
+    "fallback": "request_uncompressed_data"
+  },
+  {
+    "id": "network_013",
+    "category": "redirect_loop",
+    "description": "Infinite redirect loop",
+    "scenario": {
+      "url_a": "https://example.com/a",
+      "url_b": "https://example.com/b",
+      "redirect_pattern": "A -> B -> A -> B...",
+      "max_redirects": 10
+    },
+    "expected_behavior": "Redirect loop detection and termination",
+    "error_type": "redirect_loop_error",
+    "severity": "medium",
+    "protection": "limit_redirect_count"
+  },
+  {
+    "id": "network_014",
+    "category": "malformed_response",
+    "description": "Server returns malformed HTTP response",
+    "scenario": {
+      "response_headers": "Invalid header format",
+      "content_type": "text/html",
+      "actual_content": "Binary data"
+    },
+    "expected_behavior": "Response validation and error handling",
+    "error_type": "malformed_response_error",
+    "severity": "medium",
+    "action": "log_and_retry_with_different_headers"
+  },
+  {
+    "id": "network_015",
+    "category": "connection_pool_exhaustion",
+    "description": "All connection pool slots are in use",
+    "scenario": {
+      "max_connections": 10,
+      "active_connections": 10,
+      "pending_requests": 5
+    },
+    "expected_behavior": "Connection pool management",
+    "error_type": "connection_pool_error",
+    "severity": "high",
+    "strategy": "queue_requests_or_increase_pool_size"
+  }
+]
