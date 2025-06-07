@@ -1,0 +1,272 @@
+[
+  {
+    "id": "multi_source_001",
+    "category": "conflicting_reports",
+    "description": "Resolving conflicting information from multiple sources",
+    "query": "What is the actual death toll from the recent natural disaster?",
+    "source_conflicts": {
+      "local_news": "Reports 50 casualties",
+      "international_news": "Reports 75 casualties", 
+      "government_agency": "Reports 45 confirmed deaths",
+      "social_media": "Claims over 100 deaths",
+      "relief_organizations": "Estimates 60-70 casualties"
+    },
+    "resolution_strategy": {
+      "source_prioritization": "Official agencies > Established news > Social media",
+      "timing_consideration": "More recent reports may be more accurate",
+      "verification_method": "Cross-reference with multiple official sources",
+      "uncertainty_acknowledgment": "Acknowledge when numbers are still being confirmed"
+    },
+    "evaluation_criteria": {
+      "source_weighting": "Appropriately weights source credibility",
+      "uncertainty_handling": "Acknowledges conflicting information",
+      "update_tracking": "Notes that numbers may change",
+      "official_prioritization": "Emphasizes official agency reports"
+    },
+    "expected_behavior": "Should present range and acknowledge uncertainty",
+    "difficulty": "high"
+  },
+  {
+    "id": "multi_source_002",
+    "category": "scientific_consensus",
+    "description": "Determining scientific consensus from multiple studies",
+    "query": "What does the research say about the effectiveness of a specific medical treatment?",
+    "source_types": {
+      "meta_analyses": "Systematic reviews of multiple studies",
+      "randomized_trials": "Individual controlled studies",
+      "observational_studies": "Real-world data studies",
+      "expert_opinions": "Medical professional statements",
+      "regulatory_approvals": "FDA/EMA approval decisions"
+    },
+    "synthesis_approach": {
+      "evidence_hierarchy": "Meta-analyses > RCTs > Observational > Expert opinion",
+      "sample_size_consideration": "Larger studies weighted more heavily",
+      "quality_assessment": "Study design and methodology evaluation",
+      "consensus_identification": "Overall direction of evidence"
+    },
+    "evaluation_criteria": {
+      "evidence_synthesis": "Properly combines multiple study results",
+      "quality_weighting": "Considers study quality and design",
+      "consensus_recognition": "Identifies overall scientific agreement",
+      "limitation_acknowledgment": "Notes gaps or limitations in evidence"
+    },
+    "expected_behavior": "Should synthesize evidence and identify consensus",
+    "difficulty": "high"
+  },
+  {
+    "id": "multi_source_003",
+    "category": "financial_data_reconciliation",
+    "description": "Reconciling financial data from multiple sources",
+    "query": "What are the accurate quarterly earnings for this company?",
+    "data_sources": {
+      "company_filing": "Official SEC 10-Q filing",
+      "financial_news": "Reuters/Bloomberg earnings report",
+      "analyst_estimates": "Wall Street analyst predictions",
+      "trading_platforms": "Real-time earnings data",
+      "company_press_release": "Official company announcement"
+    },
+    "reconciliation_process": {
+      "primary_source": "SEC filings as authoritative source",
+      "timing_verification": "Ensure all sources reference same quarter",
+      "metric_standardization": "GAAP vs non-GAAP earnings",
+      "discrepancy_investigation": "Identify reasons for differences"
+    },
+    "evaluation_criteria": {
+      "source_authority": "Prioritizes official regulatory filings",
+      "metric_clarity": "Distinguishes between different earnings metrics",
+      "timing_accuracy": "Ensures data is from correct reporting period",
+      "discrepancy_explanation": "Explains any differences found"
+    },
+    "expected_behavior": "Should prioritize official filings and explain discrepancies",
+    "difficulty": "medium"
+  },
+  {
+    "id": "multi_source_004",
+    "category": "historical_event_verification",
+    "description": "Verifying historical events through multiple sources",
+    "query": "What actually happened during this controversial historical event?",
+    "source_categories": {
+      "primary_documents": "Contemporary records and documents",
+      "eyewitness_accounts": "First-hand testimonies",
+      "academic_historians": "Scholarly historical analysis",
+      "government_archives": "Official government records",
+      "international_perspectives": "Foreign government and media accounts"
+    },
+    "verification_methodology": {
+      "source_triangulation": "Compare accounts from different perspectives",
+      "bias_assessment": "Consider potential biases of each source",
+      "corroboration_requirement": "Multiple independent confirmations",
+      "context_consideration": "Historical and political context"
+    },
+    "evaluation_criteria": {
+      "source_diversity": "Uses multiple types of historical sources",
+      "bias_awareness": "Acknowledges potential source biases",
+      "corroboration_evidence": "Finds supporting evidence from multiple sources",
+      "uncertainty_acknowledgment": "Notes disputed or unclear aspects"
+    },
+    "expected_behavior": "Should triangulate sources and acknowledge uncertainties",
+    "difficulty": "high"
+  },
+  {
+    "id": "multi_source_005",
+    "category": "product_safety_assessment",
+    "description": "Assessing product safety from multiple information sources",
+    "query": "Is this consumer product safe to use?",
+    "information_sources": {
+      "regulatory_agencies": "FDA, CPSC safety evaluations",
+      "independent_testing": "Consumer Reports, third-party labs",
+      "manufacturer_data": "Company safety studies and claims",
+      "user_reports": "Consumer complaints and reviews",
+      "medical_literature": "Published safety studies"
+    },
+    "assessment_framework": {
+      "regulatory_priority": "Official safety determinations first",
+      "independent_verification": "Third-party testing validation",
+      "pattern_analysis": "Consistent safety concerns across sources",
+      "risk_communication": "Clear communication of any identified risks"
+    },
+    "evaluation_criteria": {
+      "regulatory_compliance": "Checks official safety approvals",
+      "independent_validation": "Seeks third-party confirmation",
+      "risk_identification": "Identifies any safety concerns",
+      "balanced_assessment": "Considers both benefits and risks"
+    },
+    "expected_behavior": "Should prioritize regulatory and independent sources",
+    "difficulty": "medium"
+  },
+  {
+    "id": "multi_source_006",
+    "category": "technology_comparison",
+    "description": "Comparing technology products using multiple review sources",
+    "query": "Which smartphone has the best camera quality?",
+    "review_sources": {
+      "professional_reviews": "Tech journalists and publications",
+      "laboratory_testing": "DxOMark, Consumer Reports testing",
+      "user_reviews": "Customer feedback and ratings",
+      "expert_opinions": "Photography professionals",
+      "comparison_sites": "Aggregated comparison platforms"
+    },
+    "comparison_methodology": {
+      "criteria_standardization": "Consistent evaluation criteria",
+      "testing_methodology": "Objective vs subjective assessments",
+      "use_case_consideration": "Different photography needs",
+      "consensus_identification": "Areas of agreement across sources"
+    },
+    "evaluation_criteria": {
+      "source_expertise": "Considers reviewer expertise and methodology",
+      "testing_objectivity": "Prioritizes objective testing data",
+      "consensus_recognition": "Identifies areas of agreement",
+      "use_case_relevance": "Considers different user needs"
+    },
+    "expected_behavior": "Should synthesize expert opinions with objective testing",
+    "difficulty": "medium"
+  },
+  {
+    "id": "multi_source_007",
+    "category": "legal_precedent_research",
+    "description": "Researching legal precedents from multiple jurisdictions",
+    "query": "What is the legal precedent for this type of case?",
+    "legal_sources": {
+      "court_decisions": "Published court opinions and rulings",
+      "legal_databases": "Westlaw, LexisNexis case law",
+      "law_reviews": "Academic legal analysis",
+      "bar_associations": "Professional legal guidance",
+      "statutory_law": "Relevant statutes and regulations"
+    },
+    "research_approach": {
+      "jurisdiction_relevance": "Prioritize applicable jurisdictions",
+      "precedent_hierarchy": "Higher courts over lower courts",
+      "recency_consideration": "More recent decisions may override older ones",
+      "factual_similarity": "Cases with similar facts and issues"
+    },
+    "evaluation_criteria": {
+      "jurisdictional_accuracy": "Focuses on relevant legal jurisdictions",
+      "precedent_authority": "Understands court hierarchy and binding precedent",
+      "factual_relevance": "Identifies cases with similar circumstances",
+      "legal_analysis": "Provides meaningful legal interpretation"
+    },
+    "expected_behavior": "Should identify binding precedent and distinguish cases",
+    "difficulty": "high"
+  },
+  {
+    "id": "multi_source_008",
+    "category": "travel_safety_assessment",
+    "description": "Assessing travel safety using multiple official sources",
+    "query": "Is it safe to travel to this country right now?",
+    "safety_sources": {
+      "government_advisories": "State Department travel warnings",
+      "international_organizations": "UN, WHO health and safety updates",
+      "embassy_information": "Local embassy security updates",
+      "travel_industry": "Airlines, hotels, tour operators",
+      "news_reports": "Current events and security incidents"
+    },
+    "assessment_process": {
+      "official_priority": "Government advisories as primary source",
+      "current_conditions": "Most recent security and health updates",
+      "regional_specificity": "Different conditions in different areas",
+      "risk_categorization": "Different types of risks (health, security, natural)"
+    },
+    "evaluation_criteria": {
+      "official_source_priority": "Emphasizes government travel advisories",
+      "currency_verification": "Uses most recent information",
+      "risk_specification": "Identifies specific types of risks",
+      "regional_awareness": "Notes regional variations in safety"
+    },
+    "expected_behavior": "Should prioritize official advisories and current conditions",
+    "difficulty": "medium"
+  },
+  {
+    "id": "multi_source_009",
+    "category": "environmental_impact_assessment",
+    "description": "Assessing environmental impact using multiple data sources",
+    "query": "What is the environmental impact of this industrial project?",
+    "data_sources": {
+      "environmental_agencies": "EPA, state environmental departments",
+      "impact_studies": "Environmental impact assessments",
+      "scientific_research": "Peer-reviewed environmental studies",
+      "community_reports": "Local environmental monitoring",
+      "industry_data": "Company environmental reporting"
+    },
+    "assessment_methodology": {
+      "regulatory_framework": "Official environmental standards and requirements",
+      "scientific_validation": "Peer-reviewed research and data",
+      "community_input": "Local environmental concerns and monitoring",
+      "long_term_effects": "Consideration of cumulative impacts"
+    },
+    "evaluation_criteria": {
+      "regulatory_compliance": "Meets environmental regulatory standards",
+      "scientific_rigor": "Based on peer-reviewed environmental science",
+      "community_consideration": "Includes local environmental concerns",
+      "comprehensive_scope": "Considers multiple environmental factors"
+    },
+    "expected_behavior": "Should integrate regulatory, scientific, and community perspectives",
+    "difficulty": "high"
+  },
+  {
+    "id": "multi_source_010",
+    "category": "market_trend_analysis",
+    "description": "Analyzing market trends using multiple data sources",
+    "query": "What are the current trends in the renewable energy market?",
+    "market_sources": {
+      "industry_reports": "McKinsey, Bloomberg New Energy Finance",
+      "government_data": "Energy department statistics",
+      "financial_analysis": "Investment bank research reports",
+      "trade_publications": "Industry magazines and websites",
+      "company_earnings": "Public company financial reports"
+    },
+    "analysis_framework": {
+      "data_triangulation": "Confirm trends across multiple sources",
+      "quantitative_validation": "Support trends with numerical data",
+      "expert_consensus": "Industry expert agreement on trends",
+      "temporal_consistency": "Trends consistent over time"
+    },
+    "evaluation_criteria": {
+      "source_diversity": "Uses multiple types of market data",
+      "trend_validation": "Confirms trends across sources",
+      "quantitative_support": "Provides numerical evidence for trends",
+      "expert_agreement": "Shows consensus among industry experts"
+    },
+    "expected_behavior": "Should synthesize multiple data sources to identify consensus trends",
+    "difficulty": "medium"
+  }
+]

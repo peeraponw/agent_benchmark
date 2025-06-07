@@ -1,0 +1,93 @@
+{
+  "title": "Internet of Things (IoT) Systems",
+  "overview": "Comprehensive guide to IoT architecture, protocols, and applications",
+  "architecture": {
+    "device_layer": {
+      "sensors": [
+        "Temperature",
+        "Humidity",
+        "Motion",
+        "Light"
+      ],
+      "actuators": [
+        "Motors",
+        "Valves",
+        "Switches",
+        "Displays"
+      ],
+      "microcontrollers": [
+        "Arduino",
+        "Raspberry Pi",
+        "ESP32"
+      ]
+    },
+    "connectivity_layer": {
+      "protocols": {
+        "wifi": {
+          "range": "100m",
+          "power": "High",
+          "data_rate": "High"
+        },
+        "bluetooth": {
+          "range": "10m",
+          "power": "Low",
+          "data_rate": "Medium"
+        },
+        "zigbee": {
+          "range": "100m",
+          "power": "Very Low",
+          "data_rate": "Low"
+        },
+        "lora": {
+          "range": "15km",
+          "power": "Very Low",
+          "data_rate": "Very Low"
+        }
+      }
+    },
+    "data_processing": {
+      "edge_computing": "Processing data near the source",
+      "cloud_computing": "Centralized processing and storage",
+      "fog_computing": "Intermediate layer between edge and cloud"
+    }
+  },
+  "applications": {
+    "smart_home": [
+      "Lighting control",
+      "Security systems",
+      "Energy management"
+    ],
+    "industrial_iot": [
+      "Predictive maintenance",
+      "Asset tracking",
+      "Quality control"
+    ],
+    "smart_cities": [
+      "Traffic management",
+      "Waste management",
+      "Environmental monitoring"
+    ],
+    "healthcare": [
+      "Remote monitoring",
+      "Medication adherence",
+      "Emergency response"
+    ]
+  },
+  "security_considerations": {
+    "device_security": [
+      "Secure boot",
+      "Hardware encryption",
+      "Regular updates"
+    ],
+    "network_security": [
+      "VPN",
+      "Firewalls",
+      "Intrusion detection"
+    ],
+    "data_security": [
+      "Encryption",
+      "Access control",
+      "Data anonymization"
+    ]
+  }
+}

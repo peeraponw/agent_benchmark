@@ -1,0 +1,170 @@
+[
+  {
+    "id": "malformed_001",
+    "category": "invalid_json",
+    "description": "JSON with syntax errors",
+    "input": "{\"name\": \"test\", \"value\": }",
+    "expected_behavior": "Graceful error handling with descriptive message",
+    "error_type": "syntax_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_002", 
+    "category": "missing_required_fields",
+    "description": "Input missing mandatory fields",
+    "input": {
+      "name": "test_case"
+    },
+    "expected_behavior": "Validation error indicating missing required fields",
+    "error_type": "validation_error",
+    "severity": "high"
+  },
+  {
+    "id": "malformed_003",
+    "category": "wrong_data_types",
+    "description": "Fields with incorrect data types",
+    "input": {
+      "name": "test",
+      "age": "not_a_number",
+      "active": "not_boolean"
+    },
+    "expected_behavior": "Type validation error with specific field information",
+    "error_type": "type_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_004",
+    "category": "extremely_large_input",
+    "description": "Input exceeding reasonable size limits",
+    "input": "A" * 1000000,
+    "expected_behavior": "Input size limit error or truncation with warning",
+    "error_type": "size_limit_error",
+    "severity": "high"
+  },
+  {
+    "id": "malformed_005",
+    "category": "null_values",
+    "description": "Unexpected null values in critical fields",
+    "input": {
+      "name": null,
+      "data": null,
+      "config": null
+    },
+    "expected_behavior": "Null value handling with appropriate defaults or errors",
+    "error_type": "null_value_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_006",
+    "category": "special_characters",
+    "description": "Input containing special characters and unicode",
+    "input": {
+      "text": "Test with émojis 🚀 and spëcial chars: <>&\"'",
+      "unicode": "测试中文字符 и русский текст"
+    },
+    "expected_behavior": "Proper encoding and sanitization of special characters",
+    "error_type": "encoding_error",
+    "severity": "low"
+  },
+  {
+    "id": "malformed_007",
+    "category": "circular_references",
+    "description": "Data structures with circular references",
+    "input": "Circular reference object (cannot be serialized directly)",
+    "expected_behavior": "Detection and handling of circular references",
+    "error_type": "circular_reference_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_008",
+    "category": "empty_input",
+    "description": "Completely empty input",
+    "input": "",
+    "expected_behavior": "Empty input validation with appropriate error message",
+    "error_type": "empty_input_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_009",
+    "category": "malformed_urls",
+    "description": "Invalid URL formats",
+    "input": {
+      "url": "not-a-valid-url",
+      "endpoint": "http://",
+      "malformed": "ftp://incomplete"
+    },
+    "expected_behavior": "URL validation with specific error messages",
+    "error_type": "url_validation_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_010",
+    "category": "sql_injection_attempt",
+    "description": "Input containing SQL injection patterns",
+    "input": {
+      "query": "'; DROP TABLE users; --",
+      "search": "1' OR '1'='1"
+    },
+    "expected_behavior": "Input sanitization and security validation",
+    "error_type": "security_error",
+    "severity": "critical"
+  },
+  {
+    "id": "malformed_011",
+    "category": "xss_attempt",
+    "description": "Input containing XSS attack patterns",
+    "input": {
+      "content": "<script>alert('XSS')</script>",
+      "html": "<img src=x onerror=alert('XSS')>"
+    },
+    "expected_behavior": "HTML sanitization and XSS prevention",
+    "error_type": "security_error",
+    "severity": "critical"
+  },
+  {
+    "id": "malformed_012",
+    "category": "buffer_overflow_attempt",
+    "description": "Input designed to cause buffer overflow",
+    "input": {
+      "data": "A" * 100000,
+      "repeated_pattern": "OVERFLOW" * 10000
+    },
+    "expected_behavior": "Buffer size validation and protection",
+    "error_type": "buffer_overflow_error",
+    "severity": "critical"
+  },
+  {
+    "id": "malformed_013",
+    "category": "invalid_file_formats",
+    "description": "Files with incorrect or corrupted formats",
+    "input": {
+      "file_type": "image/jpeg",
+      "actual_content": "This is not an image file"
+    },
+    "expected_behavior": "File format validation and error reporting",
+    "error_type": "file_format_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_014",
+    "category": "timestamp_errors",
+    "description": "Invalid date and time formats",
+    "input": {
+      "date": "2023-13-45",
+      "time": "25:70:90",
+      "timestamp": "not-a-date"
+    },
+    "expected_behavior": "Date/time validation with format requirements",
+    "error_type": "datetime_error",
+    "severity": "medium"
+  },
+  {
+    "id": "malformed_015",
+    "category": "nested_depth_limit",
+    "description": "Deeply nested data structures",
+    "input": "Nested object with 1000+ levels of nesting",
+    "expected_behavior": "Depth limit enforcement to prevent stack overflow",
+    "error_type": "depth_limit_error",
+    "severity": "high"
+  }
+]

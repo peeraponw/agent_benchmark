@@ -1,0 +1,141 @@
+Agile Software Development Methodologies
+
+AGILE MANIFESTO
+
+The Agile Manifesto, created in 2001, values:
+- Individuals and interactions over processes and tools
+- Working software over comprehensive documentation
+- Customer collaboration over contract negotiation
+- Responding to change over following a plan
+
+AGILE PRINCIPLES
+
+1. Customer satisfaction through early and continuous delivery
+2. Welcome changing requirements, even late in development
+3. Deliver working software frequently
+4. Business people and developers must work together daily
+5. Build projects around motivated individuals
+6. Face-to-face conversation is the most efficient communication
+7. Working software is the primary measure of progress
+8. Sustainable development pace
+9. Continuous attention to technical excellence
+10. Simplicity - maximizing the amount of work not done
+11. Self-organizing teams
+12. Regular reflection and adaptation
+
+SCRUM FRAMEWORK
+
+Roles:
+- Product Owner: Defines product vision and priorities
+- Scrum Master: Facilitates process and removes impediments
+- Development Team: Cross-functional team that builds the product
+
+Events:
+- Sprint Planning: Plan work for the upcoming sprint
+- Daily Scrum: 15-minute daily synchronization meeting
+- Sprint Review: Demonstrate completed work to stakeholders
+- Sprint Retrospective: Reflect on process and identify improvements
+
+Artifacts:
+- Product Backlog: Prioritized list of features and requirements
+- Sprint Backlog: Work selected for the current sprint
+- Increment: Potentially shippable product increment
+
+KANBAN METHOD
+
+Principles:
+- Visualize workflow
+- Limit work in progress (WIP)
+- Manage flow
+- Make policies explicit
+- Implement feedback loops
+- Improve collaboratively
+
+Kanban Board:
+- To Do: Work items waiting to be started
+- In Progress: Work currently being done
+- Done: Completed work items
+
+EXTREME PROGRAMMING (XP)
+
+Practices:
+- Pair Programming: Two developers working together
+- Test-Driven Development: Write tests before code
+- Continuous Integration: Frequent code integration
+- Refactoring: Improving code structure without changing functionality
+- Simple Design: Keep design as simple as possible
+- Collective Code Ownership: Everyone can modify any code
+- On-site Customer: Customer representative available to team
+- Small Releases: Frequent small releases to production
+
+LEAN SOFTWARE DEVELOPMENT
+
+Principles:
+- Eliminate waste
+- Amplify learning
+- Decide as late as possible
+- Deliver as fast as possible
+- Empower the team
+- Build integrity in
+- See the whole
+
+SCALED AGILE FRAMEWORKS
+
+SAFe (Scaled Agile Framework):
+- Portfolio level: Strategic themes and epics
+- Program level: Agile Release Trains (ARTs)
+- Team level: Scrum/Kanban teams
+
+LeSS (Large-Scale Scrum):
+- Scaling Scrum to multiple teams
+- Single Product Owner and Product Backlog
+- Sprint Planning with all teams
+
+AGILE ESTIMATION
+
+Techniques:
+- Planning Poker: Team-based estimation using cards
+- T-shirt Sizing: Relative sizing (XS, S, M, L, XL)
+- Story Points: Relative complexity estimation
+- Ideal Days: Estimation in ideal working days
+
+AGILE TESTING
+
+Approaches:
+- Test-Driven Development (TDD)
+- Behavior-Driven Development (BDD)
+- Acceptance Test-Driven Development (ATDD)
+- Continuous Testing
+
+Test Pyramid:
+- Unit Tests: Fast, isolated tests
+- Integration Tests: Component interaction tests
+- End-to-End Tests: Full system tests
+
+AGILE METRICS
+
+Velocity: Amount of work completed per sprint
+Burndown Charts: Work remaining over time
+Cumulative Flow Diagram: Work flow visualization
+Lead Time: Time from request to delivery
+Cycle Time: Time from start to completion
+
+COMMON CHALLENGES
+
+- Resistance to change
+- Lack of customer involvement
+- Insufficient training
+- Scaling difficulties
+- Maintaining quality under pressure
+- Distributed teams
+- Legacy system constraints
+
+BENEFITS OF AGILE
+
+- Faster time to market
+- Improved quality
+- Better customer satisfaction
+- Increased team morale
+- Greater flexibility
+- Reduced risk
+- Better visibility and control

@@ -3,21 +3,175 @@
     "id": "qa_001",
     "question": "What is the capital of France?",
     "category": "factual",
-    "difficulty": "easy",
+    "difficulty": "level_1",
     "expected_response_type": "short_answer"
   },
   {
-    "id": "qa_002", 
+    "id": "qa_002",
     "question": "Explain the process of photosynthesis in plants.",
     "category": "scientific",
-    "difficulty": "medium",
+    "difficulty": "level_2",
     "expected_response_type": "detailed_explanation"
   },
   {
     "id": "qa_003",
     "question": "If a train travels at 80 km/h for 2.5 hours, how far does it travel?",
-    "category": "reasoning",
-    "difficulty": "easy",
+    "category": "mathematical",
+    "difficulty": "level_1",
     "expected_response_type": "calculation"
+  },
+  {
+    "id": "qa_004",
+    "question": "What is the largest planet in our solar system?",
+    "category": "factual",
+    "difficulty": "level_1",
+    "expected_response_type": "short_answer"
+  },
+  {
+    "id": "qa_005",
+    "question": "Who wrote the novel '1984'?",
+    "category": "factual",
+    "difficulty": "level_1",
+    "expected_response_type": "short_answer"
+  },
+  {
+    "id": "qa_006",
+    "question": "What is the chemical symbol for gold?",
+    "category": "factual",
+    "difficulty": "level_1",
+    "expected_response_type": "short_answer"
+  },
+  {
+    "id": "qa_007",
+    "question": "Calculate the area of a circle with radius 5 meters.",
+    "category": "mathematical",
+    "difficulty": "level_2",
+    "expected_response_type": "calculation"
+  },
+  {
+    "id": "qa_008",
+    "question": "Explain the difference between renewable and non-renewable energy sources.",
+    "category": "scientific",
+    "difficulty": "level_2",
+    "expected_response_type": "detailed_explanation"
+  },
+  {
+    "id": "qa_009",
+    "question": "What are the three branches of the U.S. government?",
+    "category": "factual",
+    "difficulty": "level_2",
+    "expected_response_type": "list"
+  },
+  {
+    "id": "qa_010",
+    "question": "If you invest $1000 at 5% annual interest compounded annually, how much will you have after 3 years?",
+    "category": "mathematical",
+    "difficulty": "level_2",
+    "expected_response_type": "calculation"
+  },
+  {
+    "id": "qa_011",
+    "question": "Describe the water cycle and its main stages.",
+    "category": "scientific",
+    "difficulty": "level_2",
+    "expected_response_type": "detailed_explanation"
+  },
+  {
+    "id": "qa_012",
+    "question": "A company's revenue increased from $100,000 to $150,000. What is the percentage increase?",
+    "category": "mathematical",
+    "difficulty": "level_3",
+    "expected_response_type": "calculation"
+  },
+  {
+    "id": "qa_013",
+    "question": "Analyze the causes and effects of the Industrial Revolution on society.",
+    "category": "reasoning",
+    "difficulty": "level_3",
+    "expected_response_type": "analytical_essay"
+  },
+  {
+    "id": "qa_014",
+    "question": "Compare and contrast the economic systems of capitalism and socialism.",
+    "category": "reasoning",
+    "difficulty": "level_3",
+    "expected_response_type": "comparative_analysis"
+  },
+  {
+    "id": "qa_015",
+    "question": "Solve this system of equations: 2x + 3y = 12 and x - y = 1",
+    "category": "mathematical",
+    "difficulty": "level_3",
+    "expected_response_type": "calculation"
+  },
+  {
+    "id": "qa_016",
+    "question": "Explain the concept of quantum entanglement and its implications for quantum computing.",
+    "category": "domain_specific",
+    "difficulty": "level_4",
+    "expected_response_type": "technical_explanation"
+  },
+  {
+    "id": "qa_017",
+    "question": "Analyze the ethical implications of artificial intelligence in healthcare decision-making.",
+    "category": "reasoning",
+    "difficulty": "level_4",
+    "expected_response_type": "ethical_analysis"
+  },
+  {
+    "id": "qa_018",
+    "question": "Design a sustainable urban transportation system for a city of 2 million people.",
+    "category": "domain_specific",
+    "difficulty": "level_4",
+    "expected_response_type": "design_proposal"
+  },
+  {
+    "id": "qa_019",
+    "question": "Evaluate the effectiveness of different monetary policy tools during economic recessions.",
+    "category": "domain_specific",
+    "difficulty": "level_4",
+    "expected_response_type": "policy_analysis"
+  },
+  {
+    "id": "qa_020",
+    "question": "Derive the quadratic formula from the general quadratic equation ax² + bx + c = 0.",
+    "category": "mathematical",
+    "difficulty": "level_4",
+    "expected_response_type": "mathematical_proof"
+  },
+  {
+    "id": "qa_021",
+    "question": "Write a short story that explores the concept of time travel while maintaining logical consistency.",
+    "category": "creative",
+    "difficulty": "level_5",
+    "expected_response_type": "creative_writing"
+  },
+  {
+    "id": "qa_022",
+    "question": "How might consciousness emerge from purely physical processes in the brain?",
+    "category": "creative",
+    "difficulty": "level_5",
+    "expected_response_type": "philosophical_exploration"
+  },
+  {
+    "id": "qa_023",
+    "question": "Design a novel solution to address climate change that hasn't been widely proposed before.",
+    "category": "creative",
+    "difficulty": "level_5",
+    "expected_response_type": "innovative_proposal"
+  },
+  {
+    "id": "qa_024",
+    "question": "If you could redesign human society from scratch, what fundamental principles would you establish and why?",
+    "category": "creative",
+    "difficulty": "level_5",
+    "expected_response_type": "philosophical_design"
+  },
+  {
+    "id": "qa_025",
+    "question": "Create a mathematical model that could predict the emergence of new art movements.",
+    "category": "creative",
+    "difficulty": "level_5",
+    "expected_response_type": "theoretical_model"
   }
 ]

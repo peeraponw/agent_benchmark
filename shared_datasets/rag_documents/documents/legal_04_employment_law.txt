@@ -1,0 +1,159 @@
+Employment Law Fundamentals
+
+INTRODUCTION TO EMPLOYMENT LAW
+
+Employment law governs the relationship between employers and employees, covering hiring, workplace conditions, compensation, and termination. It includes federal, state, and local regulations.
+
+AT-WILL EMPLOYMENT
+
+Definition:
+Employment relationship can be terminated by either party at any time, for any reason, or no reason at all, without advance notice.
+
+Exceptions:
+- Public policy violations
+- Implied contracts
+- Covenant of good faith and fair dealing
+- Statutory protections
+
+EQUAL EMPLOYMENT OPPORTUNITY
+
+Title VII (1964):
+- Prohibits discrimination based on race, color, religion, sex, national origin
+- Applies to employers with 15+ employees
+- Covers hiring, firing, promotion, compensation
+- Enforced by EEOC
+
+Americans with Disabilities Act (ADA):
+- Prohibits discrimination against qualified individuals with disabilities
+- Requires reasonable accommodations
+- Applies to employers with 15+ employees
+- Covers physical and mental impairments
+
+Age Discrimination in Employment Act (ADEA):
+- Protects individuals 40 years and older
+- Applies to employers with 20+ employees
+- Prohibits age-based discrimination in employment decisions
+
+WAGE AND HOUR LAWS
+
+Fair Labor Standards Act (FLSA):
+- Establishes minimum wage requirements
+- Requires overtime pay (1.5x regular rate for 40+ hours)
+- Regulates child labor
+- Distinguishes exempt vs. non-exempt employees
+
+Exempt Employees:
+- Executive, administrative, professional positions
+- Paid on salary basis
+- Not entitled to overtime pay
+- Must meet specific duties tests
+
+WORKPLACE SAFETY
+
+Occupational Safety and Health Act (OSHA):
+- Ensures safe and healthy working conditions
+- Requires employers to provide hazard-free workplace
+- Establishes safety standards and regulations
+- Provides for inspections and penalties
+
+Workers' Compensation:
+- State-mandated insurance for work-related injuries
+- Provides medical benefits and wage replacement
+- No-fault system (regardless of who caused injury)
+- Exclusive remedy (prevents lawsuits in most cases)
+
+FAMILY AND MEDICAL LEAVE
+
+Family and Medical Leave Act (FMLA):
+- Provides up to 12 weeks unpaid leave
+- For birth/adoption, serious health condition, military family leave
+- Applies to employers with 50+ employees
+- Job protection and health insurance continuation
+
+State Leave Laws:
+- Many states provide additional leave benefits
+- Paid family leave programs
+- Expanded coverage and duration
+- Broader definitions of family
+
+EMPLOYEE PRIVACY
+
+Electronic Communications:
+- Employer monitoring of email and internet use
+- Reasonable expectation of privacy
+- Company policies and consent
+- State law variations
+
+Drug Testing:
+- Pre-employment testing generally permitted
+- Random testing varies by state and industry
+- Safety-sensitive positions have broader testing rights
+- Medical marijuana considerations
+
+TERMINATION AND SEVERANCE
+
+Wrongful Termination:
+- Termination that violates law or public policy
+- Breach of employment contract
+- Discrimination or retaliation
+- Violation of implied covenant
+
+Severance Agreements:
+- Not required by law (except in limited circumstances)
+- Often includes release of claims
+- May include non-compete or non-disclosure provisions
+- Consideration requirements
+
+LABOR RELATIONS
+
+National Labor Relations Act (NLRA):
+- Protects right to organize and bargain collectively
+- Prohibits unfair labor practices
+- Covers private sector employees
+- Administered by NLRB
+
+Collective Bargaining:
+- Negotiation between union and employer
+- Covers wages, hours, working conditions
+- Results in collective bargaining agreement
+- Grievance and arbitration procedures
+
+EMERGING ISSUES
+
+Gig Economy:
+- Classification of workers (employee vs. independent contractor)
+- Benefits and protections for gig workers
+- State legislation (e.g., California AB5)
+- Federal regulatory developments
+
+Remote Work:
+- Wage and hour compliance across state lines
+- Workers' compensation coverage
+- Privacy and monitoring issues
+- Accommodation requirements
+
+Artificial Intelligence:
+- AI in hiring and employment decisions
+- Bias and discrimination concerns
+- Transparency and explainability requirements
+- Regulatory developments
+
+COMPLIANCE BEST PRACTICES
+
+Policies and Procedures:
+- Written employment policies
+- Regular updates to reflect law changes
+- Employee training and communication
+- Consistent enforcement
+
+Documentation:
+- Maintain accurate employment records
+- Document performance issues and disciplinary actions
+- Preserve records for required retention periods
+- Protect confidential information
+
+Training:
+- Manager training on employment law compliance
+- Anti-harassment and discrimination training
+- Safety training and procedures
+- Regular updates on legal developments

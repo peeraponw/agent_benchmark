@@ -51,5 +51,358 @@
     ],
     "complexity": "medium",
     "estimated_duration": "30-45 minutes"
+  },
+  {
+    "id": "simple_001",
+    "task": "Weather forecast summary",
+    "description": "Get current weather and create a simple summary for a specific city",
+    "required_agents": [
+      {
+        "role": "weather_fetcher",
+        "responsibilities": ["Retrieve current weather data", "Get forecast information"]
+      },
+      {
+        "role": "summary_writer",
+        "responsibilities": ["Format weather information", "Create readable summary"]
+      }
+    ],
+    "expected_deliverables": [
+      "Current weather conditions",
+      "3-day forecast summary"
+    ],
+    "complexity": "simple",
+    "estimated_duration": "5-10 minutes"
+  },
+  {
+    "id": "simple_002",
+    "task": "Product price comparison",
+    "description": "Compare prices of a specific product across two online retailers",
+    "required_agents": [
+      {
+        "role": "price_collector",
+        "responsibilities": ["Search product prices", "Collect pricing data"]
+      },
+      {
+        "role": "comparison_analyst",
+        "responsibilities": ["Compare prices", "Identify best deals"]
+      }
+    ],
+    "expected_deliverables": [
+      "Price comparison table",
+      "Recommendation for best value"
+    ],
+    "complexity": "simple",
+    "estimated_duration": "10-15 minutes"
+  },
+  {
+    "id": "simple_003",
+    "task": "News headline categorization",
+    "description": "Collect recent news headlines and categorize them by topic",
+    "required_agents": [
+      {
+        "role": "news_collector",
+        "responsibilities": ["Gather recent headlines", "Extract article summaries"]
+      },
+      {
+        "role": "topic_classifier",
+        "responsibilities": ["Categorize headlines", "Group by subject matter"]
+      }
+    ],
+    "expected_deliverables": [
+      "Categorized news headlines",
+      "Topic distribution summary"
+    ],
+    "complexity": "simple",
+    "estimated_duration": "10-15 minutes"
+  },
+  {
+    "id": "simple_004",
+    "task": "Restaurant recommendation",
+    "description": "Find and recommend restaurants based on cuisine type and location",
+    "required_agents": [
+      {
+        "role": "restaurant_finder",
+        "responsibilities": ["Search for restaurants", "Collect basic information"]
+      },
+      {
+        "role": "recommendation_engine",
+        "responsibilities": ["Filter by criteria", "Rank recommendations"]
+      }
+    ],
+    "expected_deliverables": [
+      "List of matching restaurants",
+      "Top 3 recommendations with reasons"
+    ],
+    "complexity": "simple",
+    "estimated_duration": "10-15 minutes"
+  },
+  {
+    "id": "medium_001",
+    "task": "Social media sentiment analysis",
+    "description": "Analyze sentiment of social media posts about a brand or topic",
+    "required_agents": [
+      {
+        "role": "content_collector",
+        "responsibilities": ["Gather social media posts", "Filter relevant content"]
+      },
+      {
+        "role": "sentiment_analyzer",
+        "responsibilities": ["Analyze post sentiment", "Calculate sentiment scores"]
+      },
+      {
+        "role": "trend_identifier",
+        "responsibilities": ["Identify sentiment trends", "Highlight key themes"]
+      }
+    ],
+    "expected_deliverables": [
+      "Sentiment analysis report",
+      "Trend visualization",
+      "Key insights summary"
+    ],
+    "complexity": "medium",
+    "estimated_duration": "20-30 minutes"
+  },
+  {
+    "id": "medium_002",
+    "task": "Investment portfolio analysis",
+    "description": "Analyze a stock portfolio and provide investment recommendations",
+    "required_agents": [
+      {
+        "role": "market_data_collector",
+        "responsibilities": ["Gather stock prices", "Collect financial metrics"]
+      },
+      {
+        "role": "performance_analyzer",
+        "responsibilities": ["Calculate portfolio performance", "Assess risk metrics"]
+      },
+      {
+        "role": "investment_advisor",
+        "responsibilities": ["Provide recommendations", "Suggest portfolio adjustments"]
+      }
+    ],
+    "expected_deliverables": [
+      "Portfolio performance report",
+      "Risk assessment",
+      "Investment recommendations"
+    ],
+    "complexity": "medium",
+    "estimated_duration": "25-35 minutes"
+  },
+  {
+    "id": "medium_003",
+    "task": "Content marketing strategy",
+    "description": "Develop a content marketing strategy for a specific industry",
+    "required_agents": [
+      {
+        "role": "market_researcher",
+        "responsibilities": ["Research target audience", "Analyze competitor content"]
+      },
+      {
+        "role": "content_strategist",
+        "responsibilities": ["Develop content themes", "Create content calendar"]
+      },
+      {
+        "role": "channel_optimizer",
+        "responsibilities": ["Recommend distribution channels", "Optimize for platforms"]
+      }
+    ],
+    "expected_deliverables": [
+      "Audience analysis",
+      "Content strategy document",
+      "Distribution plan"
+    ],
+    "complexity": "medium",
+    "estimated_duration": "30-40 minutes"
+  },
+  {
+    "id": "medium_004",
+    "task": "Supply chain optimization",
+    "description": "Analyze and optimize a company's supply chain operations",
+    "required_agents": [
+      {
+        "role": "data_analyst",
+        "responsibilities": ["Collect supply chain data", "Identify bottlenecks"]
+      },
+      {
+        "role": "logistics_optimizer",
+        "responsibilities": ["Analyze transportation routes", "Optimize delivery schedules"]
+      },
+      {
+        "role": "cost_analyst",
+        "responsibilities": ["Calculate cost savings", "Assess ROI of improvements"]
+      }
+    ],
+    "expected_deliverables": [
+      "Current state analysis",
+      "Optimization recommendations",
+      "Cost-benefit analysis"
+    ],
+    "complexity": "medium",
+    "estimated_duration": "35-45 minutes"
+  },
+  {
+    "id": "complex_001",
+    "task": "Digital transformation roadmap",
+    "description": "Create a comprehensive digital transformation strategy for an organization",
+    "required_agents": [
+      {
+        "role": "current_state_assessor",
+        "responsibilities": ["Evaluate existing systems", "Assess digital maturity"]
+      },
+      {
+        "role": "technology_researcher",
+        "responsibilities": ["Research emerging technologies", "Evaluate solution options"]
+      },
+      {
+        "role": "change_management_specialist",
+        "responsibilities": ["Plan change management", "Assess organizational readiness"]
+      },
+      {
+        "role": "roadmap_architect",
+        "responsibilities": ["Design implementation phases", "Create timeline and milestones"]
+      }
+    ],
+    "expected_deliverables": [
+      "Current state assessment",
+      "Technology recommendations",
+      "Change management plan",
+      "Implementation roadmap"
+    ],
+    "complexity": "complex",
+    "estimated_duration": "60-90 minutes"
+  },
+  {
+    "id": "complex_002",
+    "task": "Comprehensive market entry strategy",
+    "description": "Develop a complete strategy for entering a new international market",
+    "required_agents": [
+      {
+        "role": "market_researcher",
+        "responsibilities": ["Analyze target market", "Study local regulations"]
+      },
+      {
+        "role": "competitive_analyst",
+        "responsibilities": ["Map competitive landscape", "Identify market gaps"]
+      },
+      {
+        "role": "financial_modeler",
+        "responsibilities": ["Create financial projections", "Assess investment requirements"]
+      },
+      {
+        "role": "strategy_synthesizer",
+        "responsibilities": ["Integrate all analyses", "Develop comprehensive strategy"]
+      }
+    ],
+    "expected_deliverables": [
+      "Market analysis report",
+      "Competitive landscape assessment",
+      "Financial projections",
+      "Market entry strategy"
+    ],
+    "complexity": "complex",
+    "estimated_duration": "75-105 minutes"
+  },
+  {
+    "id": "complex_003",
+    "task": "Sustainability impact assessment",
+    "description": "Conduct comprehensive sustainability assessment for a large corporation",
+    "required_agents": [
+      {
+        "role": "environmental_auditor",
+        "responsibilities": ["Assess environmental impact", "Calculate carbon footprint"]
+      },
+      {
+        "role": "social_impact_analyst",
+        "responsibilities": ["Evaluate social programs", "Assess community impact"]
+      },
+      {
+        "role": "governance_reviewer",
+        "responsibilities": ["Review governance practices", "Assess compliance"]
+      },
+      {
+        "role": "sustainability_strategist",
+        "responsibilities": ["Develop improvement plan", "Set sustainability goals"]
+      }
+    ],
+    "expected_deliverables": [
+      "Environmental impact report",
+      "Social impact assessment",
+      "Governance evaluation",
+      "Sustainability strategy"
+    ],
+    "complexity": "complex",
+    "estimated_duration": "90-120 minutes"
+  },
+  {
+    "id": "expert_001",
+    "task": "AI ethics framework development",
+    "description": "Develop comprehensive AI ethics framework for a technology company",
+    "required_agents": [
+      {
+        "role": "ethics_philosopher",
+        "responsibilities": ["Define ethical principles", "Address moral considerations"]
+      },
+      {
+        "role": "legal_compliance_expert",
+        "responsibilities": ["Review regulatory requirements", "Ensure legal compliance"]
+      },
+      {
+        "role": "technical_implementer",
+        "responsibilities": ["Design technical safeguards", "Implement bias detection"]
+      },
+      {
+        "role": "stakeholder_coordinator",
+        "responsibilities": ["Gather stakeholder input", "Facilitate consensus building"]
+      },
+      {
+        "role": "framework_architect",
+        "responsibilities": ["Integrate all components", "Create implementation guide"]
+      }
+    ],
+    "expected_deliverables": [
+      "Ethical principles document",
+      "Legal compliance framework",
+      "Technical implementation guide",
+      "Stakeholder engagement plan",
+      "Complete AI ethics framework"
+    ],
+    "complexity": "expert",
+    "estimated_duration": "120-180 minutes"
+  },
+  {
+    "id": "expert_002",
+    "task": "Global crisis response coordination",
+    "description": "Coordinate multi-stakeholder response to a global crisis scenario",
+    "required_agents": [
+      {
+        "role": "situation_analyst",
+        "responsibilities": ["Monitor crisis developments", "Assess impact severity"]
+      },
+      {
+        "role": "resource_coordinator",
+        "responsibilities": ["Inventory available resources", "Coordinate resource allocation"]
+      },
+      {
+        "role": "communication_manager",
+        "responsibilities": ["Manage public communications", "Coordinate with media"]
+      },
+      {
+        "role": "policy_advisor",
+        "responsibilities": ["Recommend policy responses", "Coordinate with governments"]
+      },
+      {
+        "role": "operations_commander",
+        "responsibilities": ["Oversee response operations", "Make strategic decisions"]
+      }
+    ],
+    "expected_deliverables": [
+      "Situation assessment report",
+      "Resource allocation plan",
+      "Communication strategy",
+      "Policy recommendations",
+      "Coordinated response plan"
+    ],
+    "complexity": "expert",
+    "estimated_duration": "150-240 minutes"
   }
 ]

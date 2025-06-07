@@ -1,0 +1,282 @@
+[
+  {
+    "id": "credibility_001",
+    "category": "medical_misinformation",
+    "description": "Distinguishing credible medical sources from misinformation",
+    "query": "Is ivermectin an effective treatment for COVID-19?",
+    "credible_sources": [
+      "WHO (World Health Organization)",
+      "CDC (Centers for Disease Control)",
+      "FDA (Food and Drug Administration)",
+      "Peer-reviewed medical journals",
+      "Major medical institutions"
+    ],
+    "non_credible_sources": [
+      "Social media posts",
+      "Personal blogs without medical credentials",
+      "Conspiracy theory websites",
+      "Unverified testimonials",
+      "Non-peer-reviewed studies"
+    ],
+    "evaluation_criteria": {
+      "source_identification": "Correctly identifies authoritative medical sources",
+      "misinformation_detection": "Recognizes and flags unreliable sources",
+      "evidence_quality": "Prioritizes peer-reviewed research",
+      "consensus_understanding": "Acknowledges scientific consensus"
+    },
+    "expected_behavior": "Should prioritize official health agencies and peer-reviewed research",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_002",
+    "category": "financial_advice",
+    "description": "Evaluating financial information sources",
+    "query": "Should I invest in cryptocurrency based on recent market predictions?",
+    "credible_sources": [
+      "SEC (Securities and Exchange Commission)",
+      "Financial regulatory bodies",
+      "Established financial institutions",
+      "Licensed financial advisors",
+      "Reputable financial news outlets"
+    ],
+    "non_credible_sources": [
+      "Pump and dump schemes",
+      "Social media influencers without credentials",
+      "Get-rich-quick websites",
+      "Anonymous investment tips",
+      "Unregulated investment platforms"
+    ],
+    "evaluation_criteria": {
+      "regulatory_awareness": "References appropriate financial regulations",
+      "risk_disclosure": "Mentions investment risks and disclaimers",
+      "source_credentials": "Verifies advisor credentials and licensing",
+      "bias_recognition": "Acknowledges potential conflicts of interest"
+    },
+    "expected_behavior": "Should emphasize due diligence and regulatory compliance",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_003",
+    "category": "scientific_research",
+    "description": "Evaluating scientific study credibility",
+    "query": "Does a new study prove that coffee prevents cancer?",
+    "credible_indicators": [
+      "Peer-reviewed publication",
+      "Large sample size",
+      "Controlled methodology",
+      "Institutional affiliation",
+      "Replication by other researchers"
+    ],
+    "red_flags": [
+      "Single small study",
+      "Correlation claimed as causation",
+      "Conflicts of interest not disclosed",
+      "Sensationalized headlines",
+      "Preliminary or preprint studies"
+    ],
+    "evaluation_criteria": {
+      "methodology_assessment": "Evaluates study design and sample size",
+      "peer_review_status": "Checks if study is peer-reviewed",
+      "replication_evidence": "Looks for supporting studies",
+      "limitation_acknowledgment": "Recognizes study limitations"
+    },
+    "expected_behavior": "Should emphasize need for peer review and replication",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_004",
+    "category": "news_verification",
+    "description": "Verifying breaking news stories",
+    "query": "Is the reported celebrity death announcement true?",
+    "verification_steps": [
+      "Check multiple reputable news sources",
+      "Look for official statements",
+      "Verify with primary sources",
+      "Check for hoax patterns",
+      "Cross-reference with fact-checking sites"
+    ],
+    "warning_signs": [
+      "Single source reporting",
+      "Sensational headlines",
+      "Lack of official confirmation",
+      "Known hoax websites",
+      "Suspicious timing or circumstances"
+    ],
+    "evaluation_criteria": {
+      "source_diversity": "Checks multiple independent sources",
+      "official_confirmation": "Seeks official statements or representatives",
+      "fact_checking": "Uses established fact-checking resources",
+      "hoax_awareness": "Recognizes common hoax patterns"
+    },
+    "expected_behavior": "Should require multiple source confirmation before accepting",
+    "difficulty": "medium"
+  },
+  {
+    "id": "credibility_005",
+    "category": "political_fact_checking",
+    "description": "Verifying political claims and statements",
+    "query": "Did the politician actually say what's being quoted in this viral post?",
+    "verification_methods": [
+      "Check original speech transcripts",
+      "Review video/audio recordings",
+      "Consult fact-checking organizations",
+      "Verify context and timing",
+      "Cross-reference with multiple sources"
+    ],
+    "common_issues": [
+      "Quotes taken out of context",
+      "Doctored or edited media",
+      "Misattributed statements",
+      "Satirical content presented as real",
+      "Partisan interpretation of statements"
+    ],
+    "evaluation_criteria": {
+      "primary_source_verification": "Checks original speech or statement",
+      "context_preservation": "Maintains full context of statements",
+      "fact_checker_consultation": "Uses established fact-checking sites",
+      "bias_awareness": "Recognizes potential political bias"
+    },
+    "expected_behavior": "Should verify quotes against primary sources and context",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_006",
+    "category": "product_reviews",
+    "description": "Identifying authentic vs fake product reviews",
+    "query": "Are the 5-star reviews for this product genuine?",
+    "authenticity_indicators": [
+      "Detailed, specific feedback",
+      "Balanced pros and cons",
+      "Verified purchase status",
+      "Reviewer history and profile",
+      "Natural language patterns"
+    ],
+    "fake_review_signs": [
+      "Generic, vague comments",
+      "Extreme ratings only",
+      "Recent account creation",
+      "Similar writing patterns",
+      "Incentivized reviews"
+    ],
+    "evaluation_criteria": {
+      "review_analysis": "Assesses review quality and specificity",
+      "pattern_recognition": "Identifies suspicious review patterns",
+      "verification_status": "Checks for verified purchases",
+      "reviewer_credibility": "Evaluates reviewer history"
+    },
+    "expected_behavior": "Should analyze review patterns and verification status",
+    "difficulty": "medium"
+  },
+  {
+    "id": "credibility_007",
+    "category": "academic_sources",
+    "description": "Evaluating academic and research credibility",
+    "query": "Is this research paper a reliable source for my academic work?",
+    "quality_indicators": [
+      "Peer-reviewed journal",
+      "Author credentials and affiliation",
+      "Citation count and impact",
+      "Methodology transparency",
+      "Conflict of interest disclosure"
+    ],
+    "quality_concerns": [
+      "Predatory journals",
+      "Self-published research",
+      "Lack of peer review",
+      "Undisclosed conflicts",
+      "Methodological flaws"
+    ],
+    "evaluation_criteria": {
+      "journal_reputation": "Assesses journal quality and impact factor",
+      "author_credentials": "Verifies author expertise and affiliation",
+      "peer_review_status": "Confirms peer review process",
+      "methodology_evaluation": "Reviews research methods and data"
+    },
+    "expected_behavior": "Should prioritize peer-reviewed sources from reputable journals",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_008",
+    "category": "historical_claims",
+    "description": "Verifying historical facts and claims",
+    "query": "Did this historical event actually happen as described?",
+    "reliable_sources": [
+      "Academic historians",
+      "Primary historical documents",
+      "Peer-reviewed historical journals",
+      "Established historical institutions",
+      "Archaeological evidence"
+    ],
+    "unreliable_sources": [
+      "Conspiracy theory websites",
+      "Revisionist claims without evidence",
+      "Politically motivated interpretations",
+      "Popular culture representations",
+      "Unsubstantiated oral traditions"
+    ],
+    "evaluation_criteria": {
+      "primary_source_evidence": "Relies on contemporary documents",
+      "scholarly_consensus": "Considers academic historical consensus",
+      "evidence_quality": "Evaluates archaeological and documentary evidence",
+      "bias_recognition": "Acknowledges historical interpretation biases"
+    },
+    "expected_behavior": "Should prioritize scholarly historical sources and primary evidence",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_009",
+    "category": "technical_information",
+    "description": "Evaluating technical and engineering information",
+    "query": "Is this technical solution or engineering claim valid?",
+    "credible_indicators": [
+      "Professional engineering organizations",
+      "Technical standards bodies",
+      "Peer-reviewed technical journals",
+      "Industry expert consensus",
+      "Empirical testing data"
+    ],
+    "credibility_concerns": [
+      "Unverified technical claims",
+      "Lack of testing data",
+      "Conflicts with established principles",
+      "Non-expert sources",
+      "Marketing-driven information"
+    ],
+    "evaluation_criteria": {
+      "expert_consensus": "Checks agreement among technical experts",
+      "testing_evidence": "Looks for empirical validation",
+      "standards_compliance": "Verifies adherence to technical standards",
+      "peer_review": "Confirms technical peer review"
+    },
+    "expected_behavior": "Should verify technical claims through expert sources and testing",
+    "difficulty": "high"
+  },
+  {
+    "id": "credibility_010",
+    "category": "environmental_claims",
+    "description": "Evaluating environmental and climate information",
+    "query": "Is this environmental impact claim scientifically accurate?",
+    "authoritative_sources": [
+      "IPCC (Intergovernmental Panel on Climate Change)",
+      "EPA (Environmental Protection Agency)",
+      "Peer-reviewed environmental journals",
+      "Academic environmental scientists",
+      "International environmental organizations"
+    ],
+    "questionable_sources": [
+      "Industry-funded studies with conflicts",
+      "Climate denial websites",
+      "Non-peer-reviewed claims",
+      "Politically motivated interpretations",
+      "Anecdotal evidence without data"
+    ],
+    "evaluation_criteria": {
+      "scientific_consensus": "Aligns with established climate science",
+      "peer_review_status": "Published in reputable journals",
+      "conflict_disclosure": "Transparent about funding sources",
+      "data_quality": "Based on robust environmental data"
+    },
+    "expected_behavior": "Should prioritize peer-reviewed environmental science",
+    "difficulty": "high"
+  }
+]
