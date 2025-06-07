@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-This project will systematically compare five leading Python AI agent frameworks (DSPy, PocketFlow, CrewAI, Google ADK, and Pydantic AI) across six standardized use cases. The architecture ensures complete framework isolation while enabling fair comparison through shared infrastructure components and evaluation metrics.
+This project systematically compares five leading Python AI agent frameworks (DSPy, PocketFlow, CrewAI, Google ADK, and Pydantic AI) across six standardized use cases. The architecture ensures complete framework isolation while enabling fair comparison through shared infrastructure components and evaluation metrics.
+
+**Current Status**: Phase 1 (Foundation Setup) is largely complete with significant enhancements beyond the original plan. The project has evolved to include sophisticated evaluation capabilities, external MCP integration, and standardized OpenRouter-based LLM access.
 
 ## Phase 1: Foundation Setup (Weeks 1-2)
 
@@ -20,200 +22,157 @@ This project will systematically compare five leading Python AI agent frameworks
 - Global `.gitignore` file
 - Root-level `README.md` with project overview
 
-### Step 1.2: Shared Global Components Development
+### Step 1.2: Shared Global Components Development ✅ **COMPLETED**
 **Objective**: Build reusable components that will be consistent across all frameworks.
 
-**Global Code Components to Create:**
+**Status**: All major components have been implemented with significant enhancements beyond the original specification.
 
-#### 1.2.1: Evaluation Framework (`evaluation/`)
-```python
-# evaluation/base_evaluator.py
-from abc import ABC, abstractmethod
-from typing import Dict, Any, List
-from pydantic import BaseModel
+**Global Code Components Created:**
 
-class UseCaseResult(BaseModel):
-    framework_name: str
-    use_case_name: str
-    execution_time: float
-    memory_usage: float
-    cpu_usage: float
-    api_costs: Dict[str, float]
-    quality_metrics: Dict[str, float]
-    raw_output: Any
-    metadata: Dict[str, Any]
+#### 1.2.1: Evaluation Framework (`evaluation/`) ✅ **IMPLEMENTED & ENHANCED**
+**Status**: Fully implemented with comprehensive features including:
+- Advanced performance monitoring with CPU/memory tracking
+- Sophisticated cost tracking across multiple API providers
+- Quality metrics for Q&A, RAG, and web search use cases
+- Automated benchmark runners and comparative analysis
+- Result aggregation and report generation
 
-class BaseEvaluator(ABC):
-    @abstractmethod
-    def evaluate_response_quality(self, expected: Any, actual: Any) -> Dict[str, float]:
-        pass
-    
-    @abstractmethod
-    def measure_performance(self, execution_func) -> Dict[str, float]:
-        pass
-```
+**Key Components**:
+- `evaluation/base_evaluator.py` - Core evaluation interfaces
+- `evaluation/evaluator.py` - Main evaluation orchestrator
+- `evaluation/performance_monitor.py` - Resource usage tracking
+- `evaluation/cost_tracker.py` - API cost calculation
+- `evaluation/metrics/` - Use case-specific quality metrics
+- `evaluation/benchmarks/` - Automated benchmark scripts
 
-#### 1.2.2: Shared Dataset Manager (`shared_datasets/`)
-```python
-# shared_datasets/dataset_manager.py
-from pathlib import Path
-from typing import List, Dict, Any
-from pydantic import BaseModel
+#### 1.2.2: Shared Dataset Manager (`shared_datasets/`) ✅ **IMPLEMENTED & ENHANCED**
+**Status**: Fully implemented with advanced features including:
+- Comprehensive dataset loading for Q&A, RAG, web search, and multi-agent scenarios
+- Data validation and quality assurance
+- Import/export capabilities with multiple formats (JSON, JSONL, CSV)
+- Dataset statistics and analysis
+- Compression and caching support
 
-class DatasetItem(BaseModel):
-    id: str
-    input_data: Any
-    expected_output: Any
-    metadata: Dict[str, Any]
+**Key Features**:
+- `shared_datasets/dataset_manager.py` - Main dataset management class
+- Support for multiple dataset types with validation
+- Automatic data quality checks and statistics
+- Flexible import/export with format conversion
+- Comprehensive logging and error handling
 
-class DatasetManager:
-    def __init__(self, dataset_path: Path):
-        self.dataset_path = dataset_path
-    
-    def load_qa_dataset(self) -> List[DatasetItem]:
-        """Load standardized Q&A test data"""
-        pass
-    
-    def load_rag_documents(self) -> List[Dict[str, Any]]:
-        """Load documents for RAG testing"""
-        pass
-```
+#### 1.2.3: Common Infrastructure Templates ✅ **IMPLEMENTED & ENHANCED**
+**Status**: Fully implemented with comprehensive infrastructure support including:
+- Complete Docker Compose template with all required services
+- Framework-specific port allocation strategy
+- External MCP server integration documentation
+- Health checks and resource management
+- Network isolation and security configurations
 
-#### 1.2.3: Common Infrastructure Templates
-Create template files that each framework will customize:
+**Key Components**:
+- `shared_infrastructure/docker-compose.template.yaml` - Complete infrastructure template
+- `shared_infrastructure/PORT_ALLOCATION.md` - Detailed port allocation strategy
+- `shared_infrastructure/EXTERNAL_MCP_INTEGRATION.md` - MCP server integration guide
+- Framework-specific `.env.template` files for all frameworks
 
-```yaml
-# shared_infrastructure/docker-compose.template.yaml
-version: '3.8'
-services:
-  qdrant:
-    image: qdrant/qdrant:latest
-    container_name: "${FRAMEWORK_NAME}_qdrant"
-    ports:
-      - "${QDRANT_PORT}:6333"
-    volumes:
-      - ${FRAMEWORK_NAME}_qdrant_data:/qdrant/storage
-    networks:
-      - ${FRAMEWORK_NAME}_network
+**Major Architectural Decision**: The project has adopted **external MCP servers** instead of custom implementation, providing better reliability and maintenance.
 
-  langfuse:
-    image: langfuse/langfuse:latest
-    container_name: "${FRAMEWORK_NAME}_langfuse"
-    ports:
-      - "${LANGFUSE_PORT}:3000"
-    environment:
-      - DATABASE_URL=${LANGFUSE_DB_URL}
-    depends_on:
-      - postgres
-    networks:
-      - ${FRAMEWORK_NAME}_network
-
-  postgres:
-    image: postgres:15
-    container_name: "${FRAMEWORK_NAME}_postgres"
-    environment:
-      - POSTGRES_DB=langfuse
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    volumes:
-      - ${FRAMEWORK_NAME}_postgres_data:/var/lib/postgresql/data
-    networks:
-      - ${FRAMEWORK_NAME}_network
-
-volumes:
-  ${FRAMEWORK_NAME}_qdrant_data:
-  ${FRAMEWORK_NAME}_postgres_data:
-
-networks:
-  ${FRAMEWORK_NAME}_network:
-    driver: bridge
-```
-
-### Step 1.3: Test Data Preparation
+### Step 1.3: Test Data Preparation ⚠️ **IN PROGRESS**
 **Objective**: Create comprehensive, standardized datasets for all use cases.
 
-**Tasks:**
-1. **Q&A Dataset Creation**:
-   - Compile 100+ question-answer pairs across different categories
-   - Include factual, reasoning, and contextual questions
-   - Add difficulty levels and expected response types
+**Current Status**: Dataset infrastructure is complete, but content population is ongoing.
 
-2. **RAG Document Collection**:
-   - Gather diverse document types (PDF, text, markdown)
-   - Create ground truth for expected retrievals
-   - Prepare both simple and complex multi-document scenarios
+**Completed**:
+- ✅ Dataset management infrastructure with validation
+- ✅ Import/export capabilities for multiple formats
+- ✅ Data quality assurance and statistics
+- ✅ Framework for Q&A, RAG, web search, and multi-agent datasets
 
-3. **Web Search Query Sets**:
-   - Design queries requiring real-time information
-   - Include fact-checking scenarios
-   - Prepare expected source verification cases
+**In Progress**:
+- 🔄 Q&A dataset content creation (100+ question-answer pairs)
+- 🔄 RAG document collection and ground truth preparation
+- 🔄 Web search query sets with expected results
+- 🔄 Multi-agent scenario definitions
 
-4. **Multi-Agent Use Case Definitions**:
-   - Define research pipeline scenarios
-   - Create customer service simulation data
-   - Prepare content creation workflows
+**Next Steps**:
+- Populate datasets with comprehensive test data
+- Validate data quality across all use cases
+- Create dataset documentation and usage guides
 
-**Deliverables:**
-- Structured datasets in `shared_datasets/`
-- Documentation for each dataset's purpose and structure
-- Validation scripts to ensure data quality
+## 🔄 Key Architectural Changes and Enhancements
 
-## Phase 2: Framework Infrastructure Setup (Weeks 3-4)
+### LLM Provider Standardization
+**Decision**: Standardized on **OpenRouter** as the single LLM provider across all frameworks.
+- **Default Model**: DeepSeek R1 for consistent testing
+- **Alternative Models**: Claude Sonnet 4, Gemini 2.5 Pro available via environment configuration
+- **Benefits**: Simplified API management, consistent cost tracking, unified access patterns
 
-### Step 2.1: Framework Directory Initialization
+### External MCP Integration Strategy
+**Decision**: Use external MCP servers instead of custom implementation.
+- **Web Search**: Brave Search, Tavily, DuckDuckGo MCP servers
+- **Vector Search**: Official Qdrant MCP server
+- **File Operations**: Official Filesystem MCP server
+- **Benefits**: Better reliability, reduced maintenance, community support
+
+### Enhanced Evaluation Framework
+**Enhancement**: Significantly expanded beyond original specification.
+- **Performance Monitoring**: Real-time CPU/memory tracking
+- **Cost Analysis**: Comprehensive API cost calculation
+- **Quality Metrics**: Advanced metrics including BLEU, ROUGE, semantic similarity
+- **Automated Benchmarking**: Complete benchmark suite with comparative analysis
+
+### Framework Priority Order
+**Established Priority**: Based on project goals and framework maturity.
+1. **DSPy** (Highest Priority) - Programming framework for language models
+2. **PocketFlow** - Nested directed graph framework
+3. **CrewAI** - Multi-agent orchestration framework
+4. **Google ADK** - Google's Agent Development Kit
+5. **Pydantic AI** (Lowest Priority) - Type-safe agent framework
+
+## Phase 2: Framework Infrastructure Setup ✅ **LARGELY COMPLETED**
+
+### Step 2.1: Framework Directory Initialization ✅ **COMPLETED**
 **Objective**: Set up isolated environments for each framework with proper dependency management.
 
-**For Each Framework (DSPy, PocketFlow, CrewAI, Google ADK, Pydantic AI):**
+**Status**: All frameworks have been initialized with standardized configurations.
 
-#### 2.1.1: Environment Setup
-1. **Navigate to framework directory** (e.g., `crewai/`)
-2. **Initialize UV project**:
-   ```bash
-   cd crewai/
-   uv init --python 3.11
-   ```
-3. **Configure `pyproject.toml`** with framework-specific dependencies:
-   ```toml
-   [project]
-   name = "dspy-comparison"
-   version = "0.1.0"
-   requires-python = ">=3.11"
-   dependencies = [
-       "dspy-ai>=2.0.0",
-       "pydantic>=2.0.0",
-       "qdrant-client>=1.7.0",
-       "langfuse>=2.0.0",
-       # Add framework-specific dependencies
-   ]
-   ```
+**Completed for All Frameworks (DSPy, PocketFlow, CrewAI, Google ADK, Pydantic AI):**
 
-4. **Create framework-specific environment file**:
-   ```bash
-   # .env template for each framework
-   FRAMEWORK_NAME=dspy
-   QDRANT_PORT=6334
-   LANGFUSE_PORT=3001
-   POSTGRES_USER=langfuse_user
-   POSTGRES_PASSWORD=langfuse_password
-   LANGFUSE_DB_URL=postgresql://langfuse_user:langfuse_password@postgres:5432/langfuse
-   
-   # API Keys (will be filled during implementation)
-   OPENAI_API_KEY=
-   ANTHROPIC_API_KEY=
-   GOOGLE_API_KEY=
-   ```
+#### 2.1.1: Environment Setup ✅ **COMPLETED**
+**Status**: All frameworks have standardized UV-based environments with comprehensive configurations.
 
-#### 2.1.2: Docker Infrastructure
-1. **Copy and customize docker-compose template**:
-   - Replace placeholder values with framework-specific configurations
-   - Adjust port numbers to prevent conflicts (DSPy: 6334, PocketFlow: 6335, CrewAI: 6333, etc.)
-   - Set unique container names and volume names
+**Implemented Features**:
+- ✅ UV project initialization for all frameworks
+- ✅ Framework-specific `pyproject.toml` configurations
+- ✅ Comprehensive `.env.template` files with:
+  - Framework identification and port allocation
+  - OpenRouter API configuration (standardized LLM access)
+  - Infrastructure service configurations
+  - Observability and monitoring settings
+  - Security and performance configurations
 
-2. **Test infrastructure deployment**:
-   ```bash
-   docker-compose up -d
-   docker-compose ps  # Verify all services are running
-   ```
+**Key Enhancement**: Standardized on OpenRouter for LLM access instead of multiple providers:
+```bash
+# Standardized LLM Configuration
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+DEFAULT_LLM_MODEL=deepseek/deepseek-r1-0528  # Default across all frameworks
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+```
+
+#### 2.1.2: Docker Infrastructure ✅ **COMPLETED**
+**Status**: Complete infrastructure templates with framework-specific customizations.
+
+**Implemented Features**:
+- ✅ Comprehensive Docker Compose template with all required services
+- ✅ Framework-specific port allocation (DSPy: 6334, PocketFlow: 6335, CrewAI: 6333, etc.)
+- ✅ Network isolation with dedicated subnets per framework
+- ✅ Health checks and resource management
+- ✅ External MCP server integration documentation
+
+**Infrastructure Services**:
+- **Qdrant**: Vector database for embeddings and similarity search
+- **Langfuse**: Observability platform for LLM tracing
+- **PostgreSQL**: Backend database for Langfuse
+- **External MCP Servers**: Web search, file operations, vector search capabilities
 
 ### Step 2.2: Shared Framework Components
 **Objective**: Create the `shared/` directory within each framework with common utilities.
@@ -512,4 +471,27 @@ class BenchmarkRunner:
 3. **Error Tracking**: Log and analyze all failures
 4. **Performance Metrics**: Measure and compare execution times
 
-This master plan provides a systematic approach to building the AI Agent Frameworks Comparison Project, ensuring thorough evaluation while maintaining framework isolation and enabling fair comparison. Each step includes clear objectives, deliverables, and quality standards that junior developers can follow successfully.
+## 📊 Current Project Status Summary
+
+### ✅ Completed Components
+1. **Infrastructure Foundation**: Complete Docker templates, port allocation, external MCP integration
+2. **Evaluation Framework**: Sophisticated evaluation system with performance monitoring and cost tracking
+3. **Dataset Management**: Advanced dataset manager with import/export and validation capabilities
+4. **Framework Standardization**: All frameworks configured with OpenRouter and standardized environments
+5. **Documentation**: Comprehensive guides for infrastructure, MCP integration, and port allocation
+
+### 🔄 In Progress
+1. **Test Data Population**: Dataset infrastructure exists, content creation ongoing
+2. **Use Case Implementation**: Framework-specific use case development
+3. **Infrastructure Automation**: Customization and validation scripts
+
+### 📋 Next Priority Tasks
+1. **Complete Task 004**: Finish remaining infrastructure automation scripts
+2. **Task 005**: Test data preparation and population
+3. **Framework Implementation**: Begin use case development starting with DSPy (highest priority)
+4. **Integration Testing**: Validate framework isolation and infrastructure deployment
+
+### 🎯 Project Evolution
+The project has evolved significantly beyond the original master plan with enhanced evaluation capabilities, external MCP integration, and standardized LLM access through OpenRouter. The foundation is now robust and ready for use case implementation across all frameworks.
+
+This master plan provides a systematic approach to building the AI Agent Frameworks Comparison Project, ensuring thorough evaluation while maintaining framework isolation and enabling fair comparison. The enhanced infrastructure and evaluation capabilities position the project for comprehensive and reliable framework comparison.
