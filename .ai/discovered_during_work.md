@@ -101,7 +101,84 @@ This file tracks tasks and requirements discovered during implementation that we
 
 ---
 
-# Phase 1.2a Discovery Session - Revision (CURRENT)
+# Phase 1.2b Discovery Session (CURRENT)
+
+**Date**: 2024-12-19
+**Phase**: 1.2b - Shared Dataset Manager Development
+**Status**: ✅ COMPLETED - Task 003 core implementation finished
+
+## New Discoveries During Task 003 Implementation
+
+### Code Organization Improvements (DISCOVERED)
+
+- [ ] Split large dataset_manager.py into multiple modules
+- **Priority**: Medium
+- **Phase**: 1.2c (Framework Refinement)
+- **Dependencies**: Core dataset manager functionality complete
+- **Estimated Time**: 2-3 hours
+- **Rationale**: File approaching 1000+ lines, better maintainability with separate modules
+- **Suggested Split**: dataset_manager.py (core), statistics.py (stats methods), loaders.py (format-specific loaders)
+
+- [ ] Add async support for large dataset operations
+- **Priority**: Low
+- **Phase**: 2.0 (Future Enhancements)
+- **Dependencies**: Core functionality stable
+- **Estimated Time**: 4-6 hours
+- **Rationale**: Better performance for large document processing
+
+### Data Import/Export Enhancement (DISCOVERED)
+
+- [x] Implement CSV and JSONL export/import methods
+- **Priority**: Medium
+- **Phase**: 1.2b (Current - remaining tasks)
+- **Dependencies**: Core dataset manager complete
+- **Estimated Time**: 3-4 hours
+- **Status**: ✅ COMPLETED during Task 003 implementation
+- **Rationale**: Required by task specification but not yet implemented
+
+- [ ] Add data compression options for large datasets
+- **Priority**: Low
+- **Phase**: 1.2c (Framework Refinement)
+- **Dependencies**: Export/import methods complete
+- **Estimated Time**: 2-3 hours
+- **Rationale**: Useful for sharing large datasets
+
+### Validation Enhancement (DISCOVERED)
+
+- [ ] Add semantic validation for Q&A pairs
+- **Priority**: Medium
+- **Phase**: 1.2c (Framework Refinement)
+- **Dependencies**: Basic validation complete
+- **Estimated Time**: 3-4 hours
+- **Rationale**: Ensure questions and answers are semantically related
+
+- [ ] Implement cross-dataset consistency checks
+- **Priority**: Low
+- **Phase**: 1.2c (Framework Refinement)
+- **Dependencies**: All dataset types implemented
+- **Estimated Time**: 2-3 hours
+- **Rationale**: Ensure consistency across different dataset types
+
+### Documentation and Testing (DISCOVERED)
+
+- [x] Create comprehensive usage examples for each dataset type
+- **Priority**: High
+- **Phase**: 1.2b (Current - remaining tasks)
+- **Dependencies**: Core functionality complete
+- **Estimated Time**: 2-3 hours
+- **Status**: ✅ COMPLETED - Comprehensive README.md with examples created
+- **Rationale**: Required by task specification for README.md
+
+- [ ] Add dataset migration utilities for version upgrades
+- **Priority**: Low
+- **Phase**: 1.2c (Framework Refinement)
+- **Dependencies**: Versioning system complete
+- **Estimated Time**: 3-4 hours
+- **Rationale**: Future-proofing for dataset schema changes
+
+---
+
+# Phase 1.2a Discovery Session - Revision (COMPLETED)
 
 **Date**: 2024-12-19
 **Phase**: 1.2a - Evaluation Framework Development (Revision Implementation)
