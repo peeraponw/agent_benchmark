@@ -1,0 +1,291 @@
+# Logging Configuration Template for AI Agent Framework Infrastructure
+# This template provides centralized logging configuration for all services
+
+# Default logging configuration for Docker Compose services
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+    labels: "framework,service,environment"
+
+# Enhanced logging with additional metadata
+x-enhanced-logging: &enhanced-logging
+  driver: "json-file"
+  options:
+    max-size: "50m"
+    max-file: "5"
+    labels: "framework,service,environment,version"
+    tag: "{{.Name}}/{{.FullID}}"
+
+# Centralized logging (for production environments)
+x-centralized-logging: &centralized-logging
+  driver: "fluentd"
+  options:
+    fluentd-address: "localhost:24224"
+    tag: "${FRAMEWORK_NAME}.{{.Name}}"
+    labels: "framework,service,environment"
+
+# Syslog logging (for system integration)
+x-syslog-logging: &syslog-logging
+  driver: "syslog"
+  options:
+    syslog-address: "tcp://localhost:514"
+    tag: "${FRAMEWORK_NAME}-{{.Name}}"
+    syslog-facility: "daemon"
+
+# Log rotation policies
+log_rotation:
+  # Development environment
+  development:
+    max_size: "10m"
+    max_file: "3"
+    compress: false
+  
+  # Testing environment
+  testing:
+    max_size: "25m"
+    max_file: "5"
+    compress: true
+  
+  # Production environment
+  production:
+    max_size: "100m"
+    max_file: "10"
+    compress: true
+
+# Service-specific logging configurations
+services:
+  qdrant:
+    log_level: "INFO"
+    log_format: "json"
+    custom_fields:
+      - "collection_name"
+      - "vector_count"
+      - "query_time"
+    
+  langfuse:
+    log_level: "INFO"
+    log_format: "json"
+    custom_fields:
+      - "trace_id"
+      - "user_id"
+      - "project_id"
+      - "api_endpoint"
+    
+  postgres:
+    log_level: "WARNING"
+    log_format: "text"
+    custom_fields:
+      - "database"
+      - "query_duration"
+      - "connection_count"
+
+# Framework-specific logging configurations
+frameworks:
+  dspy:
+    log_level: "INFO"
+    additional_labels:
+      - "compilation_stage"
+      - "optimization_metric"
+      - "model_name"
+  
+  pocketflow:
+    log_level: "INFO"
+    additional_labels:
+      - "graph_node"
+      - "flow_stage"
+      - "execution_path"
+  
+  crewai:
+    log_level: "INFO"
+    additional_labels:
+      - "agent_name"
+      - "task_id"
+      - "crew_id"
+  
+  google_adk:
+    log_level: "INFO"
+    additional_labels:
+      - "adk_component"
+      - "pipeline_stage"
+      - "resource_type"
+  
+  pydantic_ai:
+    log_level: "INFO"
+    additional_labels:
+      - "model_validation"
+      - "schema_version"
+      - "type_check"
+
+# Error alerting configuration
+alerting:
+  # Error rate thresholds
+  error_thresholds:
+    warning: 5   # errors per minute
+    critical: 20 # errors per minute
+  
+  # Response time thresholds (milliseconds)
+  response_time_thresholds:
+    warning: 1000
+    critical: 5000
+  
+  # Resource usage thresholds
+  resource_thresholds:
+    memory_warning: 80   # percentage
+    memory_critical: 95  # percentage
+    cpu_warning: 70      # percentage
+    cpu_critical: 90     # percentage
+
+# Log aggregation and analysis
+aggregation:
+  # Fields to aggregate
+  aggregate_fields:
+    - "response_time"
+    - "error_count"
+    - "request_count"
+    - "memory_usage"
+    - "cpu_usage"
+  
+  # Aggregation intervals
+  intervals:
+    - "1m"   # 1 minute
+    - "5m"   # 5 minutes
+    - "1h"   # 1 hour
+    - "1d"   # 1 day
+  
+  # Retention policies
+  retention:
+    raw_logs: "7d"      # 7 days
+    aggregated_1m: "30d" # 30 days
+    aggregated_5m: "90d" # 90 days
+    aggregated_1h: "1y"  # 1 year
+    aggregated_1d: "5y"  # 5 years
+
+# Log parsing and enrichment
+parsing:
+  # Common log patterns
+  patterns:
+    timestamp: "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    log_level: "(DEBUG|INFO|WARNING|ERROR|CRITICAL)"
+    request_id: "[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"
+    ip_address: "\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b"
+  
+  # Field extraction rules
+  extraction:
+    - field: "framework_name"
+      pattern: "framework=([a-zA-Z_]+)"
+    - field: "service_name"
+      pattern: "service=([a-zA-Z_]+)"
+    - field: "response_time"
+      pattern: "response_time=([0-9.]+)"
+    - field: "error_code"
+      pattern: "error_code=([0-9]+)"
+
+# Monitoring and dashboards
+monitoring:
+  # Key metrics to track
+  metrics:
+    - name: "request_rate"
+      description: "Requests per second"
+      unit: "req/s"
+    - name: "error_rate"
+      description: "Errors per second"
+      unit: "err/s"
+    - name: "response_time_p95"
+      description: "95th percentile response time"
+      unit: "ms"
+    - name: "memory_usage"
+      description: "Memory usage percentage"
+      unit: "%"
+    - name: "cpu_usage"
+      description: "CPU usage percentage"
+      unit: "%"
+  
+  # Dashboard configurations
+  dashboards:
+    - name: "Infrastructure Overview"
+      panels:
+        - "Service Health Status"
+        - "Resource Usage Summary"
+        - "Error Rate Trends"
+        - "Response Time Distribution"
+    
+    - name: "Framework Performance"
+      panels:
+        - "Framework Comparison"
+        - "Use Case Performance"
+        - "API Cost Analysis"
+        - "Quality Metrics"
+
+# Usage examples for different environments
+examples:
+  # Development environment
+  development:
+    logging: *default-logging
+    log_level: "DEBUG"
+    retention: "3d"
+  
+  # Testing environment
+  testing:
+    logging: *enhanced-logging
+    log_level: "INFO"
+    retention: "7d"
+  
+  # Production environment
+  production:
+    logging: *centralized-logging
+    log_level: "WARNING"
+    retention: "30d"
+
+# Integration with external systems
+integrations:
+  # ELK Stack (Elasticsearch, Logstash, Kibana)
+  elk:
+    enabled: false
+    elasticsearch_url: "http://localhost:9200"
+    logstash_url: "http://localhost:5044"
+    kibana_url: "http://localhost:5601"
+  
+  # Grafana + Loki
+  grafana_loki:
+    enabled: false
+    loki_url: "http://localhost:3100"
+    grafana_url: "http://localhost:3000"
+  
+  # Prometheus
+  prometheus:
+    enabled: false
+    prometheus_url: "http://localhost:9090"
+    pushgateway_url: "http://localhost:9091"
+
+# Security and compliance
+security:
+  # Log sanitization
+  sanitization:
+    enabled: true
+    patterns:
+      - "password=[^\\s]+"
+      - "api_key=[^\\s]+"
+      - "token=[^\\s]+"
+      - "secret=[^\\s]+"
+  
+  # Access controls
+  access_control:
+    enabled: true
+    roles:
+      - "admin"      # Full access
+      - "developer"  # Read access to dev/test logs
+      - "operator"   # Read access to production logs
+      - "auditor"    # Read-only access to all logs
+  
+  # Compliance requirements
+  compliance:
+    gdpr:
+      enabled: false
+      data_retention: "2y"
+      anonymization: true
+    hipaa:
+      enabled: false
+      encryption: true
+      audit_trail: true
