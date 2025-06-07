@@ -2,176 +2,801 @@
   {
     "id": "qa_001",
     "answer": "Paris",
-    "explanation": "Paris is the capital and largest city of France.",
+    "explanation": "Paris is the capital and largest city of France, located in the north-central part of the country.",
     "sources": ["general_knowledge"],
-    "confidence": 1.0
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_002",
-    "answer": "Photosynthesis is the process by which plants convert light energy into chemical energy. It occurs in chloroplasts and involves two main stages: light-dependent reactions and the Calvin cycle. During this process, plants use carbon dioxide, water, and sunlight to produce glucose and oxygen.",
-    "explanation": "This is a fundamental biological process that sustains most life on Earth.",
-    "sources": ["biology_textbook", "scientific_literature"],
-    "confidence": 0.95
+    "answer": "George Washington",
+    "explanation": "George Washington served as the first President of the United States from 1789 to 1797.",
+    "sources": ["us_history"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_003",
-    "answer": "200 kilometers",
-    "explanation": "Distance = Speed × Time = 80 km/h × 2.5 h = 200 km",
-    "sources": ["mathematical_calculation"],
-    "confidence": 1.0
+    "answer": "Au",
+    "explanation": "The chemical symbol for gold is Au, derived from the Latin word 'aurum' meaning gold.",
+    "sources": ["chemistry_reference"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_004",
-    "answer": "Jupiter",
-    "explanation": "Jupiter is the largest planet in our solar system with a diameter of about 142,984 km.",
-    "sources": ["astronomy_facts"],
-    "confidence": 1.0
+    "answer": "Nile River",
+    "explanation": "The Nile River in Africa is approximately 6,650 kilometers (4,130 miles) long, making it the longest river in the world.",
+    "sources": ["geography_reference"],
+    "confidence": 1.0,
+    "alternative_answers": ["The Nile"]
   },
   {
     "id": "qa_005",
-    "answer": "George Orwell",
-    "explanation": "George Orwell (Eric Arthur Blair) wrote the dystopian novel '1984', published in 1949.",
-    "sources": ["literature_reference"],
-    "confidence": 1.0
+    "answer": "2020",
+    "explanation": "The World Health Organization declared COVID-19 a pandemic on March 11, 2020.",
+    "sources": ["who_records", "current_events"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_006",
-    "answer": "Au",
-    "explanation": "The chemical symbol for gold is Au, derived from the Latin word 'aurum'.",
-    "sources": ["chemistry_reference"],
-    "confidence": 1.0
+    "answer": "Netscape",
+    "explanation": "Netscape Navigator, developed by Netscape Communications Corporation, was the first widely-used graphical web browser, released in 1994.",
+    "sources": ["technology_history"],
+    "confidence": 0.95,
+    "alternative_answers": ["Netscape Communications", "Netscape Navigator"]
   },
   {
     "id": "qa_007",
-    "answer": "78.54 square meters",
-    "explanation": "Area = π × r² = π × 5² = π × 25 ≈ 78.54 square meters",
-    "sources": ["mathematical_calculation"],
-    "confidence": 1.0
+    "answer": "Michelangelo",
+    "explanation": "Michelangelo Buonarroti painted the ceiling of the Sistine Chapel between 1508 and 1512.",
+    "sources": ["art_history"],
+    "confidence": 1.0,
+    "alternative_answers": ["Michelangelo Buonarroti"]
   },
   {
     "id": "qa_008",
-    "answer": "Renewable energy sources can be naturally replenished (solar, wind, hydro, geothermal), while non-renewable sources are finite and will eventually be depleted (fossil fuels, nuclear materials).",
-    "explanation": "This distinction is crucial for sustainable energy planning and environmental protection.",
-    "sources": ["environmental_science"],
-    "confidence": 0.95
+    "answer": "Tokyo",
+    "explanation": "Tokyo is the capital city of Japan and one of the world's most populous metropolitan areas.",
+    "sources": ["geography_reference"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_009",
-    "answer": "Executive, Legislative, and Judicial",
-    "explanation": "The U.S. government is divided into three branches: Executive (President), Legislative (Congress), and Judicial (Supreme Court and federal courts).",
-    "sources": ["civics_textbook"],
-    "confidence": 1.0
+    "answer": "Solid, liquid, gas",
+    "explanation": "The three common phases of matter at standard temperature and pressure are solid, liquid, and gas.",
+    "sources": ["physics_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": ["Solid, liquid, and gas", "Gas, liquid, solid"]
   },
   {
     "id": "qa_010",
-    "answer": "$1,157.63",
-    "explanation": "Using compound interest formula: A = P(1 + r)^t = 1000(1 + 0.05)^3 = 1000(1.157625) = $1,157.63",
-    "sources": ["financial_mathematics"],
-    "confidence": 1.0
+    "answer": "William Shakespeare",
+    "explanation": "William Shakespeare wrote the tragedy 'Romeo and Juliet' around 1594-1596.",
+    "sources": ["literature_reference"],
+    "confidence": 1.0,
+    "alternative_answers": ["Shakespeare"]
   },
   {
     "id": "qa_011",
-    "answer": "The water cycle consists of evaporation (water becomes vapor), condensation (vapor forms clouds), precipitation (rain/snow falls), and collection (water returns to bodies of water).",
-    "explanation": "This continuous process is driven by solar energy and gravity, redistributing water across Earth's surface.",
-    "sources": ["earth_science"],
-    "confidence": 0.95
+    "answer": "World War I",
+    "explanation": "World War I began in 1914 following the assassination of Archduke Franz Ferdinand and lasted until 1918.",
+    "sources": ["history_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": ["The Great War", "First World War"]
   },
   {
     "id": "qa_012",
-    "answer": "50%",
-    "explanation": "Percentage increase = ((New Value - Old Value) / Old Value) × 100 = ((150,000 - 100,000) / 100,000) × 100 = 50%",
-    "sources": ["business_mathematics"],
-    "confidence": 1.0
+    "answer": "Photosynthesis is the process by which plants convert light energy into chemical energy. It occurs in chloroplasts and involves two main stages: light-dependent reactions and the Calvin cycle. During this process, plants use carbon dioxide, water, and sunlight to produce glucose and oxygen.",
+    "explanation": "This is a fundamental biological process that sustains most life on Earth by converting solar energy into chemical energy.",
+    "sources": ["biology_textbook", "scientific_literature"],
+    "confidence": 0.95,
+    "alternative_answers": []
   },
   {
     "id": "qa_013",
-    "answer": "The Industrial Revolution (1760-1840) transformed society through mechanization, urbanization, and new social classes. Causes included technological innovations, capital accumulation, and natural resources. Effects included improved living standards for some, harsh working conditions, environmental pollution, and the rise of capitalism and labor movements.",
-    "explanation": "This analysis requires understanding multiple interconnected historical, economic, and social factors.",
-    "sources": ["history_textbook", "economic_history"],
-    "confidence": 0.85
+    "answer": "Mars",
+    "explanation": "Mars is known as the Red Planet due to iron oxide (rust) on its surface, which gives it a reddish appearance.",
+    "sources": ["astronomy_reference"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_014",
-    "answer": "Capitalism emphasizes private ownership, market competition, and profit maximization, leading to economic efficiency but potential inequality. Socialism emphasizes collective ownership, central planning, and wealth redistribution, aiming for equality but potentially reducing efficiency. Both systems have evolved into mixed economies in practice.",
-    "explanation": "This comparison requires understanding complex economic theories and their real-world implementations.",
-    "sources": ["economics_textbook", "political_economy"],
-    "confidence": 0.85
+    "answer": "Blue whale",
+    "explanation": "The blue whale is the largest mammal on Earth, reaching lengths of up to 100 feet and weights of up to 200 tons.",
+    "sources": ["marine_biology"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_015",
-    "answer": "x = 3, y = 2",
-    "explanation": "From x - y = 1, we get x = y + 1. Substituting into 2x + 3y = 12: 2(y + 1) + 3y = 12, so 2y + 2 + 3y = 12, thus 5y = 10, y = 2. Therefore x = 3.",
-    "sources": ["algebra_textbook"],
-    "confidence": 1.0
+    "answer": "António Guterres",
+    "explanation": "António Guterres of Portugal has served as Secretary-General of the United Nations since January 1, 2017.",
+    "sources": ["un_records", "current_events"],
+    "confidence": 0.95,
+    "alternative_answers": []
   },
   {
     "id": "qa_016",
-    "answer": "Quantum entanglement is a phenomenon where particles become correlated such that measuring one instantly affects the other, regardless of distance. In quantum computing, entangled qubits enable parallel processing and quantum algorithms like Shor's algorithm, potentially providing exponential speedups for certain problems.",
-    "explanation": "This requires deep understanding of quantum mechanics and its applications in computing.",
-    "sources": ["quantum_physics", "quantum_computing_research"],
-    "confidence": 0.80
+    "answer": "Kotlin",
+    "explanation": "Kotlin is Google's preferred programming language for Android app development, though Java is also widely used.",
+    "sources": ["android_documentation"],
+    "confidence": 0.90,
+    "alternative_answers": ["Java", "Kotlin and Java"]
   },
   {
     "id": "qa_017",
-    "answer": "AI in healthcare raises concerns about accountability (who is responsible for AI decisions?), bias (algorithms may discriminate against certain groups), privacy (patient data protection), and autonomy (maintaining human oversight). Benefits include improved accuracy and accessibility, but implementation requires careful ethical frameworks and regulatory oversight.",
-    "explanation": "This analysis requires balancing technological capabilities with ethical principles and practical considerations.",
-    "sources": ["medical_ethics", "AI_ethics_research"],
-    "confidence": 0.80
+    "answer": "Renewable energy sources can be naturally replenished (solar, wind, hydro, geothermal), while nonrenewable sources are finite and will eventually be depleted (fossil fuels, nuclear materials). Renewable sources are generally more environmentally sustainable but may have intermittency issues.",
+    "explanation": "This distinction is crucial for sustainable energy planning and environmental protection.",
+    "sources": ["environmental_science"],
+    "confidence": 0.95,
+    "alternative_answers": []
   },
   {
     "id": "qa_018",
-    "answer": "A sustainable transportation system would integrate electric buses and trains powered by renewable energy, bike-sharing networks, pedestrian-friendly infrastructure, smart traffic management, and mixed-use development to reduce travel distances. Key features include intermodal connectivity, real-time information systems, and pricing mechanisms that incentivize sustainable choices.",
-    "explanation": "This design proposal requires integrating urban planning, environmental science, and transportation engineering principles.",
-    "sources": ["urban_planning", "sustainable_transportation"],
-    "confidence": 0.75
+    "answer": "Morocco",
+    "explanation": "Marrakech is a major city in Morocco, located in the western part of the country near the Atlas Mountains.",
+    "sources": ["geography_reference"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_019",
-    "answer": "During recessions, central banks can use interest rate cuts to stimulate borrowing, quantitative easing to increase money supply, and forward guidance to manage expectations. Fiscal policy tools include government spending increases and tax cuts. Effectiveness depends on economic conditions, debt levels, and coordination between monetary and fiscal authorities.",
-    "explanation": "This evaluation requires understanding macroeconomic theory and historical policy outcomes.",
-    "sources": ["macroeconomics", "monetary_policy_research"],
-    "confidence": 0.80
+    "answer": "Interpret the Constitution and ensure laws comply with constitutional principles",
+    "explanation": "The Supreme Court serves as the highest judicial authority, interpreting the Constitution and reviewing the constitutionality of laws and government actions.",
+    "sources": ["civics_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": ["Constitutional interpretation", "Judicial review"]
   },
   {
     "id": "qa_020",
-    "answer": "Starting with ax² + bx + c = 0, divide by a: x² + (b/a)x + c/a = 0. Complete the square: x² + (b/a)x + (b/2a)² = (b/2a)² - c/a. This gives (x + b/2a)² = (b² - 4ac)/4a². Taking the square root: x + b/2a = ±√(b² - 4ac)/2a. Therefore: x = (-b ± √(b² - 4ac))/2a.",
-    "explanation": "This mathematical derivation demonstrates the algebraic manipulation techniques used to solve quadratic equations.",
-    "sources": ["algebra_textbook", "mathematical_proofs"],
-    "confidence": 1.0
+    "answer": "Ludwig van Beethoven",
+    "explanation": "Ludwig van Beethoven composed his Symphony No. 5 in C minor, one of the most famous classical compositions.",
+    "sources": ["music_history"],
+    "confidence": 1.0,
+    "alternative_answers": ["Beethoven"]
   },
   {
     "id": "qa_021",
-    "answer": "Dr. Sarah Chen discovered that time flows differently in her laboratory. Each day, she could step back exactly 24 hours, but only within the lab's walls. She used this power to perfect her experiments, but realized that changing the past created parallel timelines rather than altering her original reality. The story explores the isolation of being the only person aware of multiple timelines and the ethical dilemma of whether to share this knowledge.",
-    "explanation": "This creative response demonstrates narrative structure, scientific plausibility, and exploration of philosophical themes.",
-    "sources": ["creative_writing", "time_travel_fiction"],
-    "confidence": 0.70
+    "answer": "Real",
+    "explanation": "The Real is the currency used in Brazil, abbreviated as BRL (Brazilian Real).",
+    "sources": ["currency_reference"],
+    "confidence": 1.0,
+    "alternative_answers": ["Brazilian Real", "BRL"]
   },
   {
     "id": "qa_022",
-    "answer": "Consciousness might emerge through integrated information processing, where complex neural networks create unified experiences from distributed brain activity. The Global Workspace Theory suggests consciousness arises when information becomes globally accessible across brain regions. Alternatively, consciousness could be a fundamental property of matter (panpsychism) or emerge from quantum processes in microtubules.",
-    "explanation": "This philosophical exploration requires synthesizing neuroscience, philosophy of mind, and speculative theories.",
-    "sources": ["neuroscience", "philosophy_of_mind", "consciousness_studies"],
-    "confidence": 0.60
+    "answer": "Inflation is the general increase in prices of goods and services in an economy over time, reducing the purchasing power of money.",
+    "explanation": "Inflation is typically measured as an annual percentage increase in the Consumer Price Index (CPI).",
+    "sources": ["economics_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_023",
-    "answer": "Atmospheric Carbon Harvesting Networks: Deploy millions of small, solar-powered devices that mimic tree photosynthesis but operate 24/7, converting CO2 directly into solid carbon materials for construction. These devices would be integrated into urban infrastructure, creating a distributed carbon capture system that also produces useful building materials, turning climate action into economic opportunity.",
-    "explanation": "This innovative proposal combines existing technologies in a novel way to address climate change while creating economic value.",
-    "sources": ["climate_science", "materials_engineering", "innovative_thinking"],
-    "confidence": 0.65
+    "answer": "Alexander Fleming",
+    "explanation": "Alexander Fleming discovered penicillin in 1928, revolutionizing medicine and leading to the development of antibiotics.",
+    "sources": ["medical_history"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_024",
-    "answer": "I would establish: 1) Universal Basic Resources (not just income) ensuring everyone has access to food, shelter, healthcare, and education; 2) Participatory Democracy with rotating leadership and citizen assemblies; 3) Ecological Stewardship as a core value with legal rights for nature; 4) Collaborative Competition where success is measured by collective wellbeing; 5) Continuous Learning systems that adapt governance based on evidence and changing needs.",
-    "explanation": "This philosophical design integrates political theory, economics, environmental ethics, and social psychology.",
-    "sources": ["political_philosophy", "social_design", "systems_thinking"],
-    "confidence": 0.60
+    "answer": "The Magna Carta, signed in 1215, was a charter that limited the power of the English king and established the principle that everyone, including the ruler, is subject to the law. It laid the foundation for constitutional government and individual rights.",
+    "explanation": "The Magna Carta is considered one of the most important legal documents in history, influencing constitutional development worldwide.",
+    "sources": ["history_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": []
   },
   {
     "id": "qa_025",
-    "answer": "The model would track: Cultural Tension Index (measuring social/political stress), Technology Adoption Rate (new tools enabling expression), Economic Inequality Coefficient (driving artistic rebellion), and Cross-Cultural Exchange Frequency (enabling fusion movements). Formula: P(new movement) = f(CTI × TAR × EIC × CCEF) where movements emerge when this product exceeds historical thresholds, modified by random innovation events.",
-    "explanation": "This theoretical model attempts to quantify cultural phenomena using mathematical frameworks, though art's inherent unpredictability limits precision.",
-    "sources": ["cultural_studies", "mathematical_modeling", "art_history"],
-    "confidence": 0.50
+    "answer": "100°C",
+    "explanation": "Water boils at 100 degrees Celsius (212 degrees Fahrenheit) at sea level under standard atmospheric pressure.",
+    "sources": ["physics_reference"],
+    "confidence": 1.0,
+    "alternative_answers": ["100 degrees Celsius"]
+  },
+  {
+    "id": "qa_026",
+    "answer": "France",
+    "explanation": "France hosted the 2024 Summer Olympics in Paris from July 26 to August 11, 2024.",
+    "sources": ["olympics_records", "current_events"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_027",
+    "answer": "HyperText Transfer Protocol",
+    "explanation": "HTTP is the foundation of data communication on the World Wide Web, defining how messages are formatted and transmitted.",
+    "sources": ["internet_protocols"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_028",
+    "answer": "The theory of evolution by natural selection, proposed by Charles Darwin, explains how species change over time through the survival and reproduction of individuals with favorable traits. Organisms with advantageous characteristics are more likely to survive and pass these traits to their offspring.",
+    "explanation": "This theory is supported by extensive evidence from fossils, genetics, and direct observation of evolutionary changes.",
+    "sources": ["biology_textbook", "darwin_origin_species"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_029",
+    "answer": "Antarctica",
+    "explanation": "Antarctica is the largest desert in the world by area, covering about 14 million square kilometers. It's classified as a desert due to its extremely low precipitation.",
+    "sources": ["geography_reference"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_030",
+    "answer": "Arabic",
+    "explanation": "Arabic is the official language of Egypt, spoken by the vast majority of the population.",
+    "sources": ["language_reference"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_031",
+    "answer": "Yes",
+    "explanation": "This is a valid syllogism: All cats have tails (major premise), Fluffy is a cat (minor premise), therefore Fluffy has a tail (conclusion).",
+    "sources": ["logic_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_032",
+    "answer": "5",
+    "explanation": "Using the principle of inclusion-exclusion: minimum overlap = (15 + 20) - 30 = 5 people who both wear glasses and have brown hair.",
+    "sources": ["set_theory"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_033",
+    "answer": "No",
+    "explanation": "This uses modus tollens (contrapositive reasoning): If P then Q, not Q, therefore not P. Since the ground is not wet, it is not raining.",
+    "sources": ["logic_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_034",
+    "answer": "Yes",
+    "explanation": "This demonstrates transitive reasoning: if A > B and B > C, then A > C. Since Alice > Bob and Bob > Charlie, then Alice > Charlie.",
+    "sources": ["logic_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_035",
+    "answer": "0.44 or 44%",
+    "explanation": "Using combinations: C(10,2) × C(5,1) / C(15,3) = 45 × 5 / 455 = 225/455 ≈ 0.44 or 44%.",
+    "sources": ["probability_theory"],
+    "confidence": 0.95,
+    "alternative_answers": ["44%", "0.44"]
+  },
+  {
+    "id": "qa_036",
+    "answer": "Metal objects have higher thermal conductivity than wood, so they transfer heat away from your skin more quickly, making them feel colder even at the same temperature.",
+    "explanation": "The sensation of temperature is related to heat transfer rate, not just the actual temperature of the object.",
+    "sources": ["physics_textbook"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_037",
+    "answer": "Possible causes include root rot from overwatering, pest infestation, disease, nutrient deficiency, or root damage.",
+    "explanation": "When basic needs are met, wilting usually indicates problems with the root system or plant health issues.",
+    "sources": ["plant_biology"],
+    "confidence": 0.90,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_038",
+    "answer": "Short term: modest reduction due to price elasticity. Long term: significant reduction as consumers and businesses invest in alternatives and change behavior patterns.",
+    "explanation": "Economic behavior changes more dramatically over longer time periods as people adapt to new price structures.",
+    "sources": ["environmental_economics"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_039",
+    "answer": "Winglets reduce wingtip vortices, which decreases drag and improves fuel efficiency by preventing air from flowing around the wingtip from high to low pressure areas.",
+    "explanation": "This aerodynamic improvement can reduce fuel consumption by 3-5% on typical flights.",
+    "sources": ["aerodynamics"],
+    "confidence": 0.95,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_040",
+    "answer": "Warmer water holds less dissolved oxygen, causes coral bleaching, disrupts food chains, and can lead to species migration or death, fundamentally altering marine ecosystems.",
+    "explanation": "Ocean temperature increases have cascading effects throughout marine food webs and ecosystem structures.",
+    "sources": ["marine_biology"],
+    "confidence": 0.90,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_041",
+    "answer": "6",
+    "explanation": "Alice gives away 24 ÷ 3 = 8 apples to Bob, then eats 2 herself. She has 24 - 8 - 2 = 6 apples left.",
+    "sources": ["basic_math"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_042",
+    "answer": "4 hours",
+    "explanation": "Time = Distance ÷ Speed = 240 miles ÷ 60 mph = 4 hours.",
+    "sources": ["basic_math"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_043",
+    "answer": "800 square meters",
+    "explanation": "If width = w, then length = 2w. Perimeter: 2(w + 2w) = 120, so 6w = 120, w = 20m. Length = 40m. Area = 20 × 40 = 800 sq m.",
+    "sources": ["geometry"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_044",
+    "answer": "Investment A will yield more",
+    "explanation": "Investment A: (1.05)^10 ≈ 1.629. Investment B: (1.012)^40 ≈ 1.612. Investment A compounds to about 62.9% vs 61.2% for B.",
+    "sources": ["finance_math"],
+    "confidence": 0.95,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_045",
+    "answer": "$50",
+    "explanation": "If $60 includes a 20% tip, then $60 = bill × 1.20. Therefore, bill = $60 ÷ 1.20 = $50.",
+    "sources": ["basic_math"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_046",
+    "answer": "Solar: Consistent during daylight, minimal environmental impact, highly scalable. Wind: Variable output, some noise/visual impact, good scalability in windy areas. Both are clean but have different reliability patterns.",
+    "explanation": "Each renewable source has trade-offs in terms of consistency, environmental footprint, and deployment scalability.",
+    "sources": ["renewable_energy"],
+    "confidence": 0.90,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_047",
+    "answer": "Mammals are endothermic (generate internal heat) providing consistent body temperature but requiring more energy. Reptiles are ectothermic (rely on external heat) using less energy but being temperature-dependent for activity.",
+    "explanation": "Each strategy has evolutionary advantages: mammals can be active in various climates, reptiles are more energy-efficient in warm environments.",
+    "sources": ["comparative_biology"],
+    "confidence": 0.95,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_048",
+    "answer": "Direct democracy allows immediate citizen participation but can be impractical for large populations and complex issues. Representative democracy is more scalable and allows for expertise but may reduce direct citizen control. Direct works better for small communities with simple issues; representative works better for large, complex societies.",
+    "explanation": "The effectiveness of each system depends on population size, issue complexity, and citizen engagement levels.",
+    "sources": ["political_science"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_049",
+    "answer": "Electric motors: 90%+ efficiency, zero local emissions, instant torque, quiet operation. Combustion engines: 25-35% efficiency, produce emissions, require warm-up, more noise. Electric motors are superior in efficiency and environmental impact; combustion engines currently have longer range and faster refueling.",
+    "explanation": "The comparison shows electric motors have significant advantages in efficiency and environmental impact, while combustion engines still lead in convenience factors.",
+    "sources": ["automotive_engineering"],
+    "confidence": 0.90,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_050",
+    "answer": "Short-term memory: Limited capacity (7±2 items), brief duration (15-30 seconds), acoustic encoding. Long-term memory: Unlimited capacity, permanent duration, semantic encoding. Information transfers from short-term to long-term through rehearsal and meaningful processing.",
+    "explanation": "These memory systems work together, with short-term memory serving as a temporary workspace and long-term memory providing permanent storage.",
+    "sources": ["cognitive_psychology"],
+    "confidence": 0.95,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_051",
+    "answer": "CO2 dissolves in seawater forming carbonic acid, which releases hydrogen ions, lowering ocean pH and making seawater more acidic.",
+    "explanation": "This process: CO2 + H2O → H2CO3 → H+ + HCO3- increases ocean acidity, threatening marine life that depends on calcium carbonate structures.",
+    "sources": ["marine_chemistry"],
+    "confidence": 0.95,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_052",
+    "answer": "Ice has a lower density than liquid water because its crystalline structure creates more space between molecules, making it less dense and causing it to float.",
+    "explanation": "Water is unusual in that its solid form is less dense than its liquid form, due to hydrogen bonding creating an open hexagonal structure in ice.",
+    "sources": ["chemistry"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_053",
+    "answer": "Vaccines contain weakened, killed, or parts of disease-causing organisms that stimulate the immune system to produce antibodies and memory cells without causing the actual disease.",
+    "explanation": "This creates immunological memory, so if the real pathogen is encountered later, the immune system can respond quickly and effectively.",
+    "sources": ["immunology"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_054",
+    "answer": "Objects appear different colors because different light sources have different spectral compositions, and our perception of color depends on which wavelengths of light are reflected by the object and the lighting conditions.",
+    "explanation": "Color perception is relative to the light source - the same object can appear different colors under incandescent, fluorescent, or natural light.",
+    "sources": ["optics"],
+    "confidence": 0.90,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_055",
+    "answer": "The placebo effect occurs when patients experience real physiological improvements from inactive treatments due to psychological expectations, involving brain mechanisms that can trigger actual healing responses.",
+    "explanation": "This demonstrates the powerful connection between mind and body, where belief and expectation can produce measurable biological changes.",
+    "sources": ["medical_psychology"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_056",
+    "answer": "6",
+    "explanation": "To connect n islands so all are accessible, you need n-1 bridges minimum. For 7 islands, you need 7-1 = 6 bridges to create a connected graph.",
+    "sources": ["graph_theory"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_057",
+    "answer": "7.5 degrees",
+    "explanation": "At 3:15, the minute hand is at 90° (pointing to 3). The hour hand moves 30° per hour, so in 15 minutes it moves 7.5° past the 3. The angle between them is 7.5°.",
+    "sources": ["geometry"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_058",
+    "answer": "This problem contains inconsistent information and cannot be solved as stated.",
+    "explanation": "The given percentages create mathematical contradictions when trying to determine the total pet ownership percentage.",
+    "sources": ["probability"],
+    "confidence": 0.95,
+    "alternative_answers": ["Cannot be determined", "Inconsistent data"]
+  },
+  {
+    "id": "qa_059",
+    "answer": "56.5 minutes",
+    "explanation": "Volume = πr²h = π × 3² × 4 = 36π cubic meters ≈ 113.1 cubic meters. Time = 113.1 ÷ 2 = 56.55 minutes.",
+    "sources": ["geometry"],
+    "confidence": 1.0,
+    "alternative_answers": ["About 57 minutes"]
+  },
+  {
+    "id": "qa_060",
+    "answer": "17 minutes",
+    "explanation": "Optimal strategy: (1,2) cross (2 min), 1 returns (1 min), (8,12) cross (12 min), 2 returns (2 min), (1,2) cross again (2 min). Total: 2+1+12+2+2 = 17 minutes.",
+    "sources": ["logic_puzzles"],
+    "confidence": 1.0,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_061",
+    "answer": "The boss might infer that Sarah doesn't check email outside work hours, prioritizes work-life balance, or wasn't available for urgent matters.",
+    "explanation": "Response timing can signal availability expectations and work-life boundaries, though interpretations may vary by workplace culture.",
+    "sources": ["workplace_communication"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_062",
+    "answer": "Rain or a storm is likely to occur soon.",
+    "explanation": "Gathering clouds and temperature drops are common precursors to precipitation as weather systems move through an area.",
+    "sources": ["meteorology"],
+    "confidence": 0.85,
+    "alternative_answers": ["Weather change", "Precipitation"]
+  },
+  {
+    "id": "qa_063",
+    "answer": "Maria might be taking a leadership or facilitator role, ensuring all viewpoints are captured and synthesized.",
+    "explanation": "Summarizing after others speak often indicates a coordinating or leadership function in group dynamics.",
+    "sources": ["group_dynamics"],
+    "confidence": 0.80,
+    "alternative_answers": ["Leader", "Facilitator", "Coordinator"]
+  },
+  {
+    "id": "qa_064",
+    "answer": "The cake might not have tasted good, had an unappealing texture, or didn't meet guests' dietary preferences.",
+    "explanation": "When food is left uneaten at social gatherings, it often indicates quality or preference issues rather than lack of appetite.",
+    "sources": ["social_psychology"],
+    "confidence": 0.75,
+    "alternative_answers": ["Poor quality", "Didn't taste good"]
+  },
+  {
+    "id": "qa_065",
+    "answer": "The student might be learning the material independently, have scheduling conflicts, or be dealing with personal issues while maintaining academic responsibility.",
+    "explanation": "Consistent assignment submission despite absences suggests engagement with the material through alternative means.",
+    "sources": ["educational_psychology"],
+    "confidence": 0.75,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_066",
+    "answer": "The character likely has an introverted, shy, or anxious personality, possibly lacking confidence in social situations.",
+    "explanation": "Avoiding eye contact and speaking softly are common behavioral indicators of introversion, social anxiety, or low self-confidence.",
+    "sources": ["psychology"],
+    "confidence": 0.80,
+    "alternative_answers": ["Shy", "Introverted", "Anxious"]
+  },
+  {
+    "id": "qa_067",
+    "answer": "This suggests the character may be anxious, obsessive-compulsive, or highly security-conscious, possibly indicating worry or fear.",
+    "explanation": "Repetitive checking behaviors often indicate anxiety, perfectionism, or obsessive-compulsive tendencies.",
+    "sources": ["behavioral_psychology"],
+    "confidence": 0.75,
+    "alternative_answers": ["Anxious", "Worried", "OCD tendencies"]
+  },
+  {
+    "id": "qa_068",
+    "answer": "Unreliable public transport likely forces people to seek alternative transportation, reducing public transit usage and increasing private vehicle dependency.",
+    "explanation": "When public services are unreliable, people adapt by finding more dependable alternatives, even if more expensive.",
+    "sources": ["urban_planning"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_069",
+    "answer": "A reader might infer the article lacks objectivity and may be biased toward one political perspective.",
+    "explanation": "Balanced journalism typically includes multiple viewpoints; one-sided sourcing suggests potential bias or incomplete reporting.",
+    "sources": ["media_literacy"],
+    "confidence": 0.85,
+    "alternative_answers": ["Biased", "Not objective", "One-sided"]
+  },
+  {
+    "id": "qa_070",
+    "answer": "John likely feels impatient, bored, or eager to leave the meeting.",
+    "explanation": "Repeatedly checking the time is a common nonverbal indicator of impatience or desire to be elsewhere.",
+    "sources": ["body_language"],
+    "confidence": 0.85,
+    "alternative_answers": ["Impatient", "Bored", "Wants to leave"]
+  },
+  {
+    "id": "qa_071",
+    "answer": "This might indicate the person is distracted, stressed, preoccupied with other thoughts, or simply forgetful.",
+    "explanation": "Forgetting practical items often reflects mental preoccupation or stress affecting attention to routine tasks.",
+    "sources": ["cognitive_psychology"],
+    "confidence": 0.75,
+    "alternative_answers": ["Distracted", "Stressed", "Preoccupied"]
+  },
+  {
+    "id": "qa_072",
+    "answer": "This suggests the experimental hypothesis might be incorrect, there could be uncontrolled variables, or the expected result was based on flawed assumptions.",
+    "explanation": "When procedures are correct but results don't match expectations, it often indicates issues with the underlying theory or unidentified variables.",
+    "sources": ["scientific_method"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_073",
+    "answer": "The shop likely wants to clear inventory before closing to avoid waste, especially for perishable items, and maximize daily revenue.",
+    "explanation": "End-of-day price reductions are common business strategies to move inventory that would otherwise be lost or carried over.",
+    "sources": ["business_strategy"],
+    "confidence": 0.85,
+    "alternative_answers": ["Clear inventory", "Avoid waste"]
+  },
+  {
+    "id": "qa_074",
+    "answer": "The doctor might infer the patient is withholding information, has anxiety about their condition, or is concerned about potential diagnosis.",
+    "explanation": "Detailed symptom reporting combined with anxiety often suggests the patient has concerns they're not fully expressing.",
+    "sources": ["medical_psychology"],
+    "confidence": 0.75,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_075",
+    "answer": "The student likely reads extensively and regularly, exposing them to sophisticated vocabulary through literature and academic texts.",
+    "explanation": "Advanced vocabulary typically develops through extensive reading exposure rather than direct vocabulary instruction alone.",
+    "sources": ["educational_psychology"],
+    "confidence": 0.85,
+    "alternative_answers": ["Reads a lot", "Extensive reading"]
+  },
+  {
+    "id": "qa_076",
+    "answer": "The company likely wants to get ahead of potential negative publicity and demonstrate proactive responsibility, even with minimal complaints.",
+    "explanation": "Proactive public relations often involves addressing issues before they become widespread problems.",
+    "sources": ["public_relations"],
+    "confidence": 0.80,
+    "alternative_answers": ["Prevent bad publicity", "Proactive PR"]
+  },
+  {
+    "id": "qa_077",
+    "answer": "A suspenseful, ominous, or foreboding mood is being established.",
+    "explanation": "Descriptive words like 'eerily silent' and 'dimly lit' are commonly used to create tension and anticipation in mystery stories.",
+    "sources": ["literary_analysis"],
+    "confidence": 0.90,
+    "alternative_answers": ["Suspenseful", "Ominous", "Mysterious"]
+  },
+  {
+    "id": "qa_078",
+    "answer": "The athlete demonstrates resilience, determination, and a growth mindset in response to setbacks.",
+    "explanation": "Increased effort after failure indicates the ability to learn from setbacks and maintain motivation despite disappointment.",
+    "sources": ["sports_psychology"],
+    "confidence": 0.85,
+    "alternative_answers": ["Resilient", "Determined", "Growth mindset"]
+  },
+  {
+    "id": "qa_079",
+    "answer": "There might be barriers to advancement such as lack of available positions, office politics, discrimination, or the employee may lack certain qualifications for promotion.",
+    "explanation": "Disconnect between performance recognition and advancement often indicates systemic or structural workplace issues.",
+    "sources": ["organizational_behavior"],
+    "confidence": 0.75,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_080",
+    "answer": "The politician is likely using deflection or evasion tactics to avoid addressing difficult or controversial topics directly.",
+    "explanation": "Answering with unrelated information is a common political strategy to control the narrative and avoid potentially damaging responses.",
+    "sources": ["political_communication"],
+    "confidence": 0.85,
+    "alternative_answers": ["Deflection", "Evasion", "Avoiding the question"]
+  },
+  {
+    "id": "qa_081",
+    "answer": "Customers might find the prices too high, the menu options unappealing, or the restaurant atmosphere not to their liking.",
+    "explanation": "When customers leave after viewing the menu, it typically indicates pricing concerns or lack of appealing options.",
+    "sources": ["customer_behavior"],
+    "confidence": 0.80,
+    "alternative_answers": ["Prices too high", "Unappealing menu"]
+  },
+  {
+    "id": "qa_082",
+    "answer": "The weather forecast likely predicts possible rain or uncertain weather conditions.",
+    "explanation": "Packing raincoats for a picnic suggests preparation for potential precipitation despite planning outdoor activities.",
+    "sources": ["weather_planning"],
+    "confidence": 0.85,
+    "alternative_answers": ["Chance of rain", "Uncertain weather"]
+  },
+  {
+    "id": "qa_083",
+    "answer": "The call likely contained urgent or important information requiring immediate attention, such as a family emergency or work crisis.",
+    "explanation": "Sudden plan cancellations after phone calls typically indicate unexpected urgent situations that take priority.",
+    "sources": ["social_behavior"],
+    "confidence": 0.80,
+    "alternative_answers": ["Emergency", "Urgent situation"]
+  },
+  {
+    "id": "qa_084",
+    "answer": "The poem's theme likely involves sadness, despair, death, or other somber subjects.",
+    "explanation": "Darkness metaphors in poetry commonly represent negative emotions, difficult experiences, or existential themes.",
+    "sources": ["literary_analysis"],
+    "confidence": 0.85,
+    "alternative_answers": ["Sadness", "Despair", "Dark themes"]
+  },
+  {
+    "id": "qa_085",
+    "answer": "This suggests poor communication, unfair credit distribution, or one member taking undue credit for collaborative work.",
+    "explanation": "When group work credit goes to one person, it often indicates leadership issues or inequitable recognition of contributions.",
+    "sources": ["group_dynamics"],
+    "confidence": 0.80,
+    "alternative_answers": ["Unfair credit", "Poor teamwork"]
+  },
+  {
+    "id": "qa_086",
+    "answer": "Use statistical analysis to correlate demographic variables (income, education, age, etc.) with recycling rates across neighborhoods, controlling for infrastructure and policy differences. Apply regression analysis to identify the strongest predictors.",
+    "explanation": "This requires systematic data analysis comparing multiple variables while controlling for confounding factors.",
+    "sources": ["research_methodology"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_087",
+    "answer": "Design a controlled study comparing memory performance between sleep-deprived and well-rested groups, using voluntary participants with informed consent, limiting sleep deprivation to safe levels, and providing compensation and support.",
+    "explanation": "Ethical research requires participant safety, informed consent, and minimizing harm while maintaining scientific validity.",
+    "sources": ["research_ethics"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_088",
+    "answer": "Cross-reference multiple primary sources, check author credibility and potential biases, examine contemporary accounts, consult archaeological evidence, and analyze the historical context of each source.",
+    "explanation": "Historical accuracy requires triangulation of evidence and critical evaluation of source reliability and bias.",
+    "sources": ["historical_methodology"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_089",
+    "answer": "Assess the client's risk tolerance, time horizon, and financial goals. Recommend the option with the best risk-adjusted returns that align with their conservative preferences, emphasizing capital preservation over high returns.",
+    "explanation": "Investment advice must match client risk profile and financial objectives rather than maximizing returns alone.",
+    "sources": ["financial_planning"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_090",
+    "answer": "Develop culturally sensitive messaging, partner with trusted community leaders, address specific concerns through education, use multiple communication channels, and provide easy access to vaccination services.",
+    "explanation": "Overcoming vaccine hesitancy requires understanding community concerns and building trust through respected local voices.",
+    "sources": ["public_health"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_091",
+    "answer": "Implement congestion pricing, improve public transit, promote remote work, develop bike infrastructure, and use smart traffic management. Evaluate through traffic flow data, air quality measurements, and citizen satisfaction surveys.",
+    "explanation": "Traffic reduction requires multi-modal approaches with comprehensive measurement of both quantitative and qualitative outcomes.",
+    "sources": ["urban_planning"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_092",
+    "answer": "Combine productivity metrics (output, quality, deadlines) with employee surveys, manager assessments, and collaboration measures. Use statistical analysis to compare remote vs. office performance while controlling for individual and role differences.",
+    "explanation": "Comprehensive analysis requires both objective performance data and subjective experience measures.",
+    "sources": ["workplace_research"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_093",
+    "answer": "Evaluate the patient's specific health conditions, contraindications, lifestyle factors, and preferences. Consider side effect profiles, drug interactions, and monitoring requirements to recommend the most suitable option.",
+    "explanation": "Medical decisions require personalized assessment of individual patient factors beyond just medication efficacy.",
+    "sources": ["clinical_decision_making"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_094",
+    "answer": "Assess missing data patterns, use appropriate imputation methods, identify and investigate outliers, validate data quality, and document all preprocessing steps for reproducibility.",
+    "explanation": "Data preparation requires systematic approaches to handle missing values and outliers while maintaining data integrity.",
+    "sources": ["data_science"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_095",
+    "answer": "Develop mobile literacy programs, train local teachers, use culturally relevant materials, leverage technology where available, partner with community organizations, and create adult education opportunities.",
+    "explanation": "Rural literacy improvement requires culturally sensitive, resource-appropriate approaches that engage the entire community.",
+    "sources": ["education_development"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_096",
+    "answer": "Conduct lifecycle assessment including raw material extraction, manufacturing energy, operational efficiency, and end-of-life disposal. Compare total environmental footprint across the entire vehicle lifespan.",
+    "explanation": "Environmental comparison requires comprehensive analysis of all lifecycle stages, not just operational emissions.",
+    "sources": ["environmental_assessment"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_097",
+    "answer": "Analyze market size, competition, regulatory environment, cultural factors, economic stability, and operational requirements. Assess political risks, currency fluctuations, and local partnership opportunities.",
+    "explanation": "International expansion requires comprehensive risk assessment across multiple dimensions of business environment.",
+    "sources": ["international_business"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_098",
+    "answer": "Use fact-checking websites, verify sources and citations, check publication dates, cross-reference multiple sources, examine author credentials, and look for logical consistency and evidence quality.",
+    "explanation": "Misinformation detection requires systematic verification of sources, evidence, and logical consistency.",
+    "sources": ["media_literacy"],
+    "confidence": 0.85,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_099",
+    "answer": "Implement targeted academic support, social-emotional learning programs, family engagement initiatives, teacher professional development, and community partnerships to address both learning and wellness factors.",
+    "explanation": "School improvement requires addressing multiple factors that influence student success beyond just academic instruction.",
+    "sources": ["educational_improvement"],
+    "confidence": 0.80,
+    "alternative_answers": []
+  },
+  {
+    "id": "qa_100",
+    "answer": "Define performance criteria, create realistic test scenarios, measure response times under various loads, assess resource utilization, and conduct comparative analysis using standardized benchmarks and statistical significance testing.",
+    "explanation": "Software benchmarking requires systematic testing methodology with clear metrics and statistical validation.",
+    "sources": ["software_engineering"],
+    "confidence": 0.85,
+    "alternative_answers": []
   }
 ]

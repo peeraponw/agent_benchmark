@@ -3,175 +3,900 @@
     "id": "qa_001",
     "question": "What is the capital of France?",
     "category": "factual",
-    "difficulty": "level_1",
-    "expected_response_type": "short_answer"
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "geography",
+    "tags": ["geography", "europe", "capitals"]
   },
   {
     "id": "qa_002",
-    "question": "Explain the process of photosynthesis in plants.",
-    "category": "scientific",
-    "difficulty": "level_2",
-    "expected_response_type": "detailed_explanation"
+    "question": "Who was the first President of the United States?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "history",
+    "tags": ["history", "usa", "presidents"]
   },
   {
     "id": "qa_003",
-    "question": "If a train travels at 80 km/h for 2.5 hours, how far does it travel?",
-    "category": "mathematical",
-    "difficulty": "level_1",
-    "expected_response_type": "calculation"
+    "question": "What is the chemical symbol for gold?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "science",
+    "tags": ["chemistry", "elements", "symbols"]
   },
   {
     "id": "qa_004",
-    "question": "What is the largest planet in our solar system?",
+    "question": "Name the longest river in the world.",
     "category": "factual",
-    "difficulty": "level_1",
-    "expected_response_type": "short_answer"
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "geography",
+    "tags": ["geography", "rivers", "world_records"]
   },
   {
     "id": "qa_005",
-    "question": "Who wrote the novel '1984'?",
+    "question": "In what year did the COVID-19 pandemic officially begin?",
     "category": "factual",
-    "difficulty": "level_1",
-    "expected_response_type": "short_answer"
+    "difficulty": "medium",
+    "expected_response_type": "year",
+    "domain": "current_events",
+    "tags": ["current_events", "health", "pandemic"]
   },
   {
     "id": "qa_006",
-    "question": "What is the chemical symbol for gold?",
+    "question": "What company developed the first widely-used graphical web browser?",
     "category": "factual",
-    "difficulty": "level_1",
-    "expected_response_type": "short_answer"
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "technology",
+    "tags": ["technology", "internet", "browsers"]
   },
   {
     "id": "qa_007",
-    "question": "Calculate the area of a circle with radius 5 meters.",
-    "category": "mathematical",
-    "difficulty": "level_2",
-    "expected_response_type": "calculation"
+    "question": "Which artist painted the ceiling of the Sistine Chapel?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "culture",
+    "tags": ["art", "renaissance", "artists"]
   },
   {
     "id": "qa_008",
-    "question": "Explain the difference between renewable and non-renewable energy sources.",
-    "category": "scientific",
-    "difficulty": "level_2",
-    "expected_response_type": "detailed_explanation"
+    "question": "What is the capital city of Japan?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "geography",
+    "tags": ["geography", "asia", "capitals"]
   },
   {
     "id": "qa_009",
-    "question": "What are the three branches of the U.S. government?",
+    "question": "List three phases of matter at standard temperature and pressure.",
     "category": "factual",
-    "difficulty": "level_2",
-    "expected_response_type": "list"
+    "difficulty": "easy",
+    "expected_response_type": "list",
+    "domain": "science",
+    "tags": ["physics", "matter", "states"]
   },
   {
     "id": "qa_010",
-    "question": "If you invest $1000 at 5% annual interest compounded annually, how much will you have after 3 years?",
-    "category": "mathematical",
-    "difficulty": "level_2",
-    "expected_response_type": "calculation"
+    "question": "Who wrote the play 'Romeo and Juliet'?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "culture",
+    "tags": ["literature", "shakespeare", "plays"]
   },
   {
     "id": "qa_011",
-    "question": "Describe the water cycle and its main stages.",
-    "category": "scientific",
-    "difficulty": "level_2",
-    "expected_response_type": "detailed_explanation"
+    "question": "What major world event started in 1914?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "history",
+    "tags": ["history", "wars", "20th_century"]
   },
   {
     "id": "qa_012",
-    "question": "A company's revenue increased from $100,000 to $150,000. What is the percentage increase?",
-    "category": "mathematical",
-    "difficulty": "level_3",
-    "expected_response_type": "calculation"
+    "question": "Explain the process of photosynthesis.",
+    "category": "factual",
+    "difficulty": "hard",
+    "expected_response_type": "paragraph",
+    "domain": "science",
+    "tags": ["biology", "plants", "processes"]
   },
   {
     "id": "qa_013",
-    "question": "Analyze the causes and effects of the Industrial Revolution on society.",
-    "category": "reasoning",
-    "difficulty": "level_3",
-    "expected_response_type": "analytical_essay"
+    "question": "Which planet is known as the Red Planet?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "science",
+    "tags": ["astronomy", "planets", "mars"]
   },
   {
     "id": "qa_014",
-    "question": "Compare and contrast the economic systems of capitalism and socialism.",
-    "category": "reasoning",
-    "difficulty": "level_3",
-    "expected_response_type": "comparative_analysis"
+    "question": "What is the largest mammal on Earth?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "science",
+    "tags": ["biology", "mammals", "animals"]
   },
   {
     "id": "qa_015",
-    "question": "Solve this system of equations: 2x + 3y = 12 and x - y = 1",
-    "category": "mathematical",
-    "difficulty": "level_3",
-    "expected_response_type": "calculation"
+    "question": "Who is the current Secretary-General of the United Nations?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "current_events",
+    "tags": ["current_events", "politics", "un"]
   },
   {
     "id": "qa_016",
-    "question": "Explain the concept of quantum entanglement and its implications for quantum computing.",
-    "category": "domain_specific",
-    "difficulty": "level_4",
-    "expected_response_type": "technical_explanation"
+    "question": "What is the main programming language used for Android app development?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "technology",
+    "tags": ["programming", "android", "mobile"]
   },
   {
     "id": "qa_017",
-    "question": "Analyze the ethical implications of artificial intelligence in healthcare decision-making.",
-    "category": "reasoning",
-    "difficulty": "level_4",
-    "expected_response_type": "ethical_analysis"
+    "question": "Describe the difference between renewable and nonrenewable energy sources.",
+    "category": "factual",
+    "difficulty": "hard",
+    "expected_response_type": "paragraph",
+    "domain": "science",
+    "tags": ["energy", "environment", "sustainability"]
   },
   {
     "id": "qa_018",
-    "question": "Design a sustainable urban transportation system for a city of 2 million people.",
-    "category": "domain_specific",
-    "difficulty": "level_4",
-    "expected_response_type": "design_proposal"
+    "question": "In which country would you find the city of Marrakech?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "geography",
+    "tags": ["geography", "africa", "cities"]
   },
   {
     "id": "qa_019",
-    "question": "Evaluate the effectiveness of different monetary policy tools during economic recessions.",
-    "category": "domain_specific",
-    "difficulty": "level_4",
-    "expected_response_type": "policy_analysis"
+    "question": "What is the main function of the United States Supreme Court?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "history",
+    "tags": ["government", "law", "usa"]
   },
   {
     "id": "qa_020",
-    "question": "Derive the quadratic formula from the general quadratic equation ax² + bx + c = 0.",
-    "category": "mathematical",
-    "difficulty": "level_4",
-    "expected_response_type": "mathematical_proof"
+    "question": "Name the composer of the 'Fifth Symphony.'",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "culture",
+    "tags": ["music", "classical", "composers"]
   },
   {
     "id": "qa_021",
-    "question": "Write a short story that explores the concept of time travel while maintaining logical consistency.",
-    "category": "creative",
-    "difficulty": "level_5",
-    "expected_response_type": "creative_writing"
+    "question": "What is the currency used in Brazil?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "geography",
+    "tags": ["geography", "currency", "south_america"]
   },
   {
     "id": "qa_022",
-    "question": "How might consciousness emerge from purely physical processes in the brain?",
-    "category": "creative",
-    "difficulty": "level_5",
-    "expected_response_type": "philosophical_exploration"
+    "question": "Define inflation in economic terms.",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_definition",
+    "domain": "economics",
+    "tags": ["economics", "finance", "definitions"]
   },
   {
     "id": "qa_023",
-    "question": "Design a novel solution to address climate change that hasn't been widely proposed before.",
-    "category": "creative",
-    "difficulty": "level_5",
-    "expected_response_type": "innovative_proposal"
+    "question": "Who discovered penicillin?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "science",
+    "tags": ["medicine", "discoveries", "antibiotics"]
   },
   {
     "id": "qa_024",
-    "question": "If you could redesign human society from scratch, what fundamental principles would you establish and why?",
-    "category": "creative",
-    "difficulty": "level_5",
-    "expected_response_type": "philosophical_design"
+    "question": "Briefly describe the significance of the Magna Carta.",
+    "category": "factual",
+    "difficulty": "hard",
+    "expected_response_type": "paragraph",
+    "domain": "history",
+    "tags": ["history", "law", "medieval"]
   },
   {
     "id": "qa_025",
-    "question": "Create a mathematical model that could predict the emergence of new art movements.",
-    "category": "creative",
-    "difficulty": "level_5",
-    "expected_response_type": "theoretical_model"
+    "question": "What is the boiling point of water at sea level in Celsius?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "science",
+    "tags": ["physics", "temperature", "water"]
+  },
+  {
+    "id": "qa_026",
+    "question": "Which country hosted the 2024 Summer Olympics?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "current_events",
+    "tags": ["sports", "olympics", "current_events"]
+  },
+  {
+    "id": "qa_027",
+    "question": "What does HTTP stand for in computing?",
+    "category": "factual",
+    "difficulty": "medium",
+    "expected_response_type": "short_answer",
+    "domain": "technology",
+    "tags": ["internet", "protocols", "acronyms"]
+  },
+  {
+    "id": "qa_028",
+    "question": "Explain the theory of evolution by natural selection.",
+    "category": "factual",
+    "difficulty": "hard",
+    "expected_response_type": "paragraph",
+    "domain": "science",
+    "tags": ["biology", "evolution", "darwin"]
+  },
+  {
+    "id": "qa_029",
+    "question": "Name the largest desert in the world.",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "geography",
+    "tags": ["geography", "deserts", "world_records"]
+  },
+  {
+    "id": "qa_030",
+    "question": "What is the official language of Egypt?",
+    "category": "factual",
+    "difficulty": "easy",
+    "expected_response_type": "short_answer",
+    "domain": "culture",
+    "tags": ["languages", "africa", "culture"]
+  },
+  {
+    "id": "qa_031",
+    "question": "If all cats have tails, and Fluffy is a cat, does Fluffy have a tail?",
+    "category": "reasoning",
+    "difficulty": "easy",
+    "expected_response_type": "yes_no",
+    "domain": "logic",
+    "tags": ["logic", "deductive_reasoning", "syllogism"]
+  },
+  {
+    "id": "qa_032",
+    "question": "In a room of 30 people, 15 wear glasses and 20 have brown hair. What is the minimum number of people who both wear glasses and have brown hair?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["set_theory", "logic", "math"]
+  },
+  {
+    "id": "qa_033",
+    "question": "If it's raining, the ground is wet. The ground is not wet. Is it raining?",
+    "category": "reasoning",
+    "difficulty": "easy",
+    "expected_response_type": "yes_no",
+    "domain": "logic",
+    "tags": ["logic", "contrapositive", "reasoning"]
+  },
+  {
+    "id": "qa_034",
+    "question": "Alice is taller than Bob. Bob is taller than Charlie. Is Alice taller than Charlie?",
+    "category": "reasoning",
+    "difficulty": "easy",
+    "expected_response_type": "yes_no",
+    "domain": "logic",
+    "tags": ["logic", "transitive_reasoning", "comparison"]
+  },
+  {
+    "id": "qa_035",
+    "question": "In a bag with 10 blue marbles and 5 red marbles, if you draw 3 marbles without replacement, what is the probability of drawing exactly 2 blue marbles?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["probability", "combinatorics", "math"]
+  },
+  {
+    "id": "qa_036",
+    "question": "Why do metal objects feel colder than wooden objects at the same room temperature?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "explanation",
+    "domain": "science",
+    "tags": ["physics", "thermal_conductivity", "causality"]
+  },
+  {
+    "id": "qa_037",
+    "question": "If a plant receiving adequate water and sunlight suddenly wilts, what are the most likely causes?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "list",
+    "domain": "science",
+    "tags": ["biology", "plant_health", "diagnosis"]
+  },
+  {
+    "id": "qa_038",
+    "question": "How would increasing carbon taxes likely affect fossil fuel consumption in the short term versus long term?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "comparison",
+    "domain": "economics",
+    "tags": ["economics", "policy", "causality"]
+  },
+  {
+    "id": "qa_039",
+    "question": "Why do airplanes have winglets at the tips of their wings?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "explanation",
+    "domain": "technology",
+    "tags": ["engineering", "aerodynamics", "design"]
+  },
+  {
+    "id": "qa_040",
+    "question": "What happens to ocean ecosystems when water temperature increases by 2°C?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "explanation",
+    "domain": "science",
+    "tags": ["ecology", "climate_change", "systems"]
+  },
+  {
+    "id": "qa_041",
+    "question": "Alice has 24 apples. She gives 1/3 to Bob and then eats 2 herself. How many apples does she have left?",
+    "category": "reasoning",
+    "difficulty": "easy",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["math", "fractions", "word_problems"]
+  },
+  {
+    "id": "qa_042",
+    "question": "A train travels at 60 mph. How long will it take to travel 240 miles?",
+    "category": "reasoning",
+    "difficulty": "easy",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["math", "rate_problems", "time"]
+  },
+  {
+    "id": "qa_043",
+    "question": "A rectangular field is twice as long as it is wide. If the perimeter is 120 meters, what is the area of the field?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["geometry", "algebra", "area"]
+  },
+  {
+    "id": "qa_044",
+    "question": "Investment A compounds annually at 5%. Investment B compounds quarterly at 4.8%. Which will yield more money after 10 years?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "comparison",
+    "domain": "mathematics",
+    "tags": ["finance", "compound_interest", "comparison"]
+  },
+  {
+    "id": "qa_045",
+    "question": "At a restaurant, lunch for 4 people costs $60 including a 20% tip. How much was the bill before the tip?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["math", "percentages", "word_problems"]
+  },
+  {
+    "id": "qa_046",
+    "question": "Compare solar and wind energy in terms of consistency, environmental impact, and scalability.",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "comparison",
+    "domain": "science",
+    "tags": ["energy", "comparison", "analysis"]
+  },
+  {
+    "id": "qa_047",
+    "question": "How do mammals and reptiles differ in their temperature regulation, and what advantages does each method provide?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "comparison",
+    "domain": "science",
+    "tags": ["biology", "physiology", "comparison"]
+  },
+  {
+    "id": "qa_048",
+    "question": "Compare the political systems of direct democracy and representative democracy. Under what circumstances might each be more effective?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "analysis",
+    "domain": "politics",
+    "tags": ["political_science", "democracy", "analysis"]
+  },
+  {
+    "id": "qa_049",
+    "question": "How do traditional combustion engines compare to electric motors in terms of efficiency, environmental impact, and performance?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "comparison",
+    "domain": "technology",
+    "tags": ["engineering", "automotive", "comparison"]
+  },
+  {
+    "id": "qa_050",
+    "question": "Compare long-term memory and short-term memory in humans. How do they differ in capacity, duration, and encoding process?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "comparison",
+    "domain": "science",
+    "tags": ["psychology", "memory", "comparison"]
+  },
+  {
+    "id": "qa_051",
+    "question": "How does increasing atmospheric CO2 lead to ocean acidification?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "process",
+    "domain": "science",
+    "tags": ["chemistry", "climate_change", "causality"]
+  },
+  {
+    "id": "qa_052",
+    "question": "Why does ice float in water when most solids sink in their liquid form?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "explanation",
+    "domain": "science",
+    "tags": ["physics", "density", "properties"]
+  },
+  {
+    "id": "qa_053",
+    "question": "How does a vaccine create immunity without causing the disease?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "process",
+    "domain": "science",
+    "tags": ["immunology", "medicine", "biology"]
+  },
+  {
+    "id": "qa_054",
+    "question": "Why do objects appear to be different colors under different lighting conditions?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "explanation",
+    "domain": "science",
+    "tags": ["physics", "optics", "perception"]
+  },
+  {
+    "id": "qa_055",
+    "question": "How does the placebo effect influence medical treatment outcomes?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "process",
+    "domain": "science",
+    "tags": ["psychology", "medicine", "neuroscience"]
+  },
+  {
+    "id": "qa_056",
+    "question": "A town needs to build bridges connecting 7 islands. What is the minimum number of bridges needed to ensure every island is accessible from any other?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["graph_theory", "optimization", "logic"]
+  },
+  {
+    "id": "qa_057",
+    "question": "If a clock shows 3:15, what is the angle between the hour and minute hands?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["geometry", "angles", "time"]
+  },
+  {
+    "id": "qa_058",
+    "question": "In a town, 85% of people who own cats also own dogs. 60% of pet owners have dogs. 40% of pet owners have cats. What percentage of the town owns pets?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["probability", "conditional", "logic"]
+  },
+  {
+    "id": "qa_059",
+    "question": "A cylindrical water tank with radius 3 meters and height 4 meters is being filled at a rate of 2 cubic meters per minute. How long will it take to fill the tank?",
+    "category": "reasoning",
+    "difficulty": "medium",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["geometry", "volume", "rate"]
+  },
+  {
+    "id": "qa_060",
+    "question": "Five people need to cross a bridge at night with one flashlight. Each person crosses at different speeds: 1, 2, 5, 8, and 12 minutes. Only two people can cross at once, moving at the speed of the slower person. What is the minimum time needed for all to cross?",
+    "category": "reasoning",
+    "difficulty": "hard",
+    "expected_response_type": "numerical",
+    "domain": "mathematics",
+    "tags": ["optimization", "logic_puzzles", "strategy"]
+  },
+  {
+    "id": "qa_061",
+    "question": "Sarah received an email from her boss late at night marked 'Urgent.' She replied the next morning. What might her boss infer from Sarah's timing?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "inference",
+    "domain": "workplace",
+    "tags": ["workplace", "communication", "inference"]
+  },
+  {
+    "id": "qa_062",
+    "question": "After seeing clouds gather and feeling a drop in temperature, what might someone infer is likely to happen soon?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "event_prediction",
+    "domain": "weather",
+    "tags": ["weather", "prediction", "observation"]
+  },
+  {
+    "id": "qa_063",
+    "question": "During a team meeting, Maria spoke after everyone else had finished and summarized the main points. What role might Maria be taking?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "role_identification",
+    "domain": "workplace",
+    "tags": ["leadership", "meetings", "roles"]
+  },
+  {
+    "id": "qa_064",
+    "question": "The cake at the party was only half-eaten, and several guests politely refused a second piece. What could be inferred about the cake?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "quality_inference",
+    "domain": "social",
+    "tags": ["social_cues", "food", "inference"]
+  },
+  {
+    "id": "qa_065",
+    "question": "A student is absent from several classes but submits all assignments on time. What might a teacher infer?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "behavioral_inference",
+    "domain": "education",
+    "tags": ["education", "behavior", "patterns"]
+  },
+  {
+    "id": "qa_066",
+    "question": "If a novel's main character always avoids eye contact and speaks softly, what can be inferred about their personality?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "personality_trait",
+    "domain": "literature",
+    "tags": ["literature", "character_analysis", "personality"]
+  },
+  {
+    "id": "qa_067",
+    "question": "Given a story where a character locks their door twice before leaving, what might this suggest about their mindset?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "psychological_state",
+    "domain": "literature",
+    "tags": ["psychology", "behavior", "anxiety"]
+  },
+  {
+    "id": "qa_068",
+    "question": "In a city where public transport is unreliable, many people own cars. What can you infer about the impact of public transport?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "societal_impact",
+    "domain": "urban_planning",
+    "tags": ["transportation", "society", "causality"]
+  },
+  {
+    "id": "qa_069",
+    "question": "If a news article quotes only members of one political party, what might a reader infer about its objectivity?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "bias_identification",
+    "domain": "media",
+    "tags": ["media_literacy", "bias", "journalism"]
+  },
+  {
+    "id": "qa_070",
+    "question": "John glances at his watch repeatedly during a meeting. What can be inferred about his feelings?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "emotional_state",
+    "domain": "workplace",
+    "tags": ["body_language", "emotions", "meetings"]
+  },
+  {
+    "id": "qa_071",
+    "question": "If a person leaves their umbrella at the office on a rainy day, what might this indicate?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "mental_state",
+    "domain": "daily_life",
+    "tags": ["forgetfulness", "distraction", "behavior"]
+  },
+  {
+    "id": "qa_072",
+    "question": "After a failed experiment, a scientist rechecks the procedure but finds no errors. What does this suggest about the experiment?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "fault_source",
+    "domain": "science",
+    "tags": ["scientific_method", "troubleshooting", "research"]
+  },
+  {
+    "id": "qa_073",
+    "question": "If a shop lowers prices right before closing time, what is the likely intention?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "business_strategy",
+    "domain": "business",
+    "tags": ["business", "pricing", "strategy"]
+  },
+  {
+    "id": "qa_074",
+    "question": "A patient describes symptoms in detail but appears anxious when answering questions. What might a doctor infer?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "health_state",
+    "domain": "healthcare",
+    "tags": ["healthcare", "patient_care", "psychology"]
+  },
+  {
+    "id": "qa_075",
+    "question": "When a student consistently uses advanced vocabulary in essays, what can be inferred about their reading habits?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "reading_habits",
+    "domain": "education",
+    "tags": ["education", "literacy", "vocabulary"]
+  },
+  {
+    "id": "qa_076",
+    "question": "A company issues an apology after a product recall, although only a few customers complained. What is the likely reason?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "pr_strategy",
+    "domain": "business",
+    "tags": ["public_relations", "crisis_management", "business"]
+  },
+  {
+    "id": "qa_077",
+    "question": "In a mystery story, the author describes the room as 'eerily silent' and 'dimly lit.' What mood is being set?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "mood_identification",
+    "domain": "literature",
+    "tags": ["literature", "mood", "atmosphere"]
+  },
+  {
+    "id": "qa_078",
+    "question": "If an athlete trains harder after losing a match, what can be inferred about their response to failure?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "personal_attributes",
+    "domain": "sports",
+    "tags": ["sports", "resilience", "motivation"]
+  },
+  {
+    "id": "qa_079",
+    "question": "An employee receives frequent praise but never gets promoted. What might be inferred about workplace dynamics?",
+    "category": "contextual",
+    "difficulty": "hard",
+    "expected_response_type": "workplace_dynamics",
+    "domain": "workplace",
+    "tags": ["workplace", "career", "organizational_behavior"]
+  },
+  {
+    "id": "qa_080",
+    "question": "If a politician answers a question with unrelated information, what can be inferred about their strategy?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "communication_tactic",
+    "domain": "politics",
+    "tags": ["politics", "communication", "strategy"]
+  },
+  {
+    "id": "qa_081",
+    "question": "In a restaurant, customers leave after checking the menu without ordering. What might be inferred?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "reason_for_leaving",
+    "domain": "business",
+    "tags": ["customer_behavior", "pricing", "business"]
+  },
+  {
+    "id": "qa_082",
+    "question": "A family plans a picnic but packs raincoats along with food. What can be inferred about the weather forecast?",
+    "category": "contextual",
+    "difficulty": "easy",
+    "expected_response_type": "weather_prediction",
+    "domain": "weather",
+    "tags": ["weather", "planning", "preparation"]
+  },
+  {
+    "id": "qa_083",
+    "question": "A friend suddenly cancels plans after receiving a phone call. What might be inferred about the call's content?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "nature_of_call",
+    "domain": "social",
+    "tags": ["social", "emergency", "priorities"]
+  },
+  {
+    "id": "qa_084",
+    "question": "Given a poem with multiple metaphors of darkness, what can be inferred about its theme?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "theme_identification",
+    "domain": "literature",
+    "tags": ["literature", "poetry", "symbolism"]
+  },
+  {
+    "id": "qa_085",
+    "question": "After a group project, one member receives all the credit in a report. What can be inferred about group dynamics?",
+    "category": "contextual",
+    "difficulty": "medium",
+    "expected_response_type": "attribution_analysis",
+    "domain": "workplace",
+    "tags": ["teamwork", "credit", "fairness"]
+  },
+  {
+    "id": "qa_086",
+    "question": "Using data from three neighborhoods with different recycling rates and demographic information, how would you determine which demographic factors most influence recycling behavior?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "analysis_approach",
+    "domain": "research",
+    "tags": ["research_methods", "data_analysis", "environmental"]
+  },
+  {
+    "id": "qa_087",
+    "question": "How can you design an experiment to test whether sleep deprivation affects memory in college students, considering ethical constraints?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "experimental_design",
+    "domain": "research",
+    "tags": ["experimental_design", "ethics", "psychology"]
+  },
+  {
+    "id": "qa_088",
+    "question": "Given conflicting reports about a historical event from two sources, what steps would you take to determine the most likely sequence of events?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "research_process",
+    "domain": "history",
+    "tags": ["historical_research", "source_criticism", "methodology"]
+  },
+  {
+    "id": "qa_089",
+    "question": "You have three investment options with different risk profiles and potential returns. How would you recommend a choice for a risk-averse client?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "decision_process",
+    "domain": "finance",
+    "tags": ["investment", "risk_assessment", "financial_planning"]
+  },
+  {
+    "id": "qa_090",
+    "question": "How would you develop a public health campaign to increase vaccination rates in a community with strong vaccine hesitancy?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "campaign_strategy",
+    "domain": "public_health",
+    "tags": ["public_health", "communication", "behavior_change"]
+  },
+  {
+    "id": "qa_091",
+    "question": "A city wants to reduce traffic congestion. What multi-faceted solutions might you propose, and how would you evaluate their effectiveness?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "policy_proposal",
+    "domain": "urban_planning",
+    "tags": ["urban_planning", "transportation", "policy"]
+  },
+  {
+    "id": "qa_092",
+    "question": "How would you analyze the impact of remote work on employee productivity, using both qualitative and quantitative data?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "mixed_methods_analysis",
+    "domain": "workplace",
+    "tags": ["research_methods", "workplace", "productivity"]
+  },
+  {
+    "id": "qa_093",
+    "question": "If two medications have similar outcomes but different side effects, how would you recommend a choice for a patient with specific health concerns?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "decision_process",
+    "domain": "healthcare",
+    "tags": ["healthcare", "decision_making", "patient_care"]
+  },
+  {
+    "id": "qa_094",
+    "question": "Given a dataset with missing values and outliers, what steps would you take to prepare the data for analysis?",
+    "category": "multi_step",
+    "difficulty": "medium",
+    "expected_response_type": "data_preparation_process",
+    "domain": "data_science",
+    "tags": ["data_science", "data_cleaning", "methodology"]
+  },
+  {
+    "id": "qa_095",
+    "question": "Design a plan to improve literacy rates in rural areas, considering resource limitations and cultural factors.",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "comprehensive_strategy",
+    "domain": "education",
+    "tags": ["education", "rural_development", "literacy"]
+  },
+  {
+    "id": "qa_096",
+    "question": "How would you compare the environmental impact of electric vs. hybrid vehicles, considering manufacturing, usage, and disposal?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "comparative_analysis",
+    "domain": "environment",
+    "tags": ["environmental_impact", "automotive", "lifecycle_analysis"]
+  },
+  {
+    "id": "qa_097",
+    "question": "A company wants to expand internationally. Outline a process to assess the feasibility and risks of entering a new market.",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "risk_assessment_methodology",
+    "domain": "business",
+    "tags": ["business_strategy", "international_expansion", "risk_assessment"]
+  },
+  {
+    "id": "qa_098",
+    "question": "Develop a strategy to identify misinformation in online news articles using available tools and methods.",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "strategy_outline",
+    "domain": "media",
+    "tags": ["media_literacy", "misinformation", "fact_checking"]
+  },
+  {
+    "id": "qa_099",
+    "question": "Given a school with declining test scores, what multi-pronged interventions could address both academic and socio-emotional factors?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "intervention_plan",
+    "domain": "education",
+    "tags": ["education", "school_improvement", "holistic_approach"]
+  },
+  {
+    "id": "qa_100",
+    "question": "You are tasked with benchmarking two software platforms for scalability and performance. What steps and metrics would you use?",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "expected_response_type": "evaluation_approach",
+    "domain": "technology",
+    "tags": ["software_engineering", "performance_testing", "benchmarking"]
   }
 ]

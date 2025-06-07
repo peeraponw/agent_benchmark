@@ -1,28 +1,544 @@
 [
   {
+    "id": "rag_001",
     "query": "What is machine learning?",
-    "expected_documents": ["sample_document_1.txt"],
+    "expected_documents": ["education_01_machine_learning_basics.md"],
     "expected_passages": [
       "Machine Learning (ML) is a subset of AI that enables computers to learn and improve from experience without being explicitly programmed."
     ],
-    "relevance_score": 0.95
+    "relevance_score": 0.95,
+    "query_type": "definition",
+    "difficulty": "easy"
   },
   {
-    "query": "Types of machine learning",
-    "expected_documents": ["sample_document_1.txt"],
+    "id": "rag_002",
+    "query": "Types of machine learning algorithms",
+    "expected_documents": ["education_01_machine_learning_basics.md"],
     "expected_passages": [
       "1. Supervised Learning: Uses labeled training data to learn a mapping from inputs to outputs.",
       "2. Unsupervised Learning: Finds patterns in data without labeled examples.",
       "3. Reinforcement Learning: Learns through interaction with an environment, receiving rewards or penalties for actions taken."
     ],
-    "relevance_score": 0.90
+    "relevance_score": 0.90,
+    "query_type": "categorization",
+    "difficulty": "medium"
   },
   {
-    "query": "Deep learning applications",
-    "expected_documents": ["sample_document_1.txt"],
+    "id": "rag_003",
+    "query": "Deep learning applications in computer vision",
+    "expected_documents": ["education_01_machine_learning_basics.md", "tech_15_data_science.md"],
     "expected_passages": [
-      "It has been particularly successful in areas like image recognition, natural language processing, and speech recognition."
+      "Deep learning has been particularly successful in areas like image recognition, natural language processing, and speech recognition."
     ],
-    "relevance_score": 0.85
+    "relevance_score": 0.85,
+    "query_type": "application",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_004",
+    "query": "Python best practices for code organization",
+    "expected_documents": ["tech_01_python_best_practices.md"],
+    "expected_passages": [
+      "Organize code into modules and packages for better maintainability and reusability."
+    ],
+    "relevance_score": 0.92,
+    "query_type": "best_practices",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_005",
+    "query": "Microservices architecture benefits",
+    "expected_documents": ["tech_02_microservices_architecture.md"],
+    "expected_passages": [
+      "Microservices provide scalability, technology diversity, and independent deployment capabilities."
+    ],
+    "relevance_score": 0.88,
+    "query_type": "benefits",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_006",
+    "query": "Database design normalization principles",
+    "expected_documents": ["tech_03_database_design.json"],
+    "expected_passages": [
+      "Database normalization reduces data redundancy and improves data integrity through systematic organization."
+    ],
+    "relevance_score": 0.90,
+    "query_type": "principles",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_007",
+    "query": "RESTful API design guidelines",
+    "expected_documents": ["tech_04_api_design.md"],
+    "expected_passages": [
+      "RESTful APIs should use HTTP methods appropriately and maintain stateless communication."
+    ],
+    "relevance_score": 0.87,
+    "query_type": "guidelines",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_008",
+    "query": "Docker container security best practices",
+    "expected_documents": ["tech_05_docker_containers.json", "tech_07_cybersecurity.md"],
+    "expected_passages": [
+      "Container security involves image scanning, runtime protection, and network isolation."
+    ],
+    "relevance_score": 0.89,
+    "query_type": "security",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_009",
+    "query": "Cloud computing cost optimization strategies",
+    "expected_documents": ["tech_06_cloud_computing.csv"],
+    "expected_passages": [
+      "Cost optimization in cloud computing includes right-sizing resources, using reserved instances, and implementing auto-scaling."
+    ],
+    "relevance_score": 0.86,
+    "query_type": "optimization",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_010",
+    "query": "DevOps continuous integration practices",
+    "expected_documents": ["tech_08_devops_practices.json"],
+    "expected_passages": [
+      "Continuous integration involves automated testing, frequent code commits, and rapid feedback loops."
+    ],
+    "relevance_score": 0.91,
+    "query_type": "practices",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_011",
+    "query": "Agile development methodology principles",
+    "expected_documents": ["tech_09_agile_development.txt"],
+    "expected_passages": [
+      "Agile development emphasizes iterative development, customer collaboration, and responding to change."
+    ],
+    "relevance_score": 0.93,
+    "query_type": "methodology",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_012",
+    "query": "Software architecture patterns comparison",
+    "expected_documents": ["tech_10_software_architecture.md"],
+    "expected_passages": [
+      "Common architectural patterns include layered, microservices, event-driven, and hexagonal architectures."
+    ],
+    "relevance_score": 0.88,
+    "query_type": "comparison",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_013",
+    "query": "Blockchain consensus mechanisms",
+    "expected_documents": ["tech_11_blockchain.md"],
+    "expected_passages": [
+      "Blockchain consensus mechanisms include Proof of Work, Proof of Stake, and Delegated Proof of Stake."
+    ],
+    "relevance_score": 0.87,
+    "query_type": "technical",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_014",
+    "query": "IoT system security challenges",
+    "expected_documents": ["tech_12_iot_systems.json", "tech_07_cybersecurity.md"],
+    "expected_passages": [
+      "IoT security challenges include device authentication, data encryption, and network security."
+    ],
+    "relevance_score": 0.85,
+    "query_type": "challenges",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_015",
+    "query": "AI ethics in automated decision making",
+    "expected_documents": ["tech_13_ai_ethics.txt"],
+    "expected_passages": [
+      "AI ethics considerations include fairness, transparency, accountability, and bias mitigation."
+    ],
+    "relevance_score": 0.92,
+    "query_type": "ethics",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_016",
+    "query": "Quantum computing applications in cryptography",
+    "expected_documents": ["tech_14_quantum_computing_applications.json", "science_02_quantum_computing.txt"],
+    "expected_passages": [
+      "Quantum computing threatens current cryptographic methods while enabling quantum cryptography."
+    ],
+    "relevance_score": 0.89,
+    "query_type": "application",
+    "difficulty": "expert"
+  },
+  {
+    "id": "rag_017",
+    "query": "Data science workflow and methodology",
+    "expected_documents": ["tech_15_data_science.md"],
+    "expected_passages": [
+      "Data science workflow includes data collection, cleaning, analysis, modeling, and interpretation."
+    ],
+    "relevance_score": 0.90,
+    "query_type": "workflow",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_018",
+    "query": "Climate change impact on global temperatures",
+    "expected_documents": ["science_01_climate_change.txt"],
+    "expected_passages": [
+      "Global temperatures have risen significantly due to increased greenhouse gas concentrations."
+    ],
+    "relevance_score": 0.94,
+    "query_type": "impact",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_019",
+    "query": "Neuroscience brain imaging techniques",
+    "expected_documents": ["science_05_neuroscience.txt"],
+    "expected_passages": [
+      "Brain imaging techniques include fMRI, PET scans, and EEG for studying neural activity."
+    ],
+    "relevance_score": 0.88,
+    "query_type": "techniques",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_020",
+    "query": "Biotechnology applications in medicine",
+    "expected_documents": ["science_06_biotechnology.txt"],
+    "expected_passages": [
+      "Biotechnology applications in medicine include gene therapy, personalized medicine, and drug development."
+    ],
+    "relevance_score": 0.91,
+    "query_type": "application",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_021",
+    "query": "Materials science nanotechnology applications",
+    "expected_documents": ["science_07_materials_science.json"],
+    "expected_passages": [
+      "Nanotechnology applications in materials science include nanocomposites, smart materials, and surface coatings."
+    ],
+    "relevance_score": 0.87,
+    "query_type": "application",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_022",
+    "query": "Environmental science pollution monitoring",
+    "expected_documents": ["science_08_environmental_science.csv"],
+    "expected_passages": [
+      "Environmental monitoring involves tracking air quality, water pollution, and ecosystem health indicators."
+    ],
+    "relevance_score": 0.89,
+    "query_type": "monitoring",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_023",
+    "query": "Space exploration Mars mission challenges",
+    "expected_documents": ["science_09_space_exploration.txt"],
+    "expected_passages": [
+      "Mars mission challenges include radiation exposure, life support systems, and long-duration spaceflight."
+    ],
+    "relevance_score": 0.86,
+    "query_type": "challenges",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_024",
+    "query": "Financial statements analysis techniques",
+    "expected_documents": ["business_01_financial_statements.md"],
+    "expected_passages": [
+      "Financial statement analysis includes ratio analysis, trend analysis, and comparative analysis."
+    ],
+    "relevance_score": 0.92,
+    "query_type": "analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_025",
+    "query": "Project management methodologies comparison",
+    "expected_documents": ["business_02_project_management.md"],
+    "expected_passages": [
+      "Project management methodologies include Waterfall, Agile, Scrum, and Kanban approaches."
+    ],
+    "relevance_score": 0.90,
+    "query_type": "comparison",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_026",
+    "query": "Digital marketing strategy components",
+    "expected_documents": ["business_03_marketing_strategy.xml"],
+    "expected_passages": [
+      "Digital marketing strategy includes SEO, content marketing, social media, and paid advertising."
+    ],
+    "relevance_score": 0.88,
+    "query_type": "strategy",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_027",
+    "query": "Supply chain optimization techniques",
+    "expected_documents": ["business_04_supply_chain.csv"],
+    "expected_passages": [
+      "Supply chain optimization involves demand forecasting, inventory management, and logistics coordination."
+    ],
+    "relevance_score": 0.87,
+    "query_type": "optimization",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_028",
+    "query": "Leadership styles and effectiveness",
+    "expected_documents": ["business_05_leadership.md"],
+    "expected_passages": [
+      "Leadership styles include transformational, transactional, servant, and authentic leadership approaches."
+    ],
+    "relevance_score": 0.89,
+    "query_type": "styles",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_029",
+    "query": "Digital transformation implementation strategies",
+    "expected_documents": ["business_06_digital_transformation.md"],
+    "expected_passages": [
+      "Digital transformation requires cultural change, technology adoption, and process reengineering."
+    ],
+    "relevance_score": 0.91,
+    "query_type": "implementation",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_030",
+    "query": "Corporate sustainability reporting standards",
+    "expected_documents": ["business_07_sustainability.csv"],
+    "expected_passages": [
+      "Sustainability reporting standards include GRI, SASB, and TCFD frameworks for disclosure."
+    ],
+    "relevance_score": 0.86,
+    "query_type": "standards",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_031",
+    "query": "Innovation management processes",
+    "expected_documents": ["business_08_innovation_management.md"],
+    "expected_passages": [
+      "Innovation management involves idea generation, evaluation, development, and commercialization."
+    ],
+    "relevance_score": 0.88,
+    "query_type": "process",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_032",
+    "query": "Entrepreneurship funding sources",
+    "expected_documents": ["business_09_entrepreneurship.json"],
+    "expected_passages": [
+      "Entrepreneurship funding sources include bootstrapping, angel investors, venture capital, and crowdfunding."
+    ],
+    "relevance_score": 0.90,
+    "query_type": "funding",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_033",
+    "query": "Online learning effectiveness factors",
+    "expected_documents": ["education_05_online_learning.md"],
+    "expected_passages": [
+      "Online learning effectiveness depends on student engagement, technology quality, and instructional design."
+    ],
+    "relevance_score": 0.87,
+    "query_type": "effectiveness",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_034",
+    "query": "Special education inclusive practices",
+    "expected_documents": ["education_06_special_education.md"],
+    "expected_passages": [
+      "Inclusive education practices involve universal design, differentiated instruction, and assistive technology."
+    ],
+    "relevance_score": 0.89,
+    "query_type": "practices",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_035",
+    "query": "Higher education assessment methods",
+    "expected_documents": ["education_07_higher_education.csv", "education_04_assessment.txt"],
+    "expected_passages": [
+      "Higher education assessment includes formative, summative, authentic, and peer assessment methods."
+    ],
+    "relevance_score": 0.85,
+    "query_type": "methods",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_036",
+    "query": "GDPR data privacy compliance requirements",
+    "expected_documents": ["legal_01_data_privacy_gdpr.md"],
+    "expected_passages": [
+      "GDPR compliance requires data protection by design, consent management, and breach notification."
+    ],
+    "relevance_score": 0.93,
+    "query_type": "compliance",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_037",
+    "query": "Employment law workplace rights",
+    "expected_documents": ["legal_04_employment_law.txt"],
+    "expected_passages": [
+      "Employment law protects worker rights including fair wages, safe working conditions, and anti-discrimination."
+    ],
+    "relevance_score": 0.91,
+    "query_type": "rights",
+    "difficulty": "medium"
+  },
+  {
+    "id": "rag_038",
+    "query": "Corporate law governance structures",
+    "expected_documents": ["legal_05_corporate_law.md"],
+    "expected_passages": [
+      "Corporate governance structures include board oversight, executive compensation, and shareholder rights."
+    ],
+    "relevance_score": 0.88,
+    "query_type": "governance",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_039",
+    "query": "International law treaty obligations",
+    "expected_documents": ["legal_06_international_law.xml"],
+    "expected_passages": [
+      "International law treaty obligations include state sovereignty, diplomatic immunity, and human rights."
+    ],
+    "relevance_score": 0.87,
+    "query_type": "obligations",
+    "difficulty": "hard"
+  },
+  {
+    "id": "rag_040",
+    "query": "Cross-document synthesis: AI ethics and legal compliance",
+    "expected_documents": ["tech_13_ai_ethics.txt", "legal_01_data_privacy_gdpr.md"],
+    "expected_passages": [
+      "AI ethics and legal compliance intersect in areas of algorithmic transparency, data protection, and automated decision-making."
+    ],
+    "relevance_score": 0.85,
+    "query_type": "synthesis",
+    "difficulty": "expert"
+  },
+  {
+    "id": "rag_041",
+    "query": "Multi-domain analysis: Technology impact on business transformation",
+    "expected_documents": ["business_06_digital_transformation.md", "tech_06_cloud_computing.csv", "tech_13_ai_ethics.txt"],
+    "expected_passages": [
+      "Technology drives business transformation through cloud adoption, AI integration, and ethical considerations."
+    ],
+    "relevance_score": 0.82,
+    "query_type": "multi_domain",
+    "difficulty": "expert"
+  },
+  {
+    "id": "rag_042",
+    "query": "Interdisciplinary research: Climate science and policy",
+    "expected_documents": ["science_01_climate_change.txt", "science_08_environmental_science.csv"],
+    "expected_passages": [
+      "Climate science informs environmental policy through data analysis, impact assessment, and mitigation strategies."
+    ],
+    "relevance_score": 0.86,
+    "query_type": "interdisciplinary",
+    "difficulty": "expert"
+  },
+  {
+    "id": "rag_043",
+    "query": "Technology convergence: Quantum computing and cybersecurity",
+    "expected_documents": ["science_02_quantum_computing.txt", "tech_14_quantum_computing_applications.json", "tech_07_cybersecurity.md"],
+    "expected_passages": [
+      "Quantum computing convergence with cybersecurity creates both threats to current encryption and opportunities for quantum-safe security."
+    ],
+    "relevance_score": 0.84,
+    "query_type": "convergence",
+    "difficulty": "expert"
+  },
+  {
+    "id": "rag_044",
+    "query": "Negative example: Cooking recipes and ingredients",
+    "expected_documents": [],
+    "expected_passages": [],
+    "relevance_score": 0.0,
+    "query_type": "negative",
+    "difficulty": "easy"
+  },
+  {
+    "id": "rag_045",
+    "query": "Negative example: Sports team statistics",
+    "expected_documents": [],
+    "expected_passages": [],
+    "relevance_score": 0.0,
+    "query_type": "negative",
+    "difficulty": "easy"
+  },
+  {
+    "id": "rag_046",
+    "query": "Negative example: Fashion trends and clothing",
+    "expected_documents": [],
+    "expected_passages": [],
+    "relevance_score": 0.0,
+    "query_type": "negative",
+    "difficulty": "easy"
+  },
+  {
+    "id": "rag_047",
+    "query": "Negative example: Movie reviews and ratings",
+    "expected_documents": [],
+    "expected_passages": [],
+    "relevance_score": 0.0,
+    "query_type": "negative",
+    "difficulty": "easy"
+  },
+  {
+    "id": "rag_048",
+    "query": "Negative example: Travel destinations and tourism",
+    "expected_documents": [],
+    "expected_passages": [],
+    "relevance_score": 0.0,
+    "query_type": "negative",
+    "difficulty": "easy"
+  },
+  {
+    "id": "rag_049",
+    "query": "Complex synthesis: Sustainable technology innovation in business",
+    "expected_documents": ["business_07_sustainability.csv", "business_08_innovation_management.md", "tech_06_cloud_computing.csv"],
+    "expected_passages": [
+      "Sustainable technology innovation requires balancing environmental impact, business viability, and technological advancement."
+    ],
+    "relevance_score": 0.83,
+    "query_type": "complex_synthesis",
+    "difficulty": "expert"
+  },
+  {
+    "id": "rag_050",
+    "query": "Future trends: AI integration in educational assessment",
+    "expected_documents": ["education_04_assessment.txt", "tech_13_ai_ethics.txt", "tech_15_data_science.md"],
+    "expected_passages": [
+      "AI integration in educational assessment involves automated grading, personalized feedback, and ethical considerations for student privacy."
+    ],
+    "relevance_score": 0.81,
+    "query_type": "future_trends",
+    "difficulty": "expert"
   }
 ]
