@@ -278,7 +278,7 @@ class StructureValidator:
                 with open(docker_template, 'r') as f:
                     content = f.read()
 
-                required_services = ["qdrant", "langfuse", "postgres", "mcp_server"]
+                required_services = ["qdrant", "langfuse", "postgres"]
                 missing_services = []
 
                 for service in required_services:
@@ -295,7 +295,7 @@ class StructureValidator:
                     ))
 
                 # Check for environment variable placeholders
-                env_vars = ["FRAMEWORK_NAME", "QDRANT_PORT", "LANGFUSE_PORT", "MCP_PORT"]
+                env_vars = ["FRAMEWORK_NAME", "QDRANT_PORT", "LANGFUSE_PORT"]
                 missing_vars = []
 
                 for var in env_vars:
@@ -320,20 +320,16 @@ class StructureValidator:
                 False, "❌ Docker Compose template missing"
             ))
 
-        # Check MCP server files
-        mcp_path = infra_path / "mcp_server"
-        mcp_files = ["Dockerfile", "pyproject.toml", "server.py"]
-
-        for file_name in mcp_files:
-            file_path = mcp_path / file_name
-            if file_path.exists():
-                self.results.append(ValidationResult(
-                    True, f"✅ MCP server file '{file_name}' exists"
-                ))
-            else:
-                self.results.append(ValidationResult(
-                    False, f"❌ MCP server file '{file_name}' missing"
-                ))
+        # Check External MCP Integration Guide
+        mcp_guide = infra_path / "EXTERNAL_MCP_INTEGRATION.md"
+        if mcp_guide.exists():
+            self.results.append(ValidationResult(
+                True, "✅ External MCP integration guide exists"
+            ))
+        else:
+            self.results.append(ValidationResult(
+                False, "❌ External MCP integration guide missing"
+            ))
 
         # Check port allocation documentation
         port_doc = infra_path / "PORT_ALLOCATION.md"
@@ -565,7 +561,7 @@ class StructureValidator:
                     # Validate services structure
                     if "services" in yaml_data:
                         services = yaml_data["services"]
-                        required_services = ["qdrant", "langfuse", "postgres", "mcp_server"]
+                        required_services = ["qdrant", "langfuse", "postgres"]
 
                         for service in required_services:
                             if service in services:

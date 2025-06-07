@@ -84,29 +84,32 @@ services:
       timeout: 10s
       retries: 3
 
-  # MCP (Model Context Protocol) Server
-  # Provides standardized tool and resource access
-  mcp_server:
-    build:
-      context: ../shared_infrastructure/mcp_server
-      dockerfile: Dockerfile
-    container_name: "${FRAMEWORK_NAME}_mcp"
-    ports:
-      - "${MCP_PORT}:8080"
-    environment:
-      - MCP_SERVER_HOST=0.0.0.0
-      - MCP_SERVER_PORT=8080
-      - FRAMEWORK_NAME=${FRAMEWORK_NAME}
-    volumes:
-      - ../shared_datasets:/app/shared_datasets:ro
-    networks:
-      - ${FRAMEWORK_NAME}_network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+  # External MCP Services Integration
+  # Note: This project uses external MCP servers instead of custom implementation
+  # Recommended MCP servers for different capabilities:
+  #
+  # Web Search:
+  #   - Brave Search MCP (privacy-focused)
+  #   - Tavily Search MCP (premium features)
+  #   - DuckDuckGo MCP (no API key required)
+  #
+  # Vector Search:
+  #   - Official Qdrant MCP server
+  #   - Typesense MCP server
+  #
+  # File Operations:
+  #   - Official Filesystem MCP server
+  #   - GitHub MCP server for repository access
+  #
+  # Setup Instructions:
+  # 1. Install desired MCP servers using: uvx mcp-server-<name>
+  # 2. Configure in Claude Desktop or your preferred MCP client
+  # 3. Update framework configurations to use external MCP endpoints
+  #
+  # For local development, you can run MCP servers directly:
+  # uvx mcp-server-filesystem --allowed-dirs /path/to/shared_datasets
+  # uvx mcp-server-brave-search
+  # uvx mcp-server-qdrant --host localhost --port ${QDRANT_PORT}
 
 # Named Volumes for Data Persistence
 volumes:

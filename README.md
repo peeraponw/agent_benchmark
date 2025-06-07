@@ -5,11 +5,11 @@ A comprehensive evaluation and comparison of leading Python AI agent frameworks 
 ## 🎯 Project Overview
 
 This project systematically compares five leading Python AI agent frameworks:
-- **CrewAI** - Multi-agent orchestration framework
-- **DSPy** - Programming framework for language models
+- **DSPy** - Programming framework for language models [HIGHEST PRIORITY]
 - **PocketFlow** - Nested directed graph framework
+- **CrewAI** - Multi-agent orchestration framework
 - **Google ADK** - Google's Agent Development Kit
-- **Pydantic AI** - Type-safe agent framework
+- **Pydantic AI** - Type-safe agent framework [LOWEST PRIORITY]
 
 Each framework is evaluated across six standardized tasks with complete isolation to ensure fair comparison.
 
@@ -19,11 +19,11 @@ The project uses a **framework-isolated architecture** where each AI framework o
 
 ```
 agent_benchmark/
-├── crewai/           # CrewAI framework implementation
-├── dspy/             # DSPy framework implementation
-├── pocketflow/       # PocketFlow framework implementation
-├── google_adk/       # Google ADK framework implementation
-├── pydantic_ai/      # Pydantic AI framework implementation
+├── dspy/             # DSPy framework implementation [PRIORITY 1]
+├── pocketflow/       # PocketFlow framework implementation [PRIORITY 2]
+├── crewai/           # CrewAI framework implementation [PRIORITY 3]
+├── google_adk/       # Google ADK framework implementation [PRIORITY 4]
+├── pydantic_ai/      # Pydantic AI framework implementation [PRIORITY 5]
 ├── shared_datasets/  # Common test data across frameworks
 ├── evaluation/       # Cross-framework evaluation tools
 └── docs/            # Project documentation
@@ -31,13 +31,13 @@ agent_benchmark/
 
 ## 📊 Framework Comparison Matrix
 
-| Framework | Multi-Agent | Type Safety | Learning | Web Search | RAG Support | Complexity |
-|-----------|-------------|-------------|----------|------------|-------------|------------|
-| CrewAI | ✅ Excellent | ⚠️ Basic | ❌ Limited | ✅ Good | ✅ Good | Medium |
-| DSPy | ⚠️ Limited | ✅ Good | ✅ Excellent | ⚠️ Basic | ✅ Good | High |
-| PocketFlow | ✅ Good | ⚠️ Basic | ⚠️ Basic | ✅ Excellent | ⚠️ Basic | Medium |
-| Google ADK | ✅ Good | ✅ Good | ⚠️ Basic | ✅ Good | ✅ Good | Medium |
-| Pydantic AI | ⚠️ Limited | ✅ Excellent | ❌ Limited | ⚠️ Basic | ⚠️ Basic | Low |
+| Framework | Multi-Agent | Type Safety | Learning | Web Search | RAG Support | Complexity | Priority |
+|-----------|-------------|-------------|----------|------------|-------------|------------|----------|
+| DSPy | ⚠️ Limited | ✅ Good | ✅ Excellent | ⚠️ Basic | ✅ Good | High | 🥇 1st |
+| PocketFlow | ✅ Good | ⚠️ Basic | ⚠️ Basic | ✅ Excellent | ⚠️ Basic | Medium | 🥈 2nd |
+| CrewAI | ✅ Excellent | ⚠️ Basic | ❌ Limited | ✅ Good | ✅ Good | Medium | 🥉 3rd |
+| Google ADK | ✅ Good | ✅ Good | ⚠️ Basic | ✅ Good | ✅ Good | Medium | 4th |
+| Pydantic AI | ⚠️ Limited | ✅ Excellent | ❌ Limited | ⚠️ Basic | ⚠️ Basic | Low | 5th |
 
 ## 🚀 Quick Start
 
@@ -56,9 +56,13 @@ agent_benchmark/
    cd agent_benchmark
    ```
 
-2. **Choose a framework to explore**
+2. **Choose a framework to explore** (in priority order)
    ```bash
-   cd crewai/  # or dspy/, pocketflow/, google_adk/, pydantic_ai/
+   cd dspy/        # Priority 1: Programming framework for LMs
+   cd pocketflow/  # Priority 2: Nested directed graph framework
+   cd crewai/      # Priority 3: Multi-agent orchestration
+   cd google_adk/  # Priority 4: Google's Agent Development Kit
+   cd pydantic_ai/ # Priority 5: Type-safe agent framework
    ```
 
 3. **Install dependencies**
@@ -83,8 +87,8 @@ agent_benchmark/
 # Run all frameworks on all tasks
 python evaluation/benchmark_runner.py --frameworks all --tasks all
 
-# Run specific framework
-python evaluation/benchmark_runner.py --frameworks crewai --tasks all
+# Run specific framework (start with highest priority)
+python evaluation/benchmark_runner.py --frameworks dspy --tasks all
 
 # Generate comparison report
 python evaluation/report_generator.py
@@ -137,8 +141,8 @@ Framework-specific advanced capabilities and optimizations.
 Each framework maintains its own development environment:
 
 ```bash
-# Navigate to framework directory
-cd crewai/
+# Navigate to framework directory (start with highest priority)
+cd dspy/
 
 # Install dependencies
 uv sync

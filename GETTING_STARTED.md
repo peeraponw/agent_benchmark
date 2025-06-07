@@ -34,22 +34,22 @@ cd agent_benchmark
 
 ### 2. Choose Your Framework
 
-Pick one framework to start with:
+Pick one framework to start with (in priority order):
 
 ```bash
-# Option 1: CrewAI (recommended for beginners)
-cd crewai/
-
-# Option 2: DSPy (for ML-focused users)
+# Priority 1: DSPy (programming framework for LMs - HIGHEST PRIORITY)
 cd dspy/
 
-# Option 3: PocketFlow (for graph-based workflows)
+# Priority 2: PocketFlow (nested directed graph framework)
 cd pocketflow/
 
-# Option 4: Google ADK (for enterprise users)
+# Priority 3: CrewAI (multi-agent orchestration framework)
+cd crewai/
+
+# Priority 4: Google ADK (Google's Agent Development Kit)
 cd google_adk/
 
-# Option 5: Pydantic AI (for type-safety focused)
+# Priority 5: Pydantic AI (type-safe agent framework - LOWEST PRIORITY)
 cd pydantic_ai/
 ```
 
@@ -110,8 +110,8 @@ uv run python main.py
 # Return to project root
 cd ../../
 
-# Run comparison across frameworks
-python evaluation/benchmark_runner.py --frameworks crewai,dspy --tasks qa
+# Run comparison across frameworks (start with highest priority)
+python evaluation/benchmark_runner.py --frameworks dspy,pocketflow --tasks qa
 
 # Generate comparison report
 python evaluation/report_generator.py
@@ -120,14 +120,14 @@ python evaluation/report_generator.py
 ### Customize and Experiment
 
 ```bash
-# Modify task parameters
-nano crewai/task1_qa/config.yaml
+# Modify task parameters (using highest priority framework)
+nano dspy/task1_qa/config.yaml
 
 # Add your own test data
 nano shared_datasets/qa/questions.json
 
 # Re-run with custom data
-cd crewai/task1_qa/
+cd dspy/task1_qa/
 uv run python main.py
 ```
 
@@ -190,8 +190,8 @@ Download Docker Desktop from [docker.com](https://www.docker.com/products/docker
 Each framework requires specific environment variables:
 
 ```bash
-# Framework identification
-FRAMEWORK_NAME=crewai
+# Framework identification (example using highest priority framework)
+FRAMEWORK_NAME=dspy
 
 # Infrastructure ports (adjust to avoid conflicts)
 QDRANT_PORT=6333
@@ -211,13 +211,13 @@ OPENROUTER_API_KEY=sk-or-your-openrouter-api-key-here
 
 To run multiple frameworks simultaneously, use different ports:
 
-| Framework | Qdrant | Langfuse | MCP | Postgres |
-|-----------|--------|----------|-----|----------|
-| CrewAI | 6333 | 3000 | 8080 | 5432 |
-| DSPy | 6334 | 3001 | 8081 | 5433 |
-| PocketFlow | 6335 | 3002 | 8082 | 5434 |
-| Google ADK | 6336 | 3003 | 8083 | 5435 |
-| Pydantic AI | 6337 | 3004 | 8084 | 5436 |
+| Framework | Qdrant | Langfuse | MCP | Postgres | Priority |
+|-----------|--------|----------|-----|----------|----------|
+| DSPy | 6334 | 3001 | 8081 | 5433 | 🥇 1st |
+| PocketFlow | 6335 | 3002 | 8082 | 5434 | 🥈 2nd |
+| CrewAI | 6333 | 3000 | 8080 | 5432 | 🥉 3rd |
+| Google ADK | 6336 | 3003 | 8083 | 5435 | 4th |
+| Pydantic AI | 6337 | 3004 | 8084 | 5436 | 5th |
 
 ### OpenRouter API Setup
 
@@ -304,8 +304,8 @@ docker-compose logs langfuse
 # Run validation script
 python scripts/validate_setup.py
 
-# Check framework health
-python scripts/health_check.py --framework crewai
+# Check framework health (example using highest priority framework)
+python scripts/health_check.py --framework dspy
 ```
 
 **Community Support:**

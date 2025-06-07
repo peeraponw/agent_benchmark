@@ -4,41 +4,36 @@ This document defines the port allocation strategy to prevent conflicts between 
 
 ## Framework Port Ranges
 
-Each framework is allocated a specific range of ports to ensure complete isolation:
+Each framework is allocated a specific range of ports to ensure complete isolation (ordered by priority):
 
-### CrewAI Framework (Base: 6333, 3000, 5432, 8080)
-- **Qdrant**: 6333
-- **Langfuse**: 3000  
-- **PostgreSQL**: 5432
-- **MCP Server**: 8080
-- **Network Subnet**: 172.20.0.0/16
-
-### DSPy Framework (Base: 6334, 3001, 5433, 8081)
+### DSPy Framework (Priority 1 - Base: 6334, 3001, 5433)
 - **Qdrant**: 6334
 - **Langfuse**: 3001
 - **PostgreSQL**: 5433
-- **MCP Server**: 8081
 - **Network Subnet**: 172.21.0.0/16
 
-### PocketFlow Framework (Base: 6335, 3002, 5434, 8082)
+### PocketFlow Framework (Priority 2 - Base: 6335, 3002, 5434)
 - **Qdrant**: 6335
 - **Langfuse**: 3002
 - **PostgreSQL**: 5434
-- **MCP Server**: 8082
 - **Network Subnet**: 172.22.0.0/16
 
-### Google ADK Framework (Base: 6336, 3003, 5435, 8083)
+### CrewAI Framework (Priority 3 - Base: 6333, 3000, 5432)
+- **Qdrant**: 6333
+- **Langfuse**: 3000
+- **PostgreSQL**: 5432
+- **Network Subnet**: 172.20.0.0/16
+
+### Google ADK Framework (Priority 4 - Base: 6336, 3003, 5435)
 - **Qdrant**: 6336
 - **Langfuse**: 3003
 - **PostgreSQL**: 5435
-- **MCP Server**: 8083
 - **Network Subnet**: 172.23.0.0/16
 
-### Pydantic AI Framework (Base: 6337, 3004, 5436, 8084)
+### Pydantic AI Framework (Priority 5 - Base: 6337, 3004, 5436)
 - **Qdrant**: 6337
 - **Langfuse**: 3004
 - **PostgreSQL**: 5436
-- **MCP Server**: 8084
 - **Network Subnet**: 172.24.0.0/16
 
 ## Port Allocation Rules
@@ -47,7 +42,13 @@ Each framework is allocated a specific range of ports to ensure complete isolati
 - **Qdrant**: 6333-6337 (Vector database)
 - **Langfuse**: 3000-3004 (Observability web interface)
 - **PostgreSQL**: 5432-5436 (Database backend)
-- **MCP Server**: 8080-8084 (Model Context Protocol)
+
+### 2. External MCP Services
+This project uses external MCP servers instead of custom implementations:
+- **Web Search**: External MCP servers (Brave, Tavily, DuckDuckGo)
+- **Vector Search**: Official Qdrant MCP server
+- **File Operations**: Official Filesystem MCP server
+- **Repository Access**: GitHub MCP server
 
 ### 2. Network Isolation
 - Each framework uses a dedicated Docker network

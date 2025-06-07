@@ -6,34 +6,53 @@
 ## Task Movement Audit Trail
 
 **Date Processed**: 2024-12-19
-**Total Items Discovered**: 9
+**Total Items Discovered**: 13
 **Items Moved to Formal Tasks**: 8
+**Items Removed from Scope**: 2
 **Items Remaining**: 3
 
 ### Task Placement Summary
 - **Task 001 (Phase 1.1)**: 5 items moved (infrastructure templates, validation enhancements, licensing)
 - **Task 002 (Phase 1.2a)**: 1 item moved (dataset content enhancement)
-- **Task 006 (Phase 1.4)**: 3 items moved (branding, badges, CI/CD automation)
+- **Task 008 (Phase 1.3b)**: 1 item moved (environment template security enhancement)
+- **REMOVED**: Task 006 (CI/CD automation) - scope reduced for local development focus
+- **REMOVED**: Task 007 (custom MCP server) - replaced with external MCP integration
+- **NEW**: External MCP integration research and documentation
 
 ## Remaining Unprocessed Items
 
-### Newly Discovered During Phase 1.1 Completion (2024-12-19)
+### Items Moved to Formal Tasks (2024-12-19)
 
-4. **MCP Server Implementation Enhancement**
-   - The basic MCP server created needs actual tool implementations
-   - Web search tool integration with real APIs
-   - Vector search integration with Qdrant
-   - File access security and sandboxing
+4. **MCP Server Implementation Enhancement** ❌ → **REMOVED FROM SCOPE**
+   - Originally planned as custom MCP server implementation
+   - **Scope Change**: Project now uses external MCP servers instead
+   - **Rationale**: Better maintainability, security, and feature coverage
+   - **Replacement**: External MCP integration guide created
 
-5. **Validation Script Dependency Management**
-   - Created scripts/requirements.txt for PyYAML dependency
-   - Consider adding validation script to main project dependencies
-   - Add automated installation of validation dependencies
+5. **Validation Script Dependency Management** ✅ → **RESOLVED**
+   - Actually completed during UV modernization (items 9-11)
+   - Scripts now use isolated UV environment with proper dependencies
+   - No further action needed
 
-6. **Environment Template Security**
-   - Add guidance for secure secret generation
-   - Include instructions for API key management
-   - Add validation for secret strength
+6. **Environment Template Security** ✅ → **Task 008 (Phase 1.3b)**
+   - Moved to formal task for Phase 1.3b implementation
+   - Includes secret generation, validation, and security guidance
+   - Medium priority for production readiness
+
+### Scope Changes and Removals (2024-12-19)
+
+12. **CI/CD Automation and Project Polish** ❌ → **REMOVED FROM SCOPE**
+    - Originally planned as Task 006 (Phase 1.4)
+    - **Scope Change**: Focus shifted to local development and testing
+    - **Rationale**: Automated CI/CD not needed for local comparison project
+    - **Removed Components**: GitHub Actions, automated testing pipelines, release management
+    - **Kept Components**: Manual validation scripts, local testing capabilities
+
+13. **Framework Priority Reordering** ✅ → **COMPLETED**
+    - Updated all documentation to reflect new priority order
+    - **New Priority**: DSPy (1st), PocketFlow (2nd), CrewAI (3rd), Google ADK (4th), Pydantic AI (5th)
+    - Updated README.md, GETTING_STARTED.md, and environment templates
+    - Modified examples and default configurations to use highest priority frameworks
 
 ### Completed During UV Modernization (2024-12-19)
 
@@ -91,6 +110,19 @@
     - Maintained flexibility for framework-specific model optimization
     - All validation checks continue to pass (77/77 success rate)
 
+## Remaining Unprocessed Items
+
+### New Discoveries from Scope Changes (2024-12-19)
+
+14. **External MCP Server Research and Integration**
+    - Research completed: Identified best MCP servers for different capabilities
+    - **Web Search**: Brave Search MCP, Tavily MCP, DuckDuckGo MCP
+    - **Vector Search**: Official Qdrant MCP, Typesense MCP
+    - **File Operations**: Official Filesystem MCP, GitHub MCP
+    - Created comprehensive integration guide: `shared_infrastructure/EXTERNAL_MCP_INTEGRATION.md`
+    - Updated Docker templates to reference external MCP services
+    - Removed custom MCP server implementation
+
 ### Future Considerations (Not yet assigned to specific tasks)
 
 1. **Advanced Performance Monitoring**
@@ -110,6 +142,10 @@
 
 ## Notes
 
-- **Processing Status**: All actionable items from Phase 1.1 discoveries have been moved to formal task files
-- **Remaining Items**: Only future considerations that don't yet warrant formal task creation
-- **Next Review**: These remaining items should be re-evaluated during Phase 2 planning or when project scope expands to include enterprise/community features
+- **Processing Status**: All actionable items have been processed according to updated project scope
+- **Scope Changes**: Removed CI/CD automation and custom MCP implementation for local development focus
+- **Framework Priority**: Updated to prioritize DSPy > PocketFlow > CrewAI > Google ADK > Pydantic AI
+- **External Integration**: Replaced custom MCP with external server integration approach
+- **Remaining Items**: Only future considerations that don't warrant formal task creation
+- **Next Review**: Future considerations should be re-evaluated during Phase 2 planning or scope expansion
+- **Latest Update**: Major scope alignment completed (2024-12-19)
